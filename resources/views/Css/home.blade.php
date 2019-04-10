@@ -1,4 +1,4 @@
-@extends('css.master')
+@extends('css.layouts.master')
 
 @section('style')
 <style type="text/css">
@@ -24,11 +24,62 @@
             <a href="{{url('/report')}}" class="fa fa-bar-chart-o"> Reports</a>
         </div>
 
-<div class="main" style="margin-left:120px">
-<section class="header-primary container-fluid">
-    <strong>Home</strong>
-</section>
-    <div class="container">
+<!--<div class="main" style="margin-left:120px">-->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-9">
+            <div class="card">
+
+            @role('admin')
+                <div class="card-header">Admin Dashboard</div>
+            @endrole
+
+
+            @role('staff')
+                <div class="card-header">Staff Dashboard</div>
+            @endrole
+
+            @role('agent')
+                <div class="card-header">AgentDashboard</div>
+            @endrole
+
+            @role('user')
+                <div class="card-header">User Dashboard</div>
+            @endrole
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                        
+                    @endif
+            @role('admin')        
+                Welcome Admin
+            @endrole
+
+
+            @role('staff')        
+                Welcome Staff
+            @endrole
+        
+
+            @role('agent')        
+                Welcome Agent
+            @endrole
+            
+
+            @role('user')        
+                Welcome User
+            @endrole
+
+            
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--               <div class="container">
     <div class="card card-default col-sm-2">
     <div class="card-header">
                         <strong>Solutions</strong>
@@ -59,7 +110,7 @@
     </div>
     
 <br><br><br><br><br><br><br><br>
-    <div class="container satis">
+<div class="container satis">
     <div class="card card-large col-sm-4">
     <div class="card-header">
                         <h1>Customer satisfaction</h1>
@@ -72,7 +123,11 @@
             </div>
     </div>
 </div>
+            </div>
+        </div>
+    </div>
+
     
 
-
+-->
 @endsection
