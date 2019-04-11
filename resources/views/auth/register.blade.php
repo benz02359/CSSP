@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('web.app')
 
 @section('content')
 <div class="container">
@@ -12,7 +12,7 @@
                         @csrf
 
                         
-                            <div class="col-md-4">
+                            <div class="col-md-4" >
                                 <a class="nav-link" href="{{ route('registeradmin') }}" >{{ __('Register Admin') }}</a>
                             </div>
                             <div class="col-md-4">
@@ -24,7 +24,7 @@
                             <div class="col-md-4">
                                 <a class="nav-link" href="{{ route('registeruser') }}" >{{ __('Register User') }}</a>
                             </div>
-                           
+                       
                  
                 </div>
             </div>

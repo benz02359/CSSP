@@ -16,12 +16,30 @@
 
 @section('content')
 <div class="sidenav">
+
+            @role('admin')
             <a href="{{url('/')}}" class="fa fa-home"> Home</a>
             <a href="{{url('/help')}}" class="fa fa-search"> Helper</a>
             <a href="{{url('/contact')}}" class="fa fa-id-card-o"> Contact</a>
             <a href="{{url('/solution')}}" class="fa fa-question-circle-o"> Solution</a>
             <a href="{{url('/forum')}}" class="fa fa-comments-o"> Forums</a>
             <a href="{{url('/report')}}" class="fa fa-bar-chart-o"> Reports</a>
+            @endrole
+
+            @role('staff')
+            <a href="{{url('/')}}" class="fa fa-home"> Home</a>
+            <a href="{{url('/help')}}" class="fa fa-search"> Helper</a>
+            <a href="{{url('/contact')}}" class="fa fa-id-card-o"> Contact</a>
+            <a href="{{url('/solution')}}" class="fa fa-question-circle-o"> Solution</a>
+            @endrole
+
+            @role('agent')
+            <a href="{{url('/')}}" class="fa fa-home"> Home</a>
+            <a href="{{url('/help')}}" class="fa fa-search"> Helper</a>
+            <a href="{{url('/contact')}}" class="fa fa-id-card-o"> Contact</a>
+            <a href="{{url('/solution')}}" class="fa fa-question-circle-o"> Solution</a>
+            @endrole
+
         </div>
 
 <!--<div class="main" style="margin-left:120px">-->

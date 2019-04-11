@@ -69,7 +69,7 @@ class HomeController extends Controller
         //if((DB::table('users')->where('id',$id)->value('status'))==4){
         
             auth()->user()->assignRole('user');
-            return view('css.home');
+            return view('web.home');
         }
         
         else{

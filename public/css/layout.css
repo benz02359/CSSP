@@ -1,0 +1,37 @@
+html, body {
+    color: #eeeeee;
+    font-family: 'Athiti', sans-serif;
+    background-image: url('../img/bgg.jpg');
+    background-attachment: fixed;
+    background-size: 100%;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+    font-weight: bolder;
+    font-size: 16px;
+}
+.navbar{
+    background-color: #eeeeee00;
+}
+
+.navbar a:link,a:hover,a:visited{
+    color: #eeeeee;
+}
+.btn a:visited {
+    color: #ff9215;
+}
+.btn a:visited{
+    color: #ff9215;
+}
+.btn a:link{
+    color: #ff9215;
+}
+.card-header{
+    background-color: f1f1f1;
+    color: #ff9215;
+    font-weight: bolder;
+}
+.card-body{
+    color: #ff9215;
+    font-weight: bolder;
+}

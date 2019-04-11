@@ -11,10 +11,10 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function () {
+    return view('web.welcome');
 });
-*/
+//Route::get('/', 'HomeController@index')->name('home');
 //Auth::routes();
 {
     // Authentication Routes...
@@ -41,5 +41,21 @@
     Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
     Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 }
-Route::get('/', 'HomeController@index')->name('home');
+//Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Route::get('/', 'HomeController@index');
+Route::get('/contact', 'HomeController@contact')->name('contact');
+Route::get('/solutions', 'SolutionController@index')->name('solution');
+Route::get('/report', 'HomeController@report')->name('report');
+Route::get('/forum', 'HomeController@forum')->name('forum');
+Route::get('/help', 'HomeController@help')->name('help');
+Route::get('/submit', 'HomeController@submit')->name('submit');
+
+Route::get('admin', 'HomeController@solution')->name('admin');
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/adminpage', 'AdminController@index');
+Route::get('/aboutpage', 'AboutController@index');
+Route::get('/solutionpage', 'SolutionController@index');
