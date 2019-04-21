@@ -24,6 +24,7 @@
     
     <!-- Styles -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     
 
     <script type="text/javascript" src="{{ asset('/js/cus.js') }}"></script>
@@ -33,8 +34,8 @@
     <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase-storage.js"></script>
-    <script>
-	
+
+    <script>	
     // Initialize Firebase
     var config = {
       apiKey: "AIzaSyDiaUDP4dhP_FUbTXOFa-g7ugATxi9lmdI",
@@ -47,11 +48,10 @@
     firebase.initializeApp(config);
     var database = firebase.database();
 
-    var lastIndex = 0;
-
-  
+    var lastIndex = 0;  
 });
 </script>
+
 @yield('style')
 <style>
 .*{
@@ -60,7 +60,7 @@
 }
 .sidenav {
     height: 100%;
-    width: 120px;
+    width: 125px;
     position: fixed;
     z-index: 10;
     top: 0;
@@ -73,7 +73,7 @@
 .sidenav a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 15px;
     color: #818181;
     display: block;
 }
@@ -195,5 +195,6 @@
         </main>
     </div>
 </body>
+<script src="js/app.js"></script>
 <footer>@yield('footer')</footer>
 </html>

@@ -9,10 +9,15 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 use Illuminate\Support\Facades\DB;
+
 use App\Http\Controllers\Controller;
 
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use Spatie\Permission\Traits\HasRoles;
 
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class HomeController extends Controller
 {
@@ -50,25 +55,32 @@ class HomeController extends Controller
         if($uid==1){
         //if((DB::table('users')->where('id',$id)->value('status'))==1){
             auth()->user()->assignRole('admin');
+            $role = Role::findById(1);
+            $role->givePermissionTo('managestaff','managecustomer','managedepartment','regisstaff','regisagent','program','selling','appointment','post','forum','category','result');
             return view('css.home');
         }
         
         if($uid==2){
         //if((DB::table('users')->where('id',$id)->value('status'))==2){
             auth()->user()->assignRole('staff');
+            $role = Role::findById(2);
+            $role->givePermissionTo('appointment','post','forum');
             return view('css.home');
         }
         
         if($uid==3){
         //if((DB::table('users')->where('id',$id)->value('status'))==3){
             auth()->user()->assignRole('agent');
+            $role = Role::findById(3);
+            $role->givePermissionTo('regisuser','post','forum','program');
             return view('css.home');
         }
         
         if($uid==4){
-        //if((DB::table('users')->where('id',$id)->value('status'))==4){
-        
+        //if((DB::table('users')->where('id',$id)->value('status'))==4){        
             auth()->user()->assignRole('user');
+            $role = Role::findById(4);
+            $role->givePermissionTo('program','post','forum');
             return view('web.home');
         }
         

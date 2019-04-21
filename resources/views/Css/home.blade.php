@@ -16,29 +16,95 @@
 
 @section('content')
 <div class="sidenav">
-
-            @role('admin')
-            <a href="{{url('/')}}" class="fa fa-home"> Home</a>
+           <!-- <a href="{{url('/')}}" class="fa fa-home"> Home</a>
             <a href="{{url('/help')}}" class="fa fa-search"> Helper</a>
             <a href="{{url('/contact')}}" class="fa fa-id-card-o"> Contact</a>
             <a href="{{url('/solution')}}" class="fa fa-question-circle-o"> Solution</a>
             <a href="{{url('/forum')}}" class="fa fa-comments-o"> Forums</a>
-            <a href="{{url('/report')}}" class="fa fa-bar-chart-o"> Reports</a>
+            <a href="{{url('/report')}}" class="fa fa-bar-chart-o"> Reports</a> -->
+            
+            <a href="{{url('/')}}" class="fa"> Home</a>
+            
+            @role('admin')
             @endrole
 
             @role('staff')
-            <a href="{{url('/')}}" class="fa fa-home"> Home</a>
-            <a href="{{url('/help')}}" class="fa fa-search"> Helper</a>
-            <a href="{{url('/contact')}}" class="fa fa-id-card-o"> Contact</a>
-            <a href="{{url('/solution')}}" class="fa fa-question-circle-o"> Solution</a>
             @endrole
 
             @role('agent')
-            <a href="{{url('/')}}" class="fa fa-home"> Home</a>
-            <a href="{{url('/help')}}" class="fa fa-search"> Helper</a>
-            <a href="{{url('/contact')}}" class="fa fa-id-card-o"> Contact</a>
-            <a href="{{url('/solution')}}" class="fa fa-question-circle-o"> Solution</a>
             @endrole
+
+
+            <!-- permission -->
+            @can('managestaff')
+            <a href="#" > Staff</a>
+            @endcan
+
+            @can('managecompany')
+            <a href="#" > Company</a>
+            @endcan
+
+            @can('managecustomer')
+            <a href="#" > Customer</a>
+            @endcan
+    
+            <!--@can('managedepartment')
+            <a href="#" > Department</a>
+            @endcan -->
+
+            @can('appointment')
+            <a href="#" > Appointment</a>
+            @endcan
+        
+            @can('selling')
+            <a href="#" > Sale History</a>
+            @endcan
+
+            @can('program')
+            <a href="#" > Program</a>
+            @endcan
+            
+            @can('regisuser')
+            <a href="#" > Register User</a>
+            @endcan
+
+            @can('regisstaff')
+            <a href="#" > Register Staff</a>
+            @endcan
+
+            @can('regisagent')
+            <a href="#" > Register Agent</a>
+            @endcan
+
+            @can('post')
+            <a href="#" > Post</a>
+            @endcan
+
+            @can('forum')
+            <a href="#" > Forum</a>
+            @endcan
+
+            @can('category')
+            <a href="#" > Category</a>
+            @endcan
+
+            @can('result')
+            @endcan
+
+            
+            <!--
+            <a href="#" > Helper</a>
+            <a href="{{url('/help')}}" > Helper</a>
+            <a href="{{url('/contact')}}" > Contact</a>
+            <a href="{{url('/solution')}}" > Solution</a>
+            <a href="{{url('/forum')}}" > Forums</a>
+            <a href="{{url('/report')}}" > Reports</a>
+            -->
+            
+
+            
+            
+            
 
         </div>
 

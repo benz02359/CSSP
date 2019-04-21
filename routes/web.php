@@ -14,6 +14,10 @@
 Route::get('/', function () {
     return view('web.welcome');
 });
+
+Route::get('/test', function () {
+    return view('web.testvue');
+});
 //Route::get('/', 'HomeController@index')->name('home');
 //Auth::routes();
 {
@@ -59,3 +63,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/adminpage', 'AdminController@index');
 Route::get('/aboutpage', 'AboutController@index');
 Route::get('/solutionpage', 'SolutionController@index');
+
+
+//Vue
+Route::resource('testvues','Testvuecontroller');
