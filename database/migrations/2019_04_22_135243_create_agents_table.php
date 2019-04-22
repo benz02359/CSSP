@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProgram extends Migration
+class CreateAgentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateProgram extends Migration
      */
     public function up()
     {
-        Schema::create('program', function (Blueprint $table) {
+        Schema::create('agents', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('pid')->unique();
+            $table->string('aid')->unique();
             $table->string('name');
-            $table->string('detail');
-            $table->string('maintain');
+            $table->string('email');
+            $table->string('tel');         
             $table->string('company');
-            $table->date('startdate');
-            $table->date('enddate');
+            $table->string('program');
             $table->timestamps();
         });
     }
@@ -33,6 +32,6 @@ class CreateProgram extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('program');
+        Schema::dropIfExists('agents');
     }
 }

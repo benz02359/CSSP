@@ -67,3 +67,4 @@ Route::get('/solutionpage', 'SolutionController@index');
 
 //Vue
 Route::resource('testvues','Testvuecontroller');
+//Route::resource('createvues','Testvuecontroller');

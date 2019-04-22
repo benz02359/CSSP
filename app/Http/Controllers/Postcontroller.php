@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Testvue;
 
-class Testvuecontroller extends Controller
+class Postcontroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class Testvuecontroller extends Controller
      */
     public function index()
     {
-       return view('vue.testvue'); 
+        //
     }
 
     /**
@@ -24,7 +23,7 @@ class Testvuecontroller extends Controller
      */
     public function create()
     {
-        return view('vue.createvue');
+        //
     }
 
     /**
@@ -57,8 +56,7 @@ class Testvuecontroller extends Controller
      */
     public function edit($id)
     {
-        $data = Testvue::find($id);
-        return view('vue.edit',compact('id'));
+        //
     }
 
     /**

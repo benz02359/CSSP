@@ -22,7 +22,12 @@ window.axios = require('axios')
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
+
+//testvue
 Vue.component('testvue', require('./components/testvue.vue').default);
+Vue.component('create', require('./components/create.vue').default);
+Vue.component('edit', require('./components/edit.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

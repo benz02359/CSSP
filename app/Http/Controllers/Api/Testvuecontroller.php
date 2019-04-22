@@ -37,7 +37,11 @@ class Testvuecontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $vuedata = new Testvue();
+        $vuedata->name=$request->get('name');
+        $vuedata->city=$request->get('city');
+        $vuedata->save();
+        return response()->json($vuedata);
     }
 
     /**
@@ -48,7 +52,8 @@ class Testvuecontroller extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Testvue::find($id);
+        return response()->json($data);
     }
 
     /**
@@ -71,7 +76,11 @@ class Testvuecontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Testvue::find($id);
+        $data->name=$request->get('name');
+        $data->city=$request->get('city');
+        $data->update();
+        return response()->json($data);
     }
 
     /**
@@ -82,6 +91,8 @@ class Testvuecontroller extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data=Testvue::find($id);
+        $data->delete();
+        return response()->json($data);
     }
 }

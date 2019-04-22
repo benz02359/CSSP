@@ -22,12 +22,17 @@
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.10"
     },
-    "eslintConfig": {     
-        "root": true,     
-        "extends": [       
-          "plugin:vue/essential",       
-          "plugin:prettier/recommended",       
-          "eslint:recommended"     
-        ]   
-      }
+    "eslintConfig": {
+        "root": true,
+        "extends": [
+            "plugin:vue/essential",
+            "plugin:prettier/recommended",
+            "eslint:recommended"
+        ]
+    },
+    "dependencies": {
+        "eslint-config-prettier": "^4.1.0",
+        "eslint-plugin-prettier": "^3.0.1",
+        "prettier": "^1.17.0"
+    }
 }

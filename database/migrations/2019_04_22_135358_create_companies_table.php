@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePost extends Migration
+class CreateCompaniesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreatePost extends Migration
      */
     public function up()
     {
-        Schema::create('post', function (Blueprint $table) {
+        Schema::create('companies', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('tid')->unique();        
-            $table->string('writer');
-            $table->string('title');
-            $table->string('detail');
-            $table->string('program');
-            $table->integer('status');
+            $table->string('comid')->unique();
+            $table->string('name');
+            $table->string('email');
+            $table->string('tel');         
+            $table->string('address');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class CreatePost extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post');
+        Schema::dropIfExists('companies');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserprofile extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,11 @@ class CreateUserprofile extends Migration
      */
     public function up()
     {
-        Schema::create('userprofile', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('uid')->unique();
+            $table->string('cid')->unique();
             $table->string('name');
-            $table->string('email');
-            $table->string('tel');         
-            $table->string('company');
-            $table->string('program');
-            $table->integer('status');
+            $table->string('tid');
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ class CreateUserprofile extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('userprofile');
+        Schema::dropIfExists('categories');
     }
 }

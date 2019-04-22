@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="container">
-            <h1>Add new</h1>
+            <h1>Update</h1>
             <form action="/testvues">
                 <div class="form-group">
                     <label>Name:</label>
@@ -12,7 +12,7 @@
                     <input type="text" class="form-control" v-model="city">
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary" v-on:click="addNewData()">Add:</button>
+                    <button class="btn btn-primary" v-on:click="updateData()">Update:</button>
                 </div>
             </form>
         </div>
@@ -21,17 +21,23 @@
 
 <script>
 export default {
+    props:['id'],
     data(){
         return{
             name:'',
             city:''
         }
+    },mounted(){
+        axios.get('/api/testvues/'+this.id).then(response=>{
+            //console.log(response.data);
+            var data = response.data;
+            this.name=data.name;
+            this.city=data.city;
+        });
     },
     methods:{
-        addNewData(){
-            //console.log(this.name);
-            //console.log(this.city);
-            axios.post('/api/testvues',{
+        updateData(){
+            axios.put('/api/testvues/'+this.id,{
                 name:this.name,
                 city:this.city
             });

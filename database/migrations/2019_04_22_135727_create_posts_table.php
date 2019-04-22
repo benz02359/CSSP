@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReply extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateReply extends Migration
      */
     public function up()
     {
-        Schema::create('reply', function (Blueprint $table) {
-            $table->bigIncrements('id');            
-            $table->string('rid')->unique();
-            $table->string('tid');
+        Schema::create('posts', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('tid')->unique();        
             $table->string('writer');
             $table->string('title');
             $table->string('detail');
@@ -33,6 +32,6 @@ class CreateReply extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reply');
+        Schema::dropIfExists('posts');
     }
 }
