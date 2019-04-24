@@ -14,14 +14,17 @@ class CreateProgramsTable extends Migration
     public function up()
     {
         Schema::create('programs', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('pid')->unique();
+            $table->bigIncrements('id')->unique();            
             $table->string('name');
             $table->string('detail');
-            $table->string('maintain');
-            $table->string('company');
+            $table->string('maintainstatus');
+            $table->date('solddate');
             $table->date('startdate');
             $table->date('enddate');
+
+            $table->unsignedBigInteger('company_id');
+            $table->foreign('company_id')->references('id')->on('companies');
+            
             $table->timestamps();
         });
     }

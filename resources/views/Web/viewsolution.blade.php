@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="/css/app.css">
-
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
     <title>CSS</title>
@@ -45,7 +44,7 @@
             <!--<div class="flex-center position-ref full-height"> -->           
                         <div class="content">
                             <div id="app">
-                                <solution></solution>
+                                <vsolution id="{!!$id!!}"></vsolution>
                             </div>
                 
                         </div>

@@ -18,6 +18,10 @@ Route::get('/', function () {
 Route::get('/test', function () {
     return view('web.testvue');
 });
+
+Route::get('/solution', function () {
+    return view('web.testvue');
+});
 //Route::get('/', 'HomeController@index')->name('home');
 //Auth::routes();
 {
@@ -45,10 +49,10 @@ Route::get('/test', function () {
     Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
     Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 }
-//Route::get('/', 'HomeController@index')->name('home');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::get('/', 'HomeController@index');
+//Web
 Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/solutions', 'SolutionController@index')->name('solution');
 Route::get('/report', 'HomeController@report')->name('report');
@@ -67,4 +71,8 @@ Route::get('/solutionpage', 'SolutionController@index');
 
 //Vue
 Route::resource('testvues','Testvuecontroller');
-//Route::resource('createvues','Testvuecontroller');
+
+//Solution
+Route::resource('solutions','SolutionController');
+//Route::resource('vsolutions','SolutionController@view');
+

@@ -18,6 +18,6 @@ class AboutController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index(){
-        return view('about');
+        return view('web.about');
     }
 }

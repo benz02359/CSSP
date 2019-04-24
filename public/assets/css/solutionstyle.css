@@ -135,3 +135,7 @@ html, body {
 .card-description > p {
     margin: 0;
 }
+
+.table {
+    border-collapse: collapse !important;
+  }

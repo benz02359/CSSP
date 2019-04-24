@@ -19,3 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 //Vue
 Route::resource('testvues','Api\Testvuecontroller');
+
+//Solution
+Route::resource('solutions','Api\SolutionController');

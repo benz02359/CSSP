@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Solution;
+use App\Post;
 
-class Solutioncontroller extends Controller
+class SolutionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,8 @@ class Solutioncontroller extends Controller
      */
     public function index()
     {
-        //
+        $solutiondata = Post::all();
+        return response()->json($solutiondata);
     }
 
     /**
@@ -22,6 +25,11 @@ class Solutioncontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function view($id)
+    {
+        $data = Post::find($id);
+        return response()->json($data);
+    }
     public function create()
     {
         //
@@ -35,7 +43,7 @@ class Solutioncontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -46,7 +54,8 @@ class Solutioncontroller extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Post::find($id);
+        return response()->json($data);
     }
 
     /**

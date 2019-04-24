@@ -23,11 +23,16 @@ window.axios = require('axios')
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
+//Solution
+Vue.component('solution', require('./components/Solution/solution.vue').default);
+Vue.component('vsolution', require('./components/Solution/view.vue').default);
+
+
 
 //testvue
-Vue.component('testvue', require('./components/testvue.vue').default);
-Vue.component('create', require('./components/create.vue').default);
-Vue.component('edit', require('./components/edit.vue').default);
+Vue.component('testvue', require('./components/Testvue/testvue.vue').default);
+Vue.component('create', require('./components/Testvue/create.vue').default);
+Vue.component('edit', require('./components/Testvue/edit.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

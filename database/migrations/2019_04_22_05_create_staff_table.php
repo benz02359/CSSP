@@ -14,14 +14,23 @@ class CreateStaffTable extends Migration
     public function up()
     {
         Schema::create('staff', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('sid')->unique();
+            $table->bigIncrements('id')->unique();            
             $table->string('name');
             $table->string('email');
             $table->string('tel');
-            $table->string('department');
             $table->string('langauge');
-            $table->string('program');
+            $table->string('position');
+            $table->string('image');
+
+            $table->unsignedBigInteger('dep_id');
+            $table->foreign('dep_id')->references('id')->on('departments');  
+
+            $table->unsignedBigInteger('pro_id');
+            $table->foreign('pro_id')->references('id')->on('programs'); 
+            
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');                   
+            
             $table->timestamps();
         });
     }

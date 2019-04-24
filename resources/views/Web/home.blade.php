@@ -57,7 +57,7 @@
 <ul class="card-list">
 	
 <li class="card">
-        <a class="card-image" href="http://127.0.0.1:8000/solutionpage" style="background-image: url('assets/img/solution.jpg');" data-image-full="assets/img/solution.jpg">
+        <a class="card-image" :href="/solutions" style="background-image: url('assets/img/solution.jpg');" data-image-full="assets/img/solution.jpg">
 			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/310408/lets-go-100.jpg" alt="let's go" />
 		</a>
 		<a class="card-description" href="#" target="_blank">
