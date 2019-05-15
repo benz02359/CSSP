@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo asset('assets/css/solutionstyle.css'); ?>">
 
 </head>
-<body style="background-image: url('assets/img/solutionbg.png');">
+<body style="background-image: url('/assets/img/solutionbg.png');">
     <div class="flex position-ref">
     <a href="/"><img src="<?php echo asset('assets/img/logofull3.png'); ?>"style="width:20%;margin-left:50px">
         @if (Route::has('login'))
@@ -38,9 +38,10 @@
     </div>  
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-12 col-md-offset-1">
                 <div class="panel panel-default" style="border-color:#513ABE" style="border-style: solid" >
                     <div class="panel-heading" style="background-color: #513ABE;color:white"><h1>Solution</h1></div>
+                    <div class="col-md-10">
                     <div class="panel-body">            
             <!--<div class="flex-center position-ref full-height"> -->           
                         <div class="content">
@@ -49,7 +50,7 @@
                             </div>
                 
                         </div>
-        <!--</div>-->
+        <!--</div>--></div>
                     </div>
                 </div>
             </div>
@@ -57,5 +58,5 @@
     </div>
     </div> 
 </body>
-<script src="{{asset('js/app.js')}}" charset="utf-8"></script>
+<script src="{{asset('/js/app.js')}}" charset="utf-8"></script>
 </html>

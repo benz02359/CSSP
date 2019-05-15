@@ -75,7 +75,7 @@
            
             <div class="content">
                 <div id="app">
-                    <edit id="{!!$id!!}"></edit>
+                    <tvedit id="{!!$id!!}"></tvedit>
                 </div>
                 
             </div>

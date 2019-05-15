@@ -66,7 +66,7 @@ Route::get('admin', 'HomeController@solution')->name('admin');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/adminpage', 'AdminController@index');
 Route::get('/aboutpage', 'AboutController@index');
-Route::get('/solutionpage', 'SolutionController@index');
+//Route::get('/solutionpage', 'SolutionController@index');
 
 
 //Vue
@@ -74,5 +74,6 @@ Route::resource('testvues','Testvuecontroller');
 
 //Solution
 Route::resource('solutions','SolutionController');
+//Route::resource('solutions/{id}','SolutionController@view');
 //Route::resource('vsolutions','SolutionController@view');
 

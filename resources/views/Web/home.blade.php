@@ -57,10 +57,10 @@
 <ul class="card-list">
 	
 <li class="card">
-        <a class="card-image" :href="/solutions" style="background-image: url('assets/img/solution.jpg');" data-image-full="assets/img/solution.jpg">
+        <a class="card-image" href="/solutions" style="background-image: url('assets/img/solution.jpg');" data-image-full="assets/img/solution.jpg">
 			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/310408/lets-go-100.jpg" alt="let's go" />
 		</a>
-		<a class="card-description" href="#" target="_blank">
+		<a class="card-description" href="/solutions" target="_blank">
 			<h2>Solutions</h2>
 			<p>all solutions</p>
 		</a>
@@ -88,4 +88,5 @@
     
 </ul>
         </body>
+        <script src="{{asset('/js/app.js')}}" charset="utf-8"></script>
 </html>

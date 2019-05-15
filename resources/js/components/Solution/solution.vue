@@ -2,7 +2,7 @@
     <div>
         <div class="container">
             <h2 class="text-center"></h2>
-            <a href="testvues/create" class="btn btn-primary">New Post</a>
+            <a href="solutions/create" class="btn btn-primary">New Post</a>
             <table class="table table-bordered table-hover  table-striped" style="background-color: #ffffff ;">
                 <thead>
                     <tr>
@@ -12,19 +12,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="data in solutiondata" v-bind:key="data.id">
+                    <tr v-for="ds in solutiondata" v-bind:key="ds.id">
                         <td></td>                        
-                        <td><b><a :href="'/solutions/'+data.id">{{data.title}}</a></b>
+                        <td><b><a :href="'/solutions/'+ds.id">{{ds.title}}</a></b>
                             <table width="100%" style="background-color: transparent;">
                                 <tr>
-                                    <td width="50%" style="border:none"><font size='2'>By,create at </font></td>
+                                    <td width="50%" style="border:none"><font size='2'>By {{ds.user_id}} created at {{ds.created_at}}</font></td>
                                     <td style="text-align:right;">
-                                        <font size='2' style="padding-right:2px"><a href="#">Program</a></font>
+                                        <font size='2' style="padding-right:2px"><a href="#">{{ds.pro_id}}</a></font>
                                     </td>
                                 </tr>
                             </table>
                         </td>
-                        <td><a href="/solutions/show/">{{data.view}}</a></td>
+                        <td>{{ds.view}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -42,18 +42,18 @@
         },
         methods:{
             getSolutionData(){
-                //console.log("ช้อมูล")
+                //console.log("ช้อมูล")                
                 axios.get('api/solutions').then(response=>{
                        //console.log(response);
                        this.solutiondata=response.data;
                 });
-            },
+            },            
             deleteData(id,index){
                 //console.log(id);
                 axios.delete('api/testvues/'+id).then(response=>{
                        //console.log(response); 
                        //this.vuedata=response.data;
-                       this.vuedata.splice(index,1);
+                       this.solutiondata.splice(index,1);
                 });
             }            
         },
@@ -62,7 +62,7 @@
             return{
                 solutiondata:[],
                 data:{
-                    post_id:"",
+                    id:0,
                     title:'',
                     text:'',
                     view:'',
@@ -70,7 +70,8 @@
                     pro_id:''
                 }
             }
-        }
+        },
+        
 
     }
 </script>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="/css/app.css">
+
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
     <title>CSS</title>
@@ -18,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo asset('assets/css/solutionstyle.css'); ?>">
 
 </head>
-<body style="background-image: url('assets/img/solutionbg.png');">
+<body style="background-image: url('/assets/img/solutionbg.png');">
     <div class="flex position-ref">
     <a href="/"><img src="<?php echo asset('assets/img/logofull3.png'); ?>"style="width:20%;margin-left:50px">
         @if (Route::has('login'))
@@ -39,16 +40,17 @@
         <div class="row">
             <div class="col-md-12 col-md-offset-1">
                 <div class="panel panel-default" style="border-color:#513ABE" style="border-style: solid" >
-                    <div class="panel-heading" style="background-color: #513ABE;color:white"><h1>View Solution</h1></div>
+                    <div class="panel-heading" style="background-color: #513ABE;color:white"><h1>Solution</h1></div>
+                    <div class="col-md-10">
                     <div class="panel-body">            
             <!--<div class="flex-center position-ref full-height"> -->           
                         <div class="content">
                             <div id="app">
-                                <sview id="{!!$id!!}"></sview>
+                                <screate></screate>
                             </div>
                 
                         </div>
-        <!--</div>-->
+        <!--</div>--></div>
                     </div>
                 </div>
             </div>

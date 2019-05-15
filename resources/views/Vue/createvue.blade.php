@@ -75,7 +75,7 @@
            
             <div class="content">
                 <div id="app">
-                    <create></create>
+                    <tvcreate></tvcreate>
                 </div>
                 
             </div>

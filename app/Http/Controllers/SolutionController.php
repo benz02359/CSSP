@@ -18,8 +18,8 @@ class SolutionController extends Controller
     }
     public function view($id)
     {
-        $data = Post::find($id);
-        return view('web.viewsolution',compact('id'));
+        $solutiondata = Post::find($id);
+        return get('web.viewsolution',compact('id'));
         
     }
     /**
@@ -29,7 +29,7 @@ class SolutionController extends Controller
      */
     public function create()
     {
-        //
+        return view('web.createsolution');
     }
 
     /**
@@ -51,7 +51,7 @@ class SolutionController extends Controller
      */
     public function show($id)
     {
-        $data = Post::find($id);
+        $solutiondata = Post::find($id);
         return view('web.viewsolution',compact('id'));
     }
 

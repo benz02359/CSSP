@@ -7,7 +7,17 @@
                     
                 </div>
                 <div class="form-group">
-                    <label>City:</label>
+                    <label></label>
+                <div class="form-group">
+                    <label>Title:{{title}}</label><br>
+                    <label>Text:{{text}}</label><br>
+                    <label>View:{{view}}</label><br>
+                    <label>User:{{user_id}}</label><br>
+                    <label>Program:{{pro_id}}</label><br>
+
+
+                    
+                </div>    
                     
                 </div>
                 <div class="form-group">
@@ -20,8 +30,7 @@
 
 <script>
 export default {
-/*  props:['post_id'],
-  // solutiondata:[],
+    props:['id'], 
     data(){
         return{
             //post_id:0,
@@ -29,28 +38,30 @@ export default {
             text:'',
             view:'',
             user_id:'',
-            pro_id:''
+            pro_id:'',
+            status:''
         }
-    },*/mounted(){
-        axios.get('/api/solutions/'+this.id).then(response=>{
-            //console.log(response.data);
-            var data = response.data;
-            this.title=data.title;
-            this.text=data.text;
-            this.view=data.view;
-            this.user_id=data.user_id;
-            this.pro_id=data.pro_id
-        });
     },
-    methods:{
-        updateData(){
-            axios.put('/api/testvues/'+this.id,{
-                name:this.name,
-                city:this.city
-            });
-        }
+        mounted(){
+            this.getSolutionData();
+            console.log("..");
+        },
+        methods:{
+            getSolutionData(){
+                console.log("ช้อมูล")
+                axios.get('/api/solutions/'+this.id).then(response=>{
+                       console.log(response);
+                    var data=response.data;
+                    this.title=data.title;
+                    this.text=data.text;
+                    this.view=data.view;
+                    this.user_id=data.user_id;
+                    this.pro_id=data.pro_id;
+                    this.status=data.status;
+                });
+            }      
+        },
     }
-}
 </script>
 
 <style lang="css">

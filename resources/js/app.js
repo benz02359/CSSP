@@ -25,14 +25,16 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 //Solution
 Vue.component('solution', require('./components/Solution/solution.vue').default);
-Vue.component('vsolution', require('./components/Solution/view.vue').default);
+Vue.component('sview', require('./components/Solution/view.vue').default);
+Vue.component('screate', require('./components/Solution/create.vue').default);
+
 
 
 
 //testvue
 Vue.component('testvue', require('./components/Testvue/testvue.vue').default);
-Vue.component('create', require('./components/Testvue/create.vue').default);
-Vue.component('edit', require('./components/Testvue/edit.vue').default);
+Vue.component('tvcreate', require('./components/Testvue/create.vue').default);
+Vue.component('tvedit', require('./components/Testvue/edit.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

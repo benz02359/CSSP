@@ -195,6 +195,6 @@
         </main>
     </div>
 </body>
-<script src="js/app.js"></script>
+<!--<script src="js/app.js"></script>-->
 <footer>@yield('footer')</footer>
 </html>
