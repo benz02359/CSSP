@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAgentsTable extends Migration
+class CreateStaffTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,22 +13,24 @@ class CreateAgentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('agents', function (Blueprint $table) {
-            $table->bigIncrements('id')->unique();
+        Schema::create('staff', function (Blueprint $table) {
+            $table->bigIncrements('id')->unique();            
             $table->string('name');
             $table->string('email');
             $table->string('tel');
+            $table->string('langauge');
+            $table->string('position');
             $table->string('image');
 
-            $table->unsignedBigInteger('company_id');
-            $table->foreign('company_id')->references('id')->on('companies');  
+            $table->unsignedBigInteger('dep_id');
+            $table->foreign('dep_id')->references('id')->on('departments');  
 
             $table->unsignedBigInteger('pro_id');
             $table->foreign('pro_id')->references('id')->on('programs'); 
-
+            
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users'); 
-
+            $table->foreign('user_id')->references('id')->on('users');                   
+            
             $table->timestamps();
         });
     }
@@ -40,6 +42,6 @@ class CreateAgentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('agents');
+        Schema::dropIfExists('staff');
     }
 }

@@ -4,13 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
-class Userprofile extends Model
+class userprofile extends Model
 {
     protected $fillable=[
-        'tel','image','user_id'
+        'name','email','tel','image','company_id','pro_id','user_id'
     ];
-    public function user(){        
-        return $this->hasOne('App\User');
-    }
 }

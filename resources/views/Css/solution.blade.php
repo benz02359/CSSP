@@ -3,7 +3,10 @@
 
 @section('style')
 <style type="text/css">
-
+card-body {
+    border-style: solid;
+    border-color: #ffff00;
+}
 .add {
     float: right;    
 }

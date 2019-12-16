@@ -17,18 +17,18 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id')->unique();
 
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');            
+            $table->foreign('user_id')->references('id')->on('users');            
 
             $table->string('title');
             $table->string('text');
 
-            $table->unsignedBigInteger('catgory_id');
-            $table->foreign('catagory_id') ->references('id')->on('catagory')->onDelete('cascade');
+            $table->unsignedBigInteger('pro_id');
+            $table->foreign('pro_id') ->references('id')->on('programs');
 
             $table->integer('view')->default(0);
             $table->string('status');
             $table->timestamps();
-        });  
+        });
     }
 
     /**

@@ -12,7 +12,7 @@
                     <input type="text" class="form-control" v-model="city">
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary" v-on:click="updateData()">Update</button>
+                    <button class="btn btn-primary" v-on:click="updateData()">Update:</button>
                 </div>
             </form>
         </div>
