@@ -35,20 +35,25 @@
                         @guest                           
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             @if (Route::has('register'))                         
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>                         
+                                    <a href="{{ route('registeruser') }}" >{{ __('Register') }}</a>                        
                             @endif
                         @else
-                                    <a href="#" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                                            
+                            @if (Auth::user()->status!=4)
+                                <a href="/home">Dashboard</a>
+                            @endif
+
+                                <a href="#" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
                                 </a>
-                                    <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    {{ __('ลงชื่อออก') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
                                 </div>
                             </li>
                         @endguest
@@ -57,12 +62,12 @@
 <ul class="card-list">
 	
 <li class="card">
-        <a class="card-image" href="/solutions" style="background-image: url('assets/img/solution.jpg');" data-image-full="assets/img/solution.jpg">
+        <a class="card-image" href="/posts" style="background-image: url('assets/img/solution.jpg');" data-image-full="assets/img/solution.jpg">
 			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/310408/lets-go-100.jpg" alt="let's go" />
 		</a>
-		<a class="card-description" href="/solutions" target="_blank">
-			<h2>Solutions</h2>
-			<p>all solutions</p>
+		<a class="card-description" href="/posts" target="_blank">
+			<h2>กระทู้</h2>
+			<!--<p>all Post</p>-->
 		</a>
 	</li>
 
@@ -71,8 +76,8 @@
             <img src="<?php echo asset('assets/img/logofull.png'); ?>" />
 		</a>
         <a class="card-description" href="http://127.0.0.1:8000/aboutpage">
-			<h2>About us</h2>
-			<p>ALL ABOUT US</p>
+			<h2>ติดต่อเรา</h2>
+			<!--<p>ALL ABOUT US</p>-->
 		</a>
 	</li>
 	
@@ -81,8 +86,8 @@
 			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/310408/beautiful-game-100.jpg" alt="The Beautiful Game" />
 		</a>
 		<a class="card-description" href="https://www.unixdev.co.th/" target="_blank">
-			<h2>OUR PRODUCT</h2>
-			<p>ALL OF PRODUCT FROM US</p>
+			<h2>เว็บไซต์หลัก</h2>
+			<!--<p>ALL OF PRODUCT FROM US</p>-->
 		</a>
 	</li>
     

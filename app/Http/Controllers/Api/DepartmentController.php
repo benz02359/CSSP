@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Department;
 
 class DepartmentController extends Controller
 {
@@ -14,7 +15,8 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        //
+        $data = Department::all();
+        return response()->json($data);
     }
 
     /**
@@ -35,7 +37,10 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new Department();
+        $data->name=$request->get('name');
+        $data->save();
+        return response()->json($data);
     }
 
     /**
@@ -46,7 +51,8 @@ class DepartmentController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Department::find($id);
+        return response()->json($data);
     }
 
     /**
@@ -69,7 +75,10 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Department::find($id);
+        $data->name=$request->get('name');
+        $data->update();
+        return response()->json($data);
     }
 
     /**
@@ -80,6 +89,8 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data=Department::find($id);
+        $data->delete();
+        return response()->json($data);
     }
 }

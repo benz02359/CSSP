@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use Illuminate\Http\Request;
+use App\User;
+use App\Post;
+use Mail;
 
 class CommentController extends Controller
 {
@@ -35,7 +38,32 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'text' => 'required',
+            
+        ]);
+        
+        // Create Post
+        $comment = new Comment;
+        $comment->text = $request->input('text');
+        $comment->post_id = $request->input('post_id');
+        $comment->user_id = auth()->user()->id;
+        //$post_id = $request->input('post_id');
+        $comment->save();
+        $post = Post::find($request->input('post_id'));
+
+        $email= $post->user['email'];
+
+        $data = array('name'=>$post->user['name'],"body"=>"มีการตอบกลับใหม่" );
+
+        Mail::send('cssp.mail',$data,function($message) use ($email){
+        $message->to($email,'To Staff')->subject('New Comment');
+        $message->from('CSS@css.com','Customer Support Service');            
+        });
+        return redirect('/posts/'.$post->id)->with('success', 'Updated');
+        //return view('web.appointment.index');
+        return back()->with('success', 'Success');
+
     }
 
     /**

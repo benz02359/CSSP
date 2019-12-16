@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Staff;
+
 
 class StaffController extends Controller
 {
@@ -14,7 +16,8 @@ class StaffController extends Controller
      */
     public function index()
     {
-        //
+        $stdata = Staff::all();
+        return response()->json($stdata);
     }
 
     /**
@@ -35,7 +38,18 @@ class StaffController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new Staff();
+        $data->user_id=$request->get('user_id');
+        $data->name=$request->get('name');
+        $data->email=$request->get('email');        
+        $data->pro_id=$request->get('pro_id');
+        $data->tel=$request->get('tel');
+        $data->language=$request->get('language');
+        $data->position=$request->get('position');
+        $data->dep_id=$request->get('dep_id');
+        $data->image=$request->get('image');
+        $data->save();
+        return response()->json($data);
     }
 
     /**
@@ -46,7 +60,8 @@ class StaffController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Staff::find($id);
+        return response()->json($data);
     }
 
     /**
@@ -69,7 +84,18 @@ class StaffController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Staff::find($id);
+        $data->user_id=$request->get('user_id');
+        $data->name=$request->get('name');
+        $data->email=$request->get('email');        
+        $data->pro_id=$request->get('pro_id');
+        $data->tel=$request->get('tel');
+        $data->language=$request->get('language');
+        $data->position=$request->get('position');
+        $data->dep_id=$request->get('dep_id');
+        $data->image=$request->get('image');
+        $data->update();
+        return response()->json($data);
     }
 
     /**
@@ -80,6 +106,8 @@ class StaffController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data=Staff::find($id);
+        $data->delete();
+        return response()->json($data);
     }
 }

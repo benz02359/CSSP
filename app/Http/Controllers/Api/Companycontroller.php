@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Company;
 
 class CompanyController extends Controller
 {
@@ -14,7 +15,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        $cdata = Company::all();
+        return response()->json($cdata);
     }
 
     /**
@@ -35,7 +37,13 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new Company();
+        $data->name=$request->get('name');
+        $data->email=$request->get('email');        
+        $data->address=$request->get('address');
+        $data->tel=$request->get('tel');
+        $data->save();
+        return response()->json($data);
     }
 
     /**
@@ -46,7 +54,8 @@ class CompanyController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Company::find($id);
+        return response()->json($data);
     }
 
     /**
@@ -69,7 +78,13 @@ class CompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Company::find($id);
+        $data->name=$request->get('name');
+        $data->email=$request->get('email');
+        $data->tel=$request->get('tel');
+        $data->address=$request->get('address');
+        $data->update();
+        return response()->json($data);
     }
 
     /**
@@ -80,6 +95,8 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data=Company::find($id);
+        $data->delete();
+        return response()->json($data);
     }
 }

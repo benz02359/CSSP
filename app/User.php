@@ -6,12 +6,13 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
 
-class User extends Authenticatable
+class User extends Authenticatable 
 {
     use Notifiable,HasRoles;
 
@@ -21,7 +22,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','status',
+        'name', 'email', 'password','role_id', 'admin', 'approved_at','username','company_id','approve'
     ];
 
     /**
@@ -41,4 +42,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function posts(){        
+        return $this->hasMany('App\Post');
+    }
+
+
+    public function userprofile(){        
+        return $this->hasOne('App\Userprofile');
+    }
+
+    public function company(){        
+        return $this->belongsTo('App\Company');
+    }
+    public function role(){        
+        return $this->belongsTo('App\Role');
+    }
+
 }

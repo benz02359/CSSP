@@ -21,13 +21,13 @@ class CreateAgentsTable extends Migration
             $table->string('image');
 
             $table->unsignedBigInteger('company_id');
-            $table->foreign('company_id')->references('id')->on('companies');  
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');  
 
             $table->unsignedBigInteger('pro_id');
-            $table->foreign('pro_id')->references('id')->on('programs'); 
+            $table->foreign('pro_id')->references('id')->on('programs')->onDelete('cascade'); 
 
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users'); 
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); 
 
             $table->timestamps();
         });
