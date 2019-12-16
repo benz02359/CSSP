@@ -19,6 +19,8 @@ use Spatie\Permission\Traits\HasRoles;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
+use App\Userprofile;
+
 class HomeController extends Controller
 {
     use HasRoles;
@@ -27,10 +29,11 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    /*public function __construct()
     {
-        $this->middleware('auth');
-    }
+        
+        $this->middleware('admin',['except' => ['registeruser']]);
+    }*/
 
     /**
      * Show the application dashboard.
@@ -39,6 +42,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+        /*return Userprofile::create([
+            'name' => auth()->user->name(),
+            'username' => auth()->user->username(),
+            'email' => auth()->user->email(),
+            'company_id' => auth()->user->company(),
+            ]); */
         
         //if(DB::table('users')->where('id','=',$value)->where('status','0')->value('id')){
         //if(DB::select("SELECT * FROM users WHERE status='1'")==true){
@@ -49,31 +58,31 @@ class HomeController extends Controller
         //$uid = DB::select("SELECT status FROM users WHERE id='$id'");
         //$uid = DB::table('users')->where('id',$id)->value('status');
         //$uid = DB::select("SELECT status FROM users WHERE id=$id");
-        $uid = DB::table('users')->where('id',$id)->value('status');
+        $uid = DB::table('users')->where('id',$id)->value('role_id');
 
 
         if($uid==1){
         //if((DB::table('users')->where('id',$id)->value('status'))==1){
             auth()->user()->assignRole('admin');
             $role = Role::findById(1);
-            $role->givePermissionTo('managestaff','managecustomer','managedepartment','regisstaff','regisagent','program','selling','appointment','post','forum','category','result');
-            return view('css.home');
+            $role->givePermissionTo('managestaff','managecustomer','managedepartment','managecompany','program','selling','appointment','post','forum','category','result','regisagent','hq','alluserlist');
+            return view('cssp.home');
         }
         
         if($uid==2){
         //if((DB::table('users')->where('id',$id)->value('status'))==2){
             auth()->user()->assignRole('staff');
             $role = Role::findById(2);
-            $role->givePermissionTo('appointment','post','forum');
-            return view('css.home');
+            $role->givePermissionTo('work','post','forum');
+            return view('cssp.home');
         }
         
         if($uid==3){
         //if((DB::table('users')->where('id',$id)->value('status'))==3){
             auth()->user()->assignRole('agent');
             $role = Role::findById(3);
-            $role->givePermissionTo('regisuser','post','forum','program');
-            return view('css.home');
+            $role->givePermissionTo('post','forum','approve','userlist');
+            return view('cssp.home');
         }
         
         if($uid==4){
@@ -81,13 +90,19 @@ class HomeController extends Controller
             auth()->user()->assignRole('user');
             $role = Role::findById(4);
             $role->givePermissionTo('program','post','forum');
+            
             return view('web.home');
         }
         
         else{
-            return view('css.home');
+            
+            return view('web.home');
         }
 
         
+    }
+    public function approval()
+    {
+        return view('web.approval');
     }
 }

@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
+use App\User;
+use App\Staff;
+use DB;
+use Mail;
 
 class AppointmentController extends Controller
 {
@@ -13,7 +18,14 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        //
+        $posts = post::orderBy('created_at','desc')->paginate(20);
+        //$pst = post::find(all)->staff;
+        //$posts = post::all();
+        //$poststaff = post::find('');
+        $staff = Staff::pluck('name', 'id');
+        
+        
+        return view('cssp.appointment.index',compact('posts',$posts,'staff',$staff))->with('posts',$posts,'staff',$staff);
     }
 
     /**
@@ -23,7 +35,7 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -68,7 +80,26 @@ class AppointmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'staff' => 'required',
+            
+        ]);
+        
+        // Create Post
+        $post = Post::find($id);
+        $post->staff_id = $request->input('staff');       
+        $post->save();
+
+        $email = $post->staff['email'];
+
+        $data = array('name'=>$post->staff['name'],"body"=>"มีงานรอให้จัดการ" );
+
+        Mail::send('cssp.mail',$data,function($message) use ($email){
+        $message->to($email,'To Staff')->subject('New Appointment');
+        $message->from('CSS@css.com','Customer Support Service');            
+        });
+        return redirect('/appointment')->with('success', 'Updated');
+        return view('web.appointment.index');
     }
 
     /**

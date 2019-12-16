@@ -10,19 +10,18 @@
                 <div class="card-body">
                     
                         @csrf
-
                         
                             <div class="col-md-4" >
-                                <a class="nav-link" href="{{ route('registeradmin') }}" >{{ __('Register Admin') }}</a>
+                                <a href="{{ route('registeradmin') }}" >{{ __('Register Admin') }}</a>
                             </div>
                             <div class="col-md-4">
-                                <a class="nav-link" href="{{ route('registerstaff') }}" >{{ __('Register Staff') }}</a>
+                                <a href="{{ route('registerstaff') }}" >{{ __('Register Staff') }}</a>
                             </div>
                             <div class="col-md-4">
-                                <a class="nav-link" href="{{ route('registeragent') }}" >{{ __('Register Agent') }}</a>
+                                <a href="{{ route('registeragent') }}" >{{ __('Register Agent') }}</a>
                             </div>
                             <div class="col-md-4">
-                                <a class="nav-link" href="{{ route('registeruser') }}" >{{ __('Register User') }}</a>
+                                <a href="{{ route('registeruser') }}" >{{ __('Register User') }}</a>
                             </div>
                        
                  

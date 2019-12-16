@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
 
 class SolutionController extends Controller
 {
@@ -14,14 +13,9 @@ class SolutionController extends Controller
      */
     public function index()
     {
-        return view('web.solution');
+        //
     }
-    public function view($id)
-    {
-        $solutiondata = Post::find($id);
-        return get('web.viewsolution',compact('id'));
-        
-    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -29,7 +23,7 @@ class SolutionController extends Controller
      */
     public function create()
     {
-        return view('web.createsolution');
+        //
     }
 
     /**
@@ -40,7 +34,7 @@ class SolutionController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //
     }
 
     /**
@@ -51,8 +45,7 @@ class SolutionController extends Controller
      */
     public function show($id)
     {
-        $solutiondata = Post::find($id);
-        return view('web.viewsolution',compact('id'));
+        //
     }
 
     /**

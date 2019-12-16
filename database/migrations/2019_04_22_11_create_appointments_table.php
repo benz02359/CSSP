@@ -17,16 +17,16 @@ class CreateAppointmentsTable extends Migration
             $table->bigIncrements('id')->unique();
 
             $table->unsignedBigInteger('post_id');
-            $table->foreign('post_id')->references('id')->on('posts');
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
 
             $table->string('detail');
             $table->string('status');
 
             $table->unsignedBigInteger('staff_id');
-            $table->foreign('staff_id')->references('id')->on('staff');
+            $table->foreign('staff_id')->references('id')->on('staff')->onDelete('cascade');
 
             $table->unsignedBigInteger('pro_id');
-            $table->foreign('pro_id')->references('id')->on('programs');
+            $table->foreign('pro_id')->references('id')->on('programs')->onDelete('cascade');
             $table->timestamps();
         });
     }

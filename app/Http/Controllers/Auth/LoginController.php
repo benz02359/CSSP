@@ -25,6 +25,8 @@ class LoginController extends Controller
      *
      * @var string
      */
+    //
+
     protected $redirectTo = '/home';
 
     /**
@@ -32,8 +34,38 @@ class LoginController extends Controller
      *
      * @return void
      */
+    protected $username;
+    
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        $this->username = $this->findUsername();
     }
+    /**
+     * Get the login username to be used by the controller.
+     *
+     * @return string
+     */
+    public function findUsername()
+    {
+        $login = request()->input('login');
+ 
+        $fieldType = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+ 
+        request()->merge([$fieldType => $login]);
+ 
+        return $fieldType;
+    }
+    /**
+     * Get username property.
+     *
+     * @return string
+     */
+    public function username()
+    {
+        return $this->username;
+    }
+    /*protected function loggedOut(Request $request) {
+        return redirect('/approval');
+    }*/
 }
