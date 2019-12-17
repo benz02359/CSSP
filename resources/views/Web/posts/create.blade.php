@@ -27,7 +27,7 @@
           </div>
 
 
-          <div class="card mb-4 shadow-sm">  
+          <!--<div class="card mb-4 shadow-sm">  
             <a href="{{ route('createtalk') }}">           
             <div class="card-body">            
               <h1 class="card-title pricing-card-title">ตั้งกระทู้สนทนา</h1>
@@ -39,7 +39,7 @@
               </ul>              
             </div>
         </a>   
-          </div>
+          </div>-->
 
 
           <div class="card mb-4 shadow-sm">

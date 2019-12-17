@@ -10,7 +10,7 @@ class Post extends Model
     use Notifiable;
 
     protected $fillable=[
-        'user_id','title','text','catafory_id','status','view','staff_id'
+        'user_id','title','text','catafory_id','status','view','staff_id','pro_id'
     ];
     // Table Name
     protected $table = 'posts';
@@ -41,5 +41,8 @@ class Post extends Model
 
     public function posttype(){        
         return $this->belongsTo('App\Posttype');
+    }
+    public function program(){        
+        return $this->belongsTo('App\Program','pro_id');
     }
 }

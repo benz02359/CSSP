@@ -18,9 +18,9 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/categories">หมวดหมู่ <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
+            <!--<li class="nav-item active">
                     <a class="nav-link" href="/tags">แท็ก <span class="sr-only">(current)</span></a>
-                </li>
+                </li>-->
             <li class="nav-item active">
                     <a class="nav-link" href="/">Dashboard <span class="sr-only">(current)</span></a>
                 </li>
@@ -51,7 +51,12 @@
                 @endif
             @else
             <li class="nav-item">
-                    <a class="nav-link" href="/posts/create">ตั้งกระทู้ใหม่</a>
+                    <a class="nav-link" 
+                     @if(Auth::user()->role_id == 1 or Auth::user()->role_id == 2)
+                        href="/posts/create"
+                        @else 
+                        href="/posts/create/createquestion"
+                    @endif>ตั้งกระทู้ใหม่</a>
                 </li>
                 <li class="nav-item dropdown">
                     

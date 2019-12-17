@@ -5,12 +5,11 @@
 <hr>
     <h1>{{$post->title}}</h1>
     <hr>
-    <div class="tags">แท็ก:
-            @foreach ($post->tags as $tag)            
+    <div class="tags">โปรแกรม: <b>{{$post->program['name']}}</b>
+                     
            
-             <small><span style="background-color: chartreuse" class="label label-default">{{ $tag->name }}</span></small>
+    <small><span style="background-color: chartreuse" class="label label-default"></span></small>
            
-            @endforeach
         </div>
 <hr>
     <div class="card-body">
@@ -18,7 +17,7 @@
     </div>
 
     <hr>
-<small>{{date('j M Y', strtotime($post->created_at))}} โดย {{$post->user['name']}} <b>หมวดหมู่ : {{$post->category['name']}}</b></small>
+{{date('j M Y', strtotime($post->created_at))}} <b>โดย</b> {{$post->user['name']}}. <b>บริษัท</b> {{$post->user->company['name']}}
     <hr>
     @if(!Auth::guest())
     @if(Auth::user()->id == $post->user_id or Auth::user()->role_id == 1 or Auth::user()->role_id == 2)

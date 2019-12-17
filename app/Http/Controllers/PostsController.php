@@ -50,17 +50,21 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at','desc')->paginate(5);
-        return view('web.posts.index')->with('posts', $posts);
+        $posts = Post::orderBy('created_at','desc')->paginate(10);
+        $users = auth()->user();
+        $usercom = $users->company;
+        return view('web.posts.index',compact('usercom',$usercom))->with('posts', $posts,'usercom',$usercom);
     }
 
     public function createquestion()
     {
         $categories = Category::all();
+        $users = auth()->user();
+        $program = $users->company->program;
         //$tags = Tag::all();
         $tags = Tag::pluck ( 'name', 'id' );
         //return redirect('/posts/createquestion');
-        return view('web.posts.createquestion',compact('tags',$tags))->with('categories', $categories,'tags',$tags);
+        return view('web.posts.createquestion',compact('tags',$tags,'program',$program))->with('categories', $categories,'tags',$tags,'program',$program);
     }
 
     public function createtalk()
@@ -157,9 +161,10 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
+        $pro = $post->program['name'];
         //$comment = Comment::where('post_id',$id)->first();
         $comments = $post['comments'];
-        return view('web.posts.show',compact('comments',$comments))->with('post',$post,'comments',$comments);
+        return view('web.posts.show',compact('comments',$comments,'post',$post,'pro',$pro))->with('post',$post,'comments',$comments,'pro',$pro);
     }
 
     /**

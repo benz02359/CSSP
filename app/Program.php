@@ -24,4 +24,7 @@ class Program extends Model
     public function sale(){        
         return $this->belongsTo('App\Sale');
     }
+    public function post(){        
+        return $this->hasMany('App\Post','pro_id');
+    }
 }

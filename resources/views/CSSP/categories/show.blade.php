@@ -9,14 +9,22 @@
 </script>
 <div class="row">
 		<div class="col-md-8">
-			<h1>{{ $cate->name }} Category <small>{{ $cate->posts()->count() }} Posts</small></h1>
+			<h1>หมวดหมู่ {{ $cate->name }}</h1> 
+			<h3>มีทั้งหมด {{ $cate->posts()->count() }} ปัญหา<input list="brow">
+			<datalist id="brow">
+			  <option value="Internet Explorer">
+			  <option value="Firefox">
+			  <option value="Chrome">
+			  <option value="Opera">
+			  <option value="Safari">
+			</datalist></h3>
 		</div>
 		<div class="col-md-2">
-			<a href="{{ route('categories.edit', $cate->id) }}" class="btn btn-primary pull-right btn-block" style="margin-top:20px;">Edit</a>
+			<a href="{{ route('categories.edit', $cate->id) }}" class="btn btn-primary">แก้ไขชื่อหมวดหมู่</a>
 		</div>
 		<div class="col-md-2">
 			{{ Form::open(['route' => ['categories.destroy', $cate->id], 'method' => 'DELETE']) }}
-				{{ Form::submit('Delete', ['class' => 'btn btn-danger btn-block', 'style' => 'margin-top:20px;']) }}
+				{{ Form::submit('ลบหมวดหมู่', ['class' => 'btn btn-danger btn-block']) }}
 			{{ Form::close() }}
 		</div>
 	</div>

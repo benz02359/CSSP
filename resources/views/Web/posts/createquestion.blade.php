@@ -30,11 +30,11 @@
             </table>
         </div>-->
         <div class="row">
-        {{ Form::label('category_id', 'Category:') }}
+        {{ Form::label('category_id', 'Program:') }}
         <div >
 				<select class="form-control" name="category_id">
-					@foreach($categories as $category)
-						<option value='{{ $category->id }}'>{{ $category->name }}</option>
+					@foreach($program as $p)
+						<option value='{{ $p}}'>{{ $p->name }}</option>
                     @endforeach
                 </select>
             </div>    
