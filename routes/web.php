@@ -121,7 +121,7 @@ Route::middleware(['approved'])->group(function () {
     Route::get('/posts/create/createquestion','PostsController@createquestion')->name('createquestion');
     Route::get('/posts/create/createtalk','PostsController@createtalk')->name('createtalk');
     Route::get('/posts/create/createnews','PostsController@createnews')->name('createnews');
-    Route::get('/search','PostsController@search')->name('createnews');
+    Route::get('/search','PostsController@search');
     Route::resource('userprofile','UserprofileController' );
 });
 Route::middleware(['admin'])->group(function () {
@@ -177,6 +177,7 @@ Route::middleware(['admin'])->group(function () {
 
     //Cate
     Route::resource('categories','CategoryController');
+    Route::POST('categories/addcate','CategoryController@addcate');
 
     //Report
     Route::resource('report','ReportController');

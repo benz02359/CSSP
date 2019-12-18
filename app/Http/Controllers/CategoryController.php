@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Post;
+use App\Post_category;
 use Session;
 
 class CategoryController extends Controller
@@ -33,6 +35,16 @@ class CategoryController extends Controller
     {
         //
     }
+    public function addcate(Request $request)
+    {
+        $category = new Post_category;
+        $category->post_id = $request->post_id;
+        $category->category_id = $request->cate_id;
+        $category->save();
+
+        Session::flash('success', 'New Category has been created');
+        return redirect()->back();
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -49,6 +61,7 @@ class CategoryController extends Controller
         $category = new Category;
         $category->name = $request->name;
         $category->save();
+
         Session::flash('success', 'New Category has been created');
         return redirect('/categories');
     }
@@ -62,7 +75,10 @@ class CategoryController extends Controller
     public function show($id)
     {
         $cate = category::find($id);
-        return view('cssp.categories.show')->with('cate',$cate);
+        //$postcategory = Post_category::where('category_id',$id);
+        //$postcate = $postcategory;
+        $posts = post::all();
+        return view('cssp.categories.show',compact('posts',$posts,'cate',$cate))->with('cate',$cate,'posts',$posts);
     }
 
     /**
@@ -89,6 +105,7 @@ class CategoryController extends Controller
         $cate = Category::find($id);
         $this->validate($request, ['name' => 'required|max:255|unique:tags']);
         $cate->name = $request->name;
+
         $cate->save();
         Session::flash('success', 'Successfully saved your new Category!');
         return redirect()->route('categories.show', $cate->id);

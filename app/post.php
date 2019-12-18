@@ -32,7 +32,7 @@ class Post extends Model
     }
 
     public function category(){        
-        return $this->belongsTo('App\Category');
+        return $this->belongsToMany('App\Category');
     }
 
     public function tags(){        
@@ -45,4 +45,7 @@ class Post extends Model
     public function program(){        
         return $this->belongsTo('App\Program','pro_id');
     }
+    /*public function postcate(){        
+        return $this->belongsTo('App\Post_category','post_id');
+    }*/
 }

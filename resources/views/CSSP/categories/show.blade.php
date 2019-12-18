@@ -10,14 +10,17 @@
 <div class="row">
 		<div class="col-md-8">
 			<h1>หมวดหมู่ {{ $cate->name }}</h1> 
-			<h3>มีทั้งหมด {{ $cate->posts()->count() }} ปัญหา<input list="brow">
-			<datalist id="brow">
-			  <option value="Internet Explorer">
-			  <option value="Firefox">
-			  <option value="Chrome">
-			  <option value="Opera">
-			  <option value="Safari">
-			</datalist></h3>
+			<h3>มีทั้งหมด {{ $cate->posts()->count() }}ปัญหา
+			{{ Form::open( ['action' => 'CategoryController@addcate', 'method' => "POST"]) }}
+			<input list="post_id" name="post_id">
+			<datalist id="post_id" name="post_id">
+			@foreach($posts as $p)
+			  <option value="{{$p->id}}">{{$p->title}}
+			@endforeach
+			</datalist>
+			<input id="cate_id" type="hidden" name="cate_id" value="{{$cate->id}}"> 
+			{{ Form::submit('เพิ่มปัญหา', ['class' => 'btn btn-success']) }}
+			{{ Form::close() }}</h3>
 		</div>
 		<div class="col-md-2">
 			<a href="{{ route('categories.edit', $cate->id) }}" class="btn btn-primary">แก้ไขชื่อหมวดหมู่</a>
@@ -53,6 +56,8 @@
 						<td><a href="{{ route('posts.show', $post->id ) }}" class="btn btn-default btn-xs">View</a></td>
 					</tr>
 					@endforeach
+					
+					<tr>
 				</tbody>
 			</table>
 		</div>
