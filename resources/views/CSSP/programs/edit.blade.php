@@ -18,6 +18,10 @@
                 {{Form::label('detail', 'รายละเอียด')}}
                 {{Form::textarea('detail',$program->detail,['class' => 'form-control','placeholder' => 'รายละเอียด'])}}
             </div>
+            <div class="form-group">
+                {{Form::label('price', 'ราคาโปรแกรม')}}
+                {{Form::text('price',$program->price,['class' => 'form-control','placeholder' => 'ราคาโปรแกรม'])}}
+            </div>
         <div class="form-group">
                 {{Form::label('sold', 'วันที่ขาย')}}
                 <input type="date" name="sold" value="{{$program->solddate}}">

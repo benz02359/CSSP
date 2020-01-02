@@ -75,10 +75,11 @@ class CategoryController extends Controller
     public function show($id)
     {
         $cate = category::find($id);
-        //$postcategory = Post_category::where('category_id',$id);
-        //$postcate = $postcategory;
+        $postcategory = Post_category::where('category_id',$id)->get();
+        $postcate = $postcategory;
+        $category = $postcate;
         $posts = post::all();
-        return view('cssp.categories.show',compact('posts',$posts,'cate',$cate))->with('cate',$cate,'posts',$posts);
+        return view('cssp.categories.show',compact('posts',$posts,'cate',$cate,'postcate',$postcate,'category',$category))->with('cate',$cate,'posts',$posts,'postcate',$postcate);
     }
 
     /**

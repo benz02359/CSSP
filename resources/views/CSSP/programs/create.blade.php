@@ -15,7 +15,11 @@
         </div>
         <div class="form-group">
             {{Form::label('detail', 'รายละเอียด')}}
-            {{Form::text('detail','',['class' => 'form-control','placeholder' => 'รายละเอียด'])}}
+            {{Form::textarea('detail','',['class' => 'form-control','placeholder' => 'รายละเอียด'])}}
+        </div>
+        <div class="form-group">
+            {{Form::label('price', 'ราคาโปรแกรม')}}
+            {{Form::text('price','',['class' => 'form-control','placeholder' => 'ราคาโปรแกรม'])}}
         </div>
         <div class="form-group">
             {{Form::label('company', 'บริษัทที่ใช้')}}

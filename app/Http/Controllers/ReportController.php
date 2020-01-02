@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Sale;
 use App\posttype;
+use App\program;
 
 class ReportController extends Controller
 {
@@ -18,12 +19,12 @@ class ReportController extends Controller
     {
         $posts = post::all();
         $posttype = posttype::all();
+        $price = program::sum('price');
         $sales = sale::all();
         $post1 = Post::where('posttype_id','=','1')->count();
         $post2 = Post::where('posttype_id','=','2')->count();
-        $post3 = Post::where('posttype_id','=','3')->count();
         return view('cssp.report.index',
-        compact(('posts'),$posts,'sales',$sales,('post1'),$post1,('post2'),$post2,('post3'),$post3));
+        compact(('posts'),$posts,'sales',$sales,('post1'),$post1,('post2'),$post2,('price'),$price));
     }
 
     /**

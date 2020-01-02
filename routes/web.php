@@ -118,6 +118,7 @@ Route::middleware(['approved'])->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('tags','TagController');
     Route::resource('posts','PostsController');
+    Route::get('/news','PostsController@indexnews');
     Route::get('/posts/create/createquestion','PostsController@createquestion')->name('createquestion');
     Route::get('/posts/create/createtalk','PostsController@createtalk')->name('createtalk');
     Route::get('/posts/create/createnews','PostsController@createnews')->name('createnews');

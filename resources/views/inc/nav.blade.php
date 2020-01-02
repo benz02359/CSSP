@@ -13,7 +13,7 @@
                 <a class="nav-link" href="/posts">ปัญหา <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/posts">ข่าว <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/news">ข่าว <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="/categories">หมวดหมู่ <span class="sr-only">(current)</span></a>

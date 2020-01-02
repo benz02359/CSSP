@@ -19,6 +19,7 @@
                         <th>ชื่อบริษัทลูกค้า</th>
                         <th>โปรแกรมที่ซื้อ</th>
                         <th>คำอธิบายโปรแกรม</th>
+                        <th>ราคาโปรแกรม</th>
                         <th>วันที่ซื้อ</th>
                         <th></th>
                     </tr>
@@ -32,6 +33,7 @@
                         <td><a href="{{ route('companies.show', $sale->company->id ) }}" class="btn btn-default btn-xs">{{ $sale->company['name'] }}</a></td>
                         <td><a href="{{ route('programs.show', $sale->program->id ) }}" class="btn btn-default btn-xs">{{ $sale->program['name'] }}</a></td>
                         <td>{{$sale->program->detail}}</td>
+                        <td>{{$sale->program->price}} บาท</td>
                         <td>{{$solddate = date('d F Y', strtotime($sale->program->solddate))}}</td>
                         <td><a href="{{ route('sales.show', $sale->id ) }}" class="btn btn-default btn-xs">View</a></td>
                     </tr>

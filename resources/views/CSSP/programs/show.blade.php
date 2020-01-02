@@ -12,6 +12,7 @@
 <hr>
     <h1>ชื่อ: {{$program->name}}</h1>
     <p>รายละเอียด: {{$program->detail}}</p>
+    <p>ราคา: {{$program->price}} บาท</p>
     <p>ซื้อเมื่อ: {{$program->solddate}}</p>
     <p>วันที่เริ่ม: {{$program->startdate}}</p>
     <p>วันที่สิ้นสุด: {{$program->enddate}}</p>

@@ -20,6 +20,7 @@
 @foreach ($program as $p)
     <h2>ชื่อโปรแกรม: <a href="/programs/{{$p->id}}">{{$p->name}}</a></h2>
     <p>รายละเอียด: {{$p->detail}}</p>
+    <p>ราคาโปรแกรม: {{$p->price}} บาท</p>
     <p>ชื้อเมื่อ: {{$p->solddate}}</p>
     <p>วันที่เริ่ม: {{$p->startdate}}</p>
     <p>วันที่สิ้นสุด: {{$p->enddate}}</p>

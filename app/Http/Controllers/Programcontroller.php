@@ -55,6 +55,7 @@ class ProgramController extends Controller
         $program = new Program;
         $program->name = $request->input('name');
         $program->detail = $request->input('detail');
+        $program->price = $request->input('price');
         $program->company_id = $request->input('company');
         $program->solddate = $request->input('sold');
         $program->startdate = $request->input('start');
@@ -112,6 +113,7 @@ class ProgramController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'detail' => 'required',
+            'price' => 'required',
             'sold' => 'required',
             'start' => 'required',
             'end' => 'required',
@@ -122,6 +124,7 @@ class ProgramController extends Controller
         $program = Program::find($id);
         $program->name = $request->input('name');
         $program->detail = $request->input('detail');
+        $program->price = $request->input('price');
         $program->solddate = $request->input('sold');
         $program->startdate = $request->input('start');
         $program->enddate = $request->input('end');

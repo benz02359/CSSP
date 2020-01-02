@@ -45,7 +45,7 @@ class Post extends Model
     public function program(){        
         return $this->belongsTo('App\Program','pro_id');
     }
-    /*public function postcate(){        
-        return $this->belongsTo('App\Post_category','post_id');
-    }*/
+    public function post_category(){        
+        return $this->belongsTo('App\Post_category');
+    }
 }

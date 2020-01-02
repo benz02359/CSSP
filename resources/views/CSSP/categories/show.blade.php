@@ -31,7 +31,7 @@
 			{{ Form::close() }}
 		</div>
 	</div>
-
+	
 	<div class="row">
 		<div class="col-md-12">
 			<table class="table">
@@ -40,20 +40,20 @@
 						<th>#</th>
 						<th>Title</th>
 						<th>Tags</th>
+						
 						<th></th>
 					</tr>
 				</thead>
 
 				<tbody>
-					@foreach ($cate->posts as $post)
+					@foreach ($postcate as $pc)
 					<tr>
-						<th>{{ $post->id }}</th>
-						<td>{{ $post->title }}</td>
-						<td>@foreach ($post->tags as $tag)
-								<span class="label label-default">{{ $cate->name }}</span>
-							@endforeach
-							</td>
-						<td><a href="{{ route('posts.show', $post->id ) }}" class="btn btn-default btn-xs">View</a></td>
+						<th></th>
+						@foreach($pc->post as $post)
+						<td><a href="/posts/{{$post->id}}">{{ $post->title}}</a></td>
+						@endforeach
+						<td></td>
+						<!--<td><a href="" class="btn btn-default btn-xs">View</a></td>-->
 					</tr>
 					@endforeach
 					

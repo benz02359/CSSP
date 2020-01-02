@@ -50,10 +50,17 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at','desc')->paginate(10);
+        $posts = Post::where('posttype_id','1')->orderBy('created_at','desc')->paginate(10);
         $users = auth()->user();
         $usercom = $users->company;
-        return view('web.posts.index',compact('usercom',$usercom))->with('posts', $posts,'usercom',$usercom);
+        return view('web.posts.index',compact('posts', $posts,'usercom',$usercom))->with('posts', $posts,'usercom',$usercom);
+    }
+    public function indexnews()
+    {
+        $posts = Post::where('posttype_id','2')->orderBy('created_at','desc')->paginate(10);
+        $users = auth()->user();
+        $usercom = $users->company;
+        return view('web.posts.news',compact('posts', $posts,'usercom',$usercom))->with('posts', $posts,'usercom',$usercom);
     }
 
     public function createquestion()

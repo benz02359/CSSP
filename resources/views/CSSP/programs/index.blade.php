@@ -21,6 +21,7 @@
                             <th>ชื่อโปรแกรม</th>
                             <th>คำอธิบาย</th>
                             <th>บริษัทที่เป็นเจ้าของ</th>
+                            <th>ราคาโปรแกรม</th>
                             <th>วันที่เริ่มดูแล</th>
                             <th>วันสิ้นสุด</th>
                         </tr>
@@ -34,6 +35,7 @@
                             <td><a href="{{ route('programs.show', $pro->id ) }}" class="btn btn-default btn-xs">{{ $pro->name }}</a></td>
                             <td>{{$pro->detail}}</td>
                             <td><a href="{{ route('companies.show', $pro->company->id ) }}" class="btn btn-default btn-xs">{{ $pro->company->name }}</a></td>
+                            <td>{{$pro->price}} บาท</td>
                             <td>{{$solddate = date('d F Y', strtotime($pro->solddate))}}</td>
                             <td>{{$startdate = date('d F Y', strtotime($pro->startdate))}}</td>
                             <td>{{$enddate = date('d F Y', strtotime($pro->enddate))}}</td>

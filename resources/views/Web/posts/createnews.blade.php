@@ -40,7 +40,7 @@
             </div>    
         </div>
         <hr>
-        <input id="posttype_id" type="hidden" name="posttype_id" value="{{3}}">
+        <input id="posttype_id" type="hidden" name="posttype_id" value="{{2}}">
 
         {{ Form::label('tags', 'Tags:') }}
 		
