@@ -57,11 +57,12 @@ class ProgramController extends Controller
         $program->detail = $request->input('detail');
         $program->price = $request->input('price');
         $program->company_id = $request->input('company');
-        $program->solddate = $request->input('sold');
+        $program->solddate = $request->input('sold')+543;
         $program->startdate = $request->input('start');
         $program->enddate = $request->input('end');
         //$post->cover_image = $fileNameToStore;
         
+
         if(($program->enddate > $program->startdate) && ($program->startdate > $program->solddate)){
             $program->save();
             return redirect('/programs')->with('success', 'Created');
@@ -130,7 +131,7 @@ class ProgramController extends Controller
         $program->enddate = $request->input('end');
         //$post->cover_image = $fileNameToStore;
         $program->save();
-        return redirect('/programs')->with('success', 'Updated');
+        return redirect('/programs')->with('success', 'แก้ไขรายละเอียดโปรแกรมเรียบร้อยแล้ว');
     }
 
     /**
@@ -141,6 +142,8 @@ class ProgramController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $program = program::find($id);
+        $program->delete();
+        return redirect('/programs')->with('success', 'ลบโปรแกรมออกเรียบร้อยแล้ว');
     }
 }

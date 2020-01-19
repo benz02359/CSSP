@@ -84,14 +84,14 @@ class DepartmentController extends Controller
      * @param  \App\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Department $department)
-    {
-        $dep = Department::find($id);
+    public function update(Request $request, $id)
+    { 
         $this->validate($request, ['name' => 'required|max:255|unique:departments']);
+        $dep = Department::find($id);
         $dep->name = $request->name;
         $dep->save();
         Session::flash('success', 'ทำการบันทึกแผนกใหม่เสร็จสิ้น');
-        return redirect()->route('departments.show', $dep->id);
+        return redirect()->route('departments.index', $dep->id);
     }
 
     /**

@@ -97,8 +97,8 @@ class AppointmentController extends Controller
         Mail::send('cssp.mail',$data,function($message) use ($email){
         $message->to($email,'To Staff')->subject('New Appointment');
         $message->from('CSS@css.com','Customer Support Service');            
-        });
-        return redirect('/appointment')->with('success', 'Updated');
+        });  
+        return redirect('/appointment')->with('success',"มอบหมายงานให้ {$post->staff['name']} เรียบร้อย");
         return view('web.appointment.index');
     }
 
@@ -110,6 +110,6 @@ class AppointmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+       //
     }
 }

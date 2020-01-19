@@ -1,16 +1,14 @@
 @extends('cssp.layouts.master')
 
 @section('content')
-<button class="btn btn-primary" onclick="goBack()" >Go Back</button>
-<script>
-    function goBack() {
-        window.history.back();
-    }
-</script>
-<h1>เพิ่มรายการขาย</h1>
+<br>
+<a style="font-size:27px;"><b>เพิ่มรายการขาย</b></a>
 {!! Form::open(['action' => 'SaleController@store', 'method' => 'POST']) !!}
-<hr>
-<h2>บริษัท</h2>
+<div class="row">
+
+<div class="card" style="background-color:#f4f6f7;margin-top:10px;width:520px;" >
+<div class="card-header text-white bg-dark"><a style="padding:-10px 0px -10px 0px;font-size:18px">บริษัท</a></div>
+    <div class="card-body">
     <div class="form-group">
         {{Form::label('namecompany', 'ชื่อบริษัท')}}
         {{Form::text('namecompany','',['class' => 'form-control','placeholder' => 'ชื่อบริษัท'])}}
@@ -27,8 +25,12 @@
         {{Form::label('address', 'ที่อยู่')}}
         {{Form::textarea('address','',['class' => 'form-control','placeholder' => 'ที่อยู่'])}}
     </div>
-    <hr>
-    <h2>โปรแกรม</h2>
+    </div>
+    </div>
+    
+    <div class="card" style="background-color:#f4f6f7;margin-top:10px;width:520px;margin-left:20px" >
+    <div class="card-header text-white bg-dark"><a style="padding:-10px 0px -10px 0px;font-size:18px">โปรแกรม</a></div>
+    <div class="card-body">
     <div class="form-group">
             {{Form::label('nameprogram', 'ชื่อโปรแแกรม')}}
             {{Form::text('nameprogram','',['class' => 'form-control','placeholder' => 'ชื่อโปรแกรม'])}}
@@ -39,7 +41,7 @@
         </div>    
         <div class="form-group">
             {{Form::label('price', 'ราคาโปรแกรม')}}
-            {{Form::textarea('price','',['class' => 'form-control','placeholder' => 'ราคาโปรแกรม'])}}
+            {{Form::text('price','',['class' => 'form-control','placeholder' => 'ราคาโปรแกรม'])}}
         </div>          
         <div class="form-group">
             {{Form::label('sold', 'วันที่ขาย')}}
@@ -53,15 +55,18 @@
             {{Form::label('start', 'วันที่สิ้นสุด')}}
             <input type="date" name="end" value="end">
         </div>
-        <hr>
         <!--<div class="form-group">
             {{Form::label('detail', 'รายละเอียดการขาย')}}
             {{Form::text('detail','',['class' => 'form-control','placeholder' => 'รายละเอียด'])}}
         </div>-->
-    <hr>
-   
-    <h2>ลงทะเบียนตัวแทน <button onclick="myFunction(); return false;"  id="myButton" >ลงทะเบียนภายหลัง</button></h2> 
-
+    </div>
+    </div>
+    </div>
+<br>
+<div class="card" style="background-color:#f4f6f7;margin-top:10px;width:600px;margin-left:200px" >
+    <div class="card-header text-white bg-dark"><h2><a style="padding:-10px 0px -10px 0px;margin-right:290px;font-size:18px">ลงทะเบียนตัวแทน</a>
+    <button class="btn btn-outline-warning" onclick="myFunction(); return false;"  id="myButton" >ลงทะเบียนภายหลัง</h2> </div>
+    <div class="card-body">
     <div id="myDIV">
     <div class="form-group">
         <!--<form method="POST" action="{{ route('register') }}">-->
@@ -130,15 +135,18 @@
         <!--</form>-->
     </div>
     </div>
-    
-    {{Form::submit('Submit',['class' => 'btn btn-primary'])}}
+    <style>
+    .subbtn{
+        margin-left:235px;
+    }
+    </style>
+    {{Form::submit('Submit',['class' => 'btn btn-outline-primary subbtn'])}}
 {!! Form::close() !!}  
 
 <script>
 function myFunction() {
     var x = document.getElementById("myDIV");
     var btn = document.getElementById("myButton");
-    
     if (x.style.display === "none") {
     x.style.display = "block";
     btn.value = "ลงทะเบียนภายหลัง";
@@ -169,8 +177,6 @@ function myFunction() {
     document.getElementById("email").disabled = true;
     document.getElementById("password").disabled = true;
     document.getElementById("password-confirm").disabled = true;
-
-    
     }
 }
 </script> 

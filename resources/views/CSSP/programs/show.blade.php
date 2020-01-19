@@ -1,14 +1,12 @@
 @extends('cssp.layouts.master')
 
 @section('content')
-<button class="btn btn-primary" onclick="goBack()" >Go Back</button>
+<button class="btn btn-outline-warning" onclick="goBack()" >Go Back</button>
 <script>
     function goBack() {
         window.history.back();
     }
 </script>
-<hr>
-<a href="/programs/{{$program->id}}/edit" class="btn btn-primary">แก้ไข</a>
 <hr>
     <h1>ชื่อ: {{$program->name}}</h1>
     <p>รายละเอียด: {{$program->detail}}</p>
@@ -27,9 +25,12 @@
    
     <hr>
     <hr>
-        
+    <div class="row">   
+        <a href="/programs/{{$program->id}}/edit" class="btn btn-outline-info">แก้ไข</a>
+
         {!!Form::open(['action' => ['ProgramController@destroy', $program->id], 'method' => 'POST', 'class' => 'float-right'])!!}
             {{Form::hidden('_method', 'DELETE')}}
-            {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+            {{Form::submit('Delete', ['class' => 'btn btn-outline-danger'])}}
         {!!Form::close()!!}
+    </div> 
 @endsection

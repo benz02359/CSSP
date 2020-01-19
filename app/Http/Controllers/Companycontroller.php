@@ -65,7 +65,7 @@ class CompanyController extends Controller
         $company->address = $request->input('address');
         
         $company->save();
-        return redirect('/companies')->with('success', 'Created');
+        return redirect('/companies')->with('success', "เพิ่มบริษัท {$company['name']} เรียบร้อย ");
     }
 
     /**
@@ -132,7 +132,7 @@ class CompanyController extends Controller
         $company->address = $request->input('address');
         $id = company::find($id);
         $company->save();
-        return view('cssp.companies.show',compact('company',$company))->with('success', 'Updated');
+        return view('cssp.companies.show',compact('company',$company))->with('success',"แก้ไขข้อมูลของบริษัท {$company['name']} เรียบร้อยแล้ว");
     }
 
     /**
@@ -145,6 +145,6 @@ class CompanyController extends Controller
     {
         $company = Company::find($id);
         $company->delete();
-        return redirect('/companies')->with('success', 'Removed');
+        return redirect('/companies')->with('success', "ลบบริษัท {$company['name']} เรียบร้อยแล้ว");
     }
 }

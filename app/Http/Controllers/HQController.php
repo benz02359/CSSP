@@ -86,7 +86,7 @@ class HQController extends Controller
         $hq->address = $request->input('address');
         
         $hq->save();
-        return redirect('/hq')->with('success', 'Updated');
+        return redirect('/hq')->with('success', 'แก้ไขข้อมูลบริษัทเรียบร้อบ');
     }
 
     /**

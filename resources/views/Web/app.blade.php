@@ -7,7 +7,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title> UnixDev Customer Service</title>
+    <!-- add icon link -->
+    <link rel = "icon" src="<?php echo asset('assets/img/logofull.png'); ?>"  type = "image/x-icon"> 
+          
 
     <!-- Scripts -->
     <script src="{{ asset('assets/js/app.js') }}" defer></script>
@@ -23,31 +26,26 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-laravel" style="height:110px;padding-top:30px;margin-bottom:15px;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="<?php echo asset('assets/img/logofull.png'); ?>"style="width:20%;margin-left:50px">
+                <img src="<?php echo asset('assets/img/logofull.png'); ?>"style="width:30%;margin-left:10px">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav" style="margin-bottom:-40;width:300px;font-size:22px;margin-right:-100;">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <li >
+                                <a style="margin-right:22px;" href="{{ route('login') }}">{{ __('เข้าสู่ระบบ') }}</a>
                             </li>
                             @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('registeruser') }}">{{ __('Register') }}</a>
+                                <li>
+                                    <a  href="{{ route('registeruser') }}">{{ __('สมัครสมาชิก') }}</a>
                                 </li>
                             @endif
                         @else

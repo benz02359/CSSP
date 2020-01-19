@@ -7,7 +7,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'CustomerServiceSystem') }}</title>
+     <!-- title unixdev -->
+    <title> unixdev customer service</title>
+    <!-- add icon link -->
+    <link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">
 
     <!-- Scripts 
     <script src="{{ asset('js/app.js') }}" defer></script>-->
@@ -27,7 +30,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
 </head>
-<body>
+<body style="background-image: s">
     @include('inc.nav')  
     <main class="py-4">
         <div class="container">

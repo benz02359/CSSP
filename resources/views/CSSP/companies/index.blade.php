@@ -1,8 +1,18 @@
 @extends('cssp.layouts.master')
 
 @section('content')
-    <h1>บริษัท</h1><a href="/companies/create" class="btn btn-primary">เพิ่มบริษัทลูกค้า</a>
-    <!--@if (count($companies) > 0)
+<style>
+.com th,.com a:link,.com td a.link,.com td a.link:hover,.com td{
+	font-size:14px;
+	color:#000;
+}
+</style>
+
+<div class="row" style="margin:12px 0px 6px 28px">
+	<div class="col-8" style="font-size:28px"><b>รายชื่อบริษัทและโปรแกรม</b></div>
+	<div class="col-2"><a style="margin-left:30px" href="/companies/create" class="btn btn-outline-secondary">เพิ่มบริษัทลูกค้า</></a></div>
+</div>   
+		 <!--@if (count($companies) > 0)
         @foreach ($companies as $company)
         <div class="card padding p-3">
             <h3><a href="/companies/{{$company->id}}">{{$company->name}}</a></h3>
@@ -11,13 +21,13 @@
     @else
     @endif-->
 
-    <div class="row">
-		<div class="col-md-12">
-			<table class="table" style="background-color: white " >
-				<thead>
+    <div class="row com" style="margin-left:35px">
+		<div class="col-md-10">
+			<table class="table table-bordered" style="background-color: white " >
+				<thead class="thead-dark">
 					<tr>
-						<th width='50%'>ชื่อบริษัท</th>
-						<th width='50%'>โปรแกรม</th>
+						<th width='67%'>ชื่อบริษัท</th>
+						<th width='33%'>โปรแกรม</th>
 						
 					</tr>
 				</thead>
@@ -36,14 +46,14 @@
 						$count = 0;
 						$rowspan = count($com->program);
 						@endphp
-						<td rowspan="{{$rowspan}}"><a href="{{ route('companies.show', $com->id ) }}">{{$com->name }}</a><br/> ที่อยู่: {{ $com->address }}<br/> เบอร์โทร: {{ $com->tel }}<br/> E-mail: {{ $com->email }}</td>
+						<td rowspan="{{$rowspan}}"><a style="font-size:19px;" href="{{ route('companies.show', $com->id ) }}">{{$com->name }}</a><br/> ที่อยู่: {{ $com->address }}<br/> เบอร์โทร: {{ $com->tel }}<br/> E-mail: {{ $com->email }}</td>
 						
 						
 						@foreach($com->program as $pro)
 						@php
 						$count += 1
 						@endphp
-						<td><a href="{{ route('programs.show', $pro->id ) }}" >{{$count}}: {{$pro->name}}</a></td>	
+						<td><a style="padding-left:1px;font-size:16px" href="{{ route('programs.show', $pro->id ) }}" >{{$count}}. {{$pro->name}}</a></td>	
 						</tr><tr>					
 						@endforeach	
 					</tr>	
