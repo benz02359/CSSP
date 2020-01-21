@@ -75,7 +75,7 @@
             <div class="form-group">
                 {{Form::label('name', 'ชื่อ-นามสกุล')}}
             <div>
-                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" placeholder="กรุณาใส่ชื่อของคุณ" >
+                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" placeholder="กรุณาใส่ชื่อของคุณ" required>
                 @if ($errors->has('name'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('name') }}</strong>

@@ -15,7 +15,7 @@
 			<a href="{{ route('departments.edit', $dep->id) }}" class="btn btn-primary pull-right btn-block" style="margin-top:20px;">Edit</a>
 		</div>
 		<div class="col-md-2">
-			{{ Form::open(['route' => ['departments.destroy', $dep->id], 'method' => 'DELETE']) }}
+			{{ Form::open(['route' => ['departments.destroy', $dep->id], 'method' => 'DELETE', 'onsubmit' => 'return confirm("ต้องการที่จะลบใช่ไหม?")']) }}
 				{{ Form::submit('Delete', ['class' => 'btn btn-danger btn-block', 'style' => 'margin-top:20px;']) }}
 			{{ Form::close() }}
 		</div>

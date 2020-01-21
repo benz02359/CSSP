@@ -28,7 +28,7 @@
     <div class="row">   
         <a href="/programs/{{$program->id}}/edit" class="btn btn-outline-info">แก้ไข</a>
 
-        {!!Form::open(['action' => ['ProgramController@destroy', $program->id], 'method' => 'POST', 'class' => 'float-right'])!!}
+        {!!Form::open(['action' => ['ProgramController@destroy', $program->id], 'method' => 'POST', 'class' => 'float-right', 'onsubmit' => 'return confirm("ต้องการที่จะลบใช่ไหม?")'])!!}
             {{Form::hidden('_method', 'DELETE')}}
             {{Form::submit('Delete', ['class' => 'btn btn-outline-danger'])}}
         {!!Form::close()!!}

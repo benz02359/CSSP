@@ -26,7 +26,7 @@ body{
 </div>
 <div class="row"div>
     <div style="margin-left:60px;margin-right:15px">   <a href="/staffs/{{$staff->id}}/edit" class="btn btn-outline-info">Edit</a></div> 
-    <div>    {!!Form::open(['action' => ['StaffController@destroy', $staff->id], 'method' => 'POST', 'class' => 'float-right'])!!}
+    <div>    {!!Form::open(['action' => ['StaffController@destroy', $staff->id], 'method' => 'POST', 'class' => 'float-right', 'onsubmit' => 'return confirm("ต้องการที่จะลบใช่ไหม?")'])!!}
             {{Form::hidden('_method', 'DELETE')}}
             {{Form::submit('Delete', ['class' => 'btn btn-outline-danger'])}}
         {!!Form::close()!!}

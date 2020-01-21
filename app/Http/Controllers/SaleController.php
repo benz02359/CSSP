@@ -75,6 +75,7 @@ class SaleController extends Controller
         $program = Program::create([
         'name' => $request['nameprogram'],
         'detail' => $request['detailprogram'],
+        'price' => $request['price'],
         'company_id' => $company->id,
         'solddate' => $request['sold'],
         'startdate' => $request['start'],
@@ -98,6 +99,7 @@ class SaleController extends Controller
         $company->save();
         $program->save();
         $sale->save();
+
         } else {
         $user = User::create([
         'name' => $request['name'],
@@ -126,9 +128,12 @@ class SaleController extends Controller
         $agent->save();
         $sale->save();
 
+
         }
         }
-        return redirect('/sales')->with('success', 'Created');
+        //return view('cssp.sales.index')->with('success', 'Created');
+
+        return redirect('sales')->with('success', 'สร้างรายการขายเสร็จสิ้น');
         }
         catch (\Illuminate\Database\QueryException $e) {
             // something went wrong with the transaction, rollback
@@ -162,7 +167,7 @@ class SaleController extends Controller
     public function edit($id)
     {
         $sdata = Sale::find($id);
-        return view('css.sale.editsale',compact('id'));
+        return view('cssp.sales.edit',compact('sdata',$sdata));
     }
 
     /**
@@ -172,9 +177,42 @@ class SaleController extends Controller
      * @param  \App\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sale $sale)
+    public function update(Request $request, $id)
     {
-        //
+        
+            if(($request->input('end') < $request->input('start')) || ($request->input('start') < $request->input('sold'))){
+                Session::flash('error', 'กรุณาเปลี่ยนวันที่');
+                return redirect()->back()->withInput();
+            } else{
+                $sdata = Sale::find($id);
+                $companyid = Company::where('id','=',$sdata->company_id)->first();
+                $programid = Program::where('id','=',$sdata->pro_id)->first();
+
+           
+            $company = Company::find($companyid)->first();
+            $company->name = $request->input('namecompany');
+            $company->email = $request->input('cemail');
+            $company->tel = $request->input('tel');
+            $company->address = $request->input('address');
+            $company->save();
+            $sdata->save();
+
+            
+            $program = Program::find($programid)->first();
+            $program->name = $request->input('nameprogram');
+            $program->detail = $request->input('detailprogram');
+            $program->price = $request->input('price');
+            $program->solddate = $request->input('sold');
+            $program->startdate = $request->input('start');
+            $program->enddate = $request->input('end');
+                
+                
+                $program->save();
+                return redirect('/sales')->with('success', 'แก้ไขเรียบร้อยแล้ว');
+            }
+            
+            
+
     }
 
     /**
@@ -183,8 +221,14 @@ class SaleController extends Controller
      * @param  \App\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sale $sale)
+    public function destroy($id)
     {
-        //
+        $sale = Sale::find($id);
+        $companyid = Company::where('id','=',$sale->company_id)->first();
+        $programid = Program::where('id','=',$sale->pro_id)->first();
+        $sale->delete();
+        //$company->delete();
+        //$program->delete();
+        return redirect('/sales')->with('success', 'ลบโปรแกรมออกเรียบร้อยแล้ว');
     }
 }

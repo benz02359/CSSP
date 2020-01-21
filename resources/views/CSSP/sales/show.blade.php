@@ -56,7 +56,7 @@ a:link{
 <div class="row">
 <a href="/sales/{{$sale->id}}/edit" class="btn btn-outline-warning editbtn">แก้ไข</a>
 
-    {!!Form::open(['action' => ['SaleController@destroy', $sale->id], 'method' => 'POST'])!!}
+    {!!Form::open(['action' => ['SaleController@destroy', $sale->id], 'method' => 'POST', 'onsubmit' => 'return confirm("ต้องการที่จะลบใช่ไหม?")'])!!}
         {{Form::hidden('_method', 'DELETE')}}
         {{Form::submit('Delete', ['class' => 'btn btn-outline-danger deletebtn'])}}
     {!!Form::close()!!}
