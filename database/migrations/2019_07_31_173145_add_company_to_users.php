@@ -14,8 +14,12 @@ class AddCompanyToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('company_id')->after('password');
+            $table->unsignedBigInteger('company_id');
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade')->nullable();
         });
+        /*Schema::table('users', function (Blueprint $table) {
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade')->nullable();
+        });*/
     }
 
     /**
@@ -27,7 +31,7 @@ class AddCompanyToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('company_id')->index()->nullable();
-            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
+            //$table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
         });
     }
 }

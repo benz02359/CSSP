@@ -23,10 +23,10 @@ class CreateAppointmentsTable extends Migration
             $table->string('status');
 
             $table->unsignedBigInteger('staff_id');
-            $table->foreign('staff_id')->references('id')->on('staff')->onDelete('cascade');
+            $table->foreign('staff_id')->references('id')->on('staffs')->onDelete('cascade')->nullable();
 
             $table->unsignedBigInteger('pro_id');
-            $table->foreign('pro_id')->references('id')->on('programs')->onDelete('cascade');
+            $table->foreign('pro_id')->references('id')->on('programs')->onDelete('cascade')->nullable();
             $table->timestamps();
         });
     }

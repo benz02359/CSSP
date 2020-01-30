@@ -15,7 +15,7 @@ class AddStaffIdToPosts extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             $table->unsignedBigInteger('staff_id')->index()->nullable()->after('text');
-            $table->foreign('staff_id')->references('id')->on('staff')->onDelete('cascade');
+            $table->foreign('staff_id')->references('id')->on('staffs')->onDelete('cascade')->nullable();
         });
     }
 
