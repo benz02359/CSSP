@@ -1,7 +1,6 @@
 html, body {
-    color: #eeeeee;
+    color: #575757;
     font-family: 'Athiti', sans-serif;
-    background-image: url('../img/bgg.jpg');
     background-attachment: fixed;
     background-size: 100%;
     font-weight: 200;
@@ -14,7 +13,9 @@ html, body {
     background-color: #eeeeee00;
 }
 
-
+li > a:hover{
+    color: #ffffff;
+}
 .btn a:visited {
     color: #ff9215;
 }

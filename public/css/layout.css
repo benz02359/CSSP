@@ -36,3 +36,7 @@ html, body {
     color: #ff9215;
     font-weight: bolder;
 }
+.btnforget{
+    text-decoration: none;
+    color: #474747b2;
+}
