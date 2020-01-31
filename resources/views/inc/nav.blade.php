@@ -36,11 +36,14 @@
         <!-- Left Side Of Navbar -->
         <ul class="navbar-nav mr-auto " style="font-size:22px;margin-right:5px;">
             <li class="nav-item active">
-                <a class="nav-link" href="/posts">ตอบปัญหา<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/posts">ตอบปัญหา<span class="sr-only"></a>
             </li>
             <li class="nav-item" style="color:#FFF;font-size:22px">
                     <a class="nav-link" 
-                     @if(Auth::user()->role_id == 1 or Auth::user()->role_id == 2)
+                    @guest
+                        
+                    @endguest
+                     @if(Auth::user()->role_id === 1 or Auth::user()->role_id === 2)
                         href="/posts/create"
                         @else 
                         href="/posts/create/createquestion"
@@ -74,7 +77,7 @@
             @else
             <li class="nav-item" style="color:#FFF;font-size:22px">
                     <a class="nav-link" 
-                     @if(Auth::user()->role_id == 1 or Auth::user()->role_id == 2)
+                     @if(Auth::user()->role_id === 1 or Auth::user()->role_id === 2)
                         href="/posts/create"
                         @else 
                         href="/posts/create/createquestion"
@@ -87,8 +90,9 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="font-align:center;font-size:20px">
-                        <a class="dropdown-item" href="#">หน้าของฉัน</a>
+                        <!--<a class="dropdown-item" href="">หน้าของฉัน</a>-->
                         <a class="dropdown-item" href="/userprofile">ข้อมูลส่วนตัว</a>
+                        <a class="dropdown-item" href="/changePassword">เปลี่ยนรหัสผ่าน</a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
