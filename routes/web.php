@@ -124,8 +124,6 @@ Route::middleware(['approved'])->group(function () {
     Route::get('/posts/create/createnews','PostsController@createnews')->name('createnews');
     Route::get('/search','PostsController@search');
     Route::resource('userprofile','UserprofileController' );
-    Route::get('/changePassword','HomeController@showChangePasswordForm');
-    Route::post('/changePassword','HomeController@changePassword')->name('changePassword');
 });
 Route::middleware(['admin'])->group(function () {
     //Approve
