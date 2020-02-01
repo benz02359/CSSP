@@ -103,8 +103,8 @@ class RegisterController extends Controller
             'approve' => $data['approve'], 
             'admin' => $data['admin'],   
             'password' => Hash::make($data['password']),
+            
         ]);
-
         if($data['status'] == 2){
             $staff = Staff::create([
                 'user_id' => $user->id,

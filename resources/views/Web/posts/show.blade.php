@@ -31,14 +31,15 @@
 
     @if(!Auth::guest())
     @if(Auth::user()->id == $post->user_id or Auth::user()->role_id == 1 or Auth::user()->role_id == 2)
-            <a href="/posts/{{$post->id}}/edit" class="btn btn-primary">แก้ไข</a>
-
+            <!--<a href="/posts/{{$post->id}}/edit" class="btn btn-primary">แก้ไข</a>-->
+            
              {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'float-right', 'style' => 'style="padding:2px 15px 2px 15px"'])!!}
                 {{Form::hidden('_method', 'DELETE')}}
                 {{Form::submit('ลบกระทู้', ['class' => 'btn btn-danger bt'])}}
             {!!Form::close()!!}
-
-            <a href="/posts/{{$post->id}}/edit" class="btn btn-warning float-right" style="padding:2px 15px 2px 15px">แก้ไข</a>
+            
+       <a href="/posts/{{$post->id}}/edit" class="btn btn-warning float-right" style="padding:2px 15px 2px 15px">แก้ไข</a>
+            
         @endif
     @endif
     </div>
