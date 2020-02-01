@@ -1,71 +1,62 @@
-@extends('layouts.app')
+
+@if(Auth::user()->id == $post->user_id or Auth::user()->role_id == 1 or Auth::user()->role_id == 2)
+            {{Form::textarea('text', '', ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'ใส่ข้อความที่ต้องการ'])}}
+            @else
+            {{Form::textarea('text', '', ['class' => 'form-control', 'placeholder' => 'ใส่ข้อความที่ต้องการ'])}}@extends('layouts.app')
 
 @section('content')
-<style>
-.toppost{
-    margin: 15px 0px 15px 0px;
-}
-.bt{
-    padding:2px 11px 2px 11px;
-    margin-left: 10px;
-    margin-right: -20px
-}
-.comment{
-    margin: 15px 0px 15px 35px;
-}
-</style>
-
-
-<a href="/posts" class="btn btn-outline-warning">ย้อนกลับ</a>
-<div class="card border-warning toppost">
-  <div class="card-header border-warning" style="color:#FFF;background-color:#db851c"><h3>{{$post->title}}</h3></div>
-  <div class="card-body"style="color:#cc7300;height:90px;">
-    <h5 class="card-text">{!!$post->text!!}</h5>
-  </div>
-  <div class="card-footer border-warning" style="color:#FFF;background-color:#db851c">
-  <div class="row">
-        <div class="col-9 row">
-        &nbsp; โพสต์เมื่อวันที่ {{date('j/n/Y H:i', strtotime($post->created_at))}}  &nbsp;  &nbsp;<h5> <b> โดย</b> {{$post->user['name']}}. <b>บริษัท</b> {{$post->user->company['name']}} </h5>
+<a href="/posts" class="btn btn-primary">กลับ</a>
+<hr>
+    <h1>{{$post->title}}</h1>
+    <hr>
+    <div class="tags">โปรแกรม: <b>{{$post->program['name']}}</b>
+                     
+           
+    <small><span style="background-color: chartreuse" class="label label-default"></span></small>
+           
         </div>
-        <div class="col-3">
+<hr>
+    <div class="card-body">
+        {!!$post->text!!}
+    </div>
+
+    <hr>
+{{date('j M Y', strtotime($post->created_at))}} <b>โดย</b> {{$post->user['name']}}. <b>บริษัท</b> {{$post->user->company['name']}}
+    <hr>
     @if(!Auth::guest())
     @if(Auth::user()->id == $post->user_id or Auth::user()->role_id == 1 or Auth::user()->role_id == 2)
-            {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'float-right', 'style' => 'style="padding:2px 15px 2px 15px"'])!!}
+            <a href="/posts/{{$post->id}}/edit" class="btn btn-primary">แก้ไข</a>
+
+            {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'float-right'])!!}
                 {{Form::hidden('_method', 'DELETE')}}
-                {{Form::submit('ลบกระทู้', ['class' => 'btn btn-danger bt'])}}
+                {{Form::submit('ลบกระทู้', ['class' => 'btn btn-danger'])}}
             {!!Form::close()!!}
-            <a href="/posts/{{$post->id}}/edit" class="btn btn-warning float-right" style="padding:2px 15px 2px 15px">แก้ไข</a>
+            <hr>
         @endif
     @endif
-    </div>
-</div>
-</div>
-</div>
-
     
     @if(count($comments) > 0)
     <p hidden>{{$count = 1}}</p>
     @foreach ($comments as $c)
-    <div class="card border-secondary comment" style="max-width: 68rem; ">
-        <div class="card-header text-white  bg-secondary  border-secondary" style="height:44px;margin-top:-6px;font-size:18px">{{Form::label('text', 'ความคิดเห็นที่')}}{{ $count }}</div>
-        <p hidden>{{$count++}}</p> 
-            <div class="card-body"  style="height:50px;">
-                <p class="card-text" style="margin-top:-22px">{!! $c->text !!}</p>
-            </div>
-        <div class="card-footer text-white  bg-secondary  border-secondary">โพสต์เมื่อวันที่ {{date('j/n/Y H:i', strtotime($c->created_at))}}  &nbsp;  &nbsp; <b> โดย</b> {{$c->user['name']}}</div>
-    </div>
-
-
-
-
+        <div class="card"> 
+            <div class="form-group">
+                     {{Form::label('text', 'ความคิดเห็นที่')}}{{ $count }}
+                
+                     <p hidden>{{$count++}}</p>
+                  <p>  {!! $c->text !!}</p>
+                  {{$c->user['name']}} {{date('j M Y', strtotime($c->created_at))}}
+                </div>
+            </div> 
+        
+        
+            <hr>
     @endforeach
     @endif
-    <br>
-    <h4>แสดงความคิดเห็น</h4>
     <div class="card">    
     <div class="form-group">
         {!!Form::open(['action' => 'CommentController@store', 'method' => 'POST'])!!}
-         @if(Auth::user()->id == $post->user_id or Auth::user()->role_id == 1 or Auth::user()->role_id == 2)
+            {{Form::label('text', 'แสดงความคิดเห็น')}}
+            @if(Auth::user()->id == $post->user_id or Auth::user()->role_id == 1 or Auth::user()->role_id == 2)
             {{Form::textarea('text', '', ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'ใส่ข้อความที่ต้องการ'])}}
             @else
             {{Form::textarea('text', '', ['class' => 'form-control', 'placeholder' => 'ใส่ข้อความที่ต้องการ'])}}

@@ -3,10 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -22,9 +19,6 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Athiti" rel="stylesheet">
     <style>
-    a:link,a:hover,a:visited{
-        color:whitesmoke;
-    }
     </style>
     <!-- Styles -->
     <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
@@ -32,16 +26,18 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-laravel navbar-dark bg-dark" style="height:70px;">
-            <a class="navbar-brand" href="{{ url('/') }}" style="width:180px;margin-left:0px;margin-top:3px;margin-right:950px">
-            <img src="<?php echo asset('assets/img/logofull.png'); ?>"style="width:180px;margin-bottom:-10px;">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-            </button>
-
+        <nav class="navbar navbar-expand-md navbar-laravel" style="height:110px;padding-top:30px;margin-bottom:15px;">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                <img src="<?php echo asset('assets/img/logofull.png'); ?>"style="width:30%;margin-left:10px">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                    </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav float-right" style="margin-bottom:0px;width:300px;font-size:18px;">
+                    <ul class="navbar-nav" style="margin-bottom:-40;width:300px;font-size:22px;margin-right:-100;">
                         <!-- Authentication Links -->
                         @guest
                             <li >
@@ -73,6 +69,7 @@
                         @endguest
                     </ul>
                 </div>
+            </div>
         </nav>
 
         <main class="py-4">

@@ -31,7 +31,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
 </head>
 <body style="background-image: s">
-    @auth
+@auth
    <!--The user is authenticated...-->
     @include('inc.nav') 
     @endauth

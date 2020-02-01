@@ -30,6 +30,7 @@ html, body {
     padding-left: 60px; 
 }
 .seccontent{
+    color: #dddddd;
     font-size: 26px;
     margin-top: -50px;
 }
@@ -39,7 +40,7 @@ html, body {
 }
 
 .seccontent > a {
-    color: #dddddd;
+    color: #E2E2E2;
     padding: 0 25px;
     font-size: 26px;
     font-weight: 600;

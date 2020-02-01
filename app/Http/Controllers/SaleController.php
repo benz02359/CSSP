@@ -105,7 +105,7 @@ class SaleController extends Controller
         'name' => $request['name'],
         'username' => $request['username'],
         'email' => $request['email'],
-        'company_id' => $company->id,
+        'company' => $company->id,
         'role_id' => $request['status'],    
         'approve' => $request['approve'], 
         'admin' => $request['admin'],   

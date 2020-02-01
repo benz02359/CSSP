@@ -77,7 +77,7 @@
             @else
             <li class="nav-item" style="color:#FFF;font-size:22px">
                     <a class="nav-link" 
-                     @if(Auth::user()->role_id === 1 or Auth::user()->role_id === 2)
+                     @if(Auth::user()->role_id == 1 or Auth::user()->role_id == 2)
                         href="/posts/create"
                         @else 
                         href="/posts/create/createquestion"
