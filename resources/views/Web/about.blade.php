@@ -36,14 +36,21 @@
                 <div class="title m-b-md">
                 <b>  ABOUT US </b>
                 </div>
-
+                <br>
                 <div class="seccontent">
                 <a href="https://www.facebook.com/unixdevth/" target="_blank">
                     <i style="font-size:24px" class="fa">&#xf082;</i>  Unixdev Co.,Ltd
-                </a><br>
-                <a href="#">
+                </a>
+                <br>
+                <a href="https://www.unixdev.co.th/" target="_blank">
+                    <i style="font-size:24px" class="fa fa-bookmark"></i> unixdev.co.th
+                </a>
+                <br>
+                <a>
                     <i style="font-size:24px" class="fa">&#xf098;</i>  081-651-9393</a><br>
-                    <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=thailand&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.org">how embed google map mobile responsive</a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>
+
+
+                    <div style="margin-top:20px"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15499.732560847733!2d100.546273!3d13.782904!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb1cf8e49b39937be!2z4Lia4Lij4Li04Lip4Lix4LiXIOC4ouC4ueC4meC4tOC4geC4i-C5jOC5gOC4lOC4nyDguIjguLPguIHguLHguJQgKFVuaXhkZXYgQ28uLCBMdGQuKQ!5e0!3m2!1sth!2sth!4v1580497198141!5m2!1sth!2sth" width="500" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe></div>
                 </div>
             </div>
        

@@ -24,6 +24,10 @@
     {!! Form::select('company', $company, null, ['class' => 'form-control']) !!} 
 </div>-->
 <div class="form-group">
+            {{Form::label('price', 'ราคาโปรแกรม')}}
+            {{Form::text('price','',['class' => 'form-control','placeholder' => 'ราคาโปรแกรม'])}}
+</div> 
+<div class="form-group">
     {{Form::label('sold', 'วันที่ขาย')}}
     <input type="date" name="sold" value="sold">
 </div>

@@ -36,15 +36,20 @@
         <!-- Left Side Of Navbar -->
         <ul class="navbar-nav mr-auto " style="font-size:22px;margin-right:5px;">
             <li class="nav-item active">
-                <a class="nav-link" href="/posts">ตอบปัญหา<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/posts">ตอบปัญหา<span class="sr-only"></a>
             </li>
             <li class="nav-item" style="color:#FFF;font-size:22px">
-                    <a class="nav-link" 
-                     @if(Auth::user()->role_id == 1 or Auth::user()->role_id == 2)
-                        href="/posts/create"
+                    <a class="nav-link"
+                    @guest
+                        
+                    @endguest
+                    @if(Auth::user()->role_id === 1 or Auth::user()->role_id === 2)
+                        href="/posts/create">
                         @else 
-                        href="/posts/create/createquestion"
-                    @endif>ตั้งกระทู้ใหม่</a>
+                        href="/posts/create/createquestion">
+                    @endif 
+                    
+                    ตั้งกระทู้ใหม่ </a>
                 </li>
             <!--<li class="nav-item active">
                     <a class="nav-link" href="/tags">แท็ก <span class="sr-only">(current)</span></a>
@@ -74,21 +79,23 @@
             @else
             <li class="nav-item" style="color:#FFF;font-size:22px">
                     <a class="nav-link" 
-                     @if(Auth::user()->role_id == 1 or Auth::user()->role_id == 2)
-                        href="/posts/create"
+                     @if(Auth::user()->role_id === 1 or Auth::user()->role_id === 2)
+                        href="/posts/create">
                         @else 
-                        href="/posts/create/createquestion"
-                    @endif></a>
+                        href="/posts/create/createquestion">
+                    @endif</a>
                 </li>
+
                 <li class="nav-item dropdown" style="font-size:22px;margin-top:3px">
                     
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
 
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="font-align:center;font-size:20px">
-                        <a class="dropdown-item" href="#">หน้าของฉัน</a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="font-size:20px">
+                        <!--<a class="dropdown-item" href="">หน้าของฉัน</a>-->
                         <a class="dropdown-item" href="/userprofile">ข้อมูลส่วนตัว</a>
+                        <a class="dropdown-item" href="/changePassword">เปลี่ยนรหัสผ่าน</a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">

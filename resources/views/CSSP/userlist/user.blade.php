@@ -1,8 +1,12 @@
 @extends('cssp.layouts.master')
 
 @section('content')
+<br>
+	<div class="row">
+        <div class="col-9" style="padding-left:32px"><h2><b>รายชื่อผู้ใช้</b></h2></div>
+        <div class="col-3" style="padding-left:130px;padding-bottom:16px"><a  href="/registerstaff"   class="btn btn-outline-secondary right">เพิ่มรายชื่อ</a></div>
+    </div>
 
-<h1>รายชื่อผู้ใช้ </h1><a href="/registerstaff" class="btn btn-primary">เพิ่มรายชื่อ</a>
     <!--@if (count($users) > 0)
         @foreach ($users as $user)
                   
@@ -17,10 +21,11 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th>#</th>
-						<th>ชื่อ</th>
+					<th>ชื่อ-นามสกุล</th>
+						<th>ชื่อผู้ใช้งาน</th>
 						<th>บริษัท</th>
-						<th>สถานะ</th>
+						<th>ตำแหน่ง</th>
+						<th>สถานะการใช้งาน</th>
 					</tr>
 				</thead>
 
@@ -28,19 +33,17 @@
 					
 					@foreach ($users as $userl)
 					<tr>
-						<th></th>
 						<td>{{ $userl->name }}</td>
 						<td>{{$userl->username}}</td>
                         <td>{{ $userl->company['name']}}</td>
                         <td>{{ $userl->role->name}}</td>
 					<td><select>
+
 						<option value="1">ใช้งานได้</option>
 						<option value="0">รออนุมัติ</option>
 						<option value="2">ระงับการใช้งาน</option>
-					<option value="{{$userl->approve}}" selected>{{$userl->approve}}</option>
+						<option value="{{$userl->approve}}" selected>{{$userl->approve}}</option>
 						</select></td>
-						
-						<td><a href="{{ route('staffs.show', $userl->id ) }}" class="btn btn-default btn-xs">View</a></td>
 					</tr>
 					@endforeach
 					

@@ -31,7 +31,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
 </head>
 <body style="background-image: s">
-    @include('inc.nav')  
+    @auth
+   <!--The user is authenticated...-->
+    @include('inc.nav') 
+    @endauth
+
+    @guest
+    @include('inc.guestnav') 
+    <!--The user is not authenticated...-->
+
+    @endguest
+
     <main class="py-4">
         <div class="container">
             @include('inc.messages')

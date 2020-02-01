@@ -13,22 +13,19 @@
 			<table class="table teble-light" style="font-size:20px">
 				<thead  class="thead-dark">
 					<tr style="text-align: center;">
-						<th style="width:45px;">ลำดับ</th>
 						<th style="width:150px;">ชื่อแผนก</th>
 						<th style="width:45px;">จำนวนพนักงาน</th>
 						<th>แก้ไขชื่อแผนก</th>
 						<th>ลบแผนก</th>
 					</tr>
-				</thead>
-                @if (count($departments) > 0)
+				@if (count($departments) > 0)
 				<tbody>
-					@foreach ($departments as $dep)
-					<tr style="text-align: center;">
-                    <th>{{$dep->id}}</th>
+					@foreach ($departments as $dep) 
+			
 						<td><a href="{{ route('departments.show', $dep->id) }}">{{ $dep->name}}</a></td>
 						<td style="width:70px;"><a >พนักงาน {{ $dep->staff()->count() }} คน</></a></td>
 						<td style="width:22%;">
-							<a style="color:#F3E034;font-size:16px;" href="{{ route('departments.edit', $dep->id) }}" class="btn btn-outline-warning">แก้ไขชื่อแผนก</a>
+							<a style="color:#c9a44e;font-size:16px;" href="{{ route('departments.edit', $dep->id) }}" class="btn btn-outline-warning">แก้ไขชื่อแผนก</a>
 						</td>
 						<td style="width:10%;">
 						{{ Form::open(['route' => ['departments.destroy', $dep->id], 'method' => 'DELETE' , 'onsubmit' => 'return confirm("ต้องการที่จะลบใช่ไหม?")' ]) }}

@@ -3,7 +3,7 @@
 @section('content')
 <style>
 .a_program, .a_program:hover{
-    font-size:20px;
+    font-size:16px;
     color: #000;
 }
 </style>
@@ -38,11 +38,10 @@
                     <tbody>
                         
                         @foreach ($programs as $pro)
-                        
                         <tr>
                             <td><a class="a_program" href="{{ route('programs.show', $pro->id ) }}" class="btn btn-default btn-xs">{{ $pro->name }}</a></td>            
                             <td><a class="a_program" href="{{ route('companies.show', $pro->company->id ) }}" class="btn btn-default btn-xs">{{ $pro->company->name }}</a></td>
-                            <td style="text-align:center;">{{$solddate = date('d F', strtotime($pro->solddate))}} {{$solddate = date("Y",strtotime($pro->solddate))+543}}</td>
+                            <td style="text-align:center;">{{$solddate = date('d F', strtotime($pro->solddate))}} {{$solddate = date("Y",strtotime($pro->solddate))+543}} </td>
                             <td style="text-align:center;">{{$startdate = date('d F', strtotime($pro->startdate))}} {{$solddate = date("Y",strtotime($pro->solddate))+543}}</td>
                             <td style="text-align:center;">{{$enddate = date('d F', strtotime($pro->enddate))}} {{$solddate = date("Y",strtotime($pro->solddate))+543}}</td>
                             <!--<td><a href="{{ route('programs.show', $pro->id ) }}" class="btn btn-default btn-xs">View</a></td>-->

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('web.app')
 
 @section('content')
 <div class="container">
@@ -10,7 +10,7 @@
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                            {{ __('คำขอเปลี่ยนรหัสผ่านถูกส่งไปยังอีเมลของคุณ') }}
                         </div>
                     @endif
 
@@ -34,7 +34,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
+                                    {{ __('ส่งคำขอเปลี่ยนรหัสผ่าน') }}
                                 </button>
                             </div>
                         </div>

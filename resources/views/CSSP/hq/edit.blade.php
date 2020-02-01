@@ -43,7 +43,7 @@ button a:hover,button a:link{
     color: black;
 }
 .resize{
-    height:
+ 
 }
     </style>
 <diV style="margin:15px 0px 15px 0px"></diV>
@@ -65,13 +65,8 @@ button a:hover,button a:link{
                     {{Form::label('email', 'อีเมล')}}
                     {{Form::text('email',$hq->email,['class' => 'form-control','placeholder' => 'E-mail'])}}
                 </div>
-                <button class="example_hq" style=" margin-left:110px;margin-bottom:18px;margin-top:8px" onclick="goBack()" >Go Back</button>
-                <script>
-                    function goBack() {
-                        window.history.back();
-                    }
-                </script>
+                
                 {{Form::hidden('_method','PUT')}}
-                {{Form::submit('Submit',['class' => 'example_hq','class' => 'submitbutton'])}} 
+                {{Form::submit('Submit',['class' => 'btn btn-outline-success foat-center'])}} 
     </div>
 @endsection

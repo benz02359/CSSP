@@ -1,12 +1,7 @@
 @extends('cssp.layouts.master')
 
 @section('content')
-<button class="btn btn-outline-warning" onclick="goBack()" >Go Back</button>
-<script>
-    function goBack() {
-        window.history.back();
-    }
-</script>
+
 <hr>
     <h1>ชื่อ: {{$program->name}}</h1>
     <p>รายละเอียด: {{$program->detail}}</p>

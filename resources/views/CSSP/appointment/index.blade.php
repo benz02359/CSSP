@@ -33,6 +33,7 @@ td a,a.link:hover{
    text-decoration: none;
 }
     </style>
+
 <div>
         <div class="row">
             <div class="col-md-11 col-md-offset-3">
@@ -40,8 +41,11 @@ td a,a.link:hover{
                     
                     
                     <div class="panel-body">
-                        <a href="/posts/create" class="example_appoint" style="margin: 20px 0px 15px 0px">ตั้งกระทู้</a>
-                        <h1><b>กระทู้ทั้งหมด</b></h1>
+                    <br><div class="row">
+                        <div class="col-9" style="padding-left:32px"><h2><b>กระทู้ทั้งหมด</b></h2></div>
+                        <div class="col-3" style="padding-left:130px;padding-bottom:16px"><a href="/posts/create"  class="btn btn-outline-secondary right">ตั้งกระทู้</a></div>
+                        </div>
+
                         @if(count($posts) > 0)
                             <table class="table table-light table-bordered table-hover table-striped" style="font-size:15px">
                                 <tr class="thead-dark" style="text-align: center;">
