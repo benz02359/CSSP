@@ -1,4 +1,8 @@
-@extends('layouts.app')
+
+@if(Auth::user()->id == $post->user_id or Auth::user()->role_id == 1 or Auth::user()->role_id == 2)
+            {{Form::textarea('text', '', ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'ใส่ข้อความที่ต้องการ'])}}
+            @else
+            {{Form::textarea('text', '', ['class' => 'form-control', 'placeholder' => 'ใส่ข้อความที่ต้องการ'])}}@extends('layouts.app')
 
 @section('content')
 <a href="/posts" class="btn btn-primary">กลับ</a>

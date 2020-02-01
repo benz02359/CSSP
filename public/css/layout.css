@@ -14,7 +14,10 @@ html, body {
 .navbar{
     background-color: #eeeeee00;
 }
-
+.btnforget{
+    text-decoration: none;
+    color: #474747b2;
+}
 .navbar a:link,a:hover,a:visited{
     color: #eeeeee;
 }
