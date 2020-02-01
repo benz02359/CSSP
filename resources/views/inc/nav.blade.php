@@ -86,13 +86,8 @@
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
 
-
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="font-align:center;font-size:20px">
                         <a class="dropdown-item" href="#">หน้าของฉัน</a>
-
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="font-size:20px">
-                        <!--<a class="dropdown-item" href="">หน้าของฉัน</a>-->
-
                         <a class="dropdown-item" href="/userprofile">ข้อมูลส่วนตัว</a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();

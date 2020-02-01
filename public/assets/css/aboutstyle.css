@@ -30,7 +30,6 @@ html, body {
     padding-left: 60px; 
 }
 .seccontent{
-    color: #dddddd;
     font-size: 26px;
     margin-top: -50px;
 }
@@ -40,7 +39,7 @@ html, body {
 }
 
 .seccontent > a {
-    color: #E2E2E2;
+    color: #513ABE;
     padding: 0 25px;
     font-size: 26px;
     font-weight: 600;
@@ -49,7 +48,7 @@ html, body {
     text-transform: uppercase;
 }
 .links > a {
-    color: #dddddd;
+    color: #513ABE;
     padding: 0 25px;
     font-size: 26px;
     font-weight: 600;

@@ -2108,7 +2108,7 @@ textarea.form-control {
 }
 
 .form-group {
-  margin-bottom: 0;
+  margin-bottom: 1rem;
 }
 
 .form-text {
@@ -3165,12 +3165,12 @@ fieldset:disabled a.btn {
 
 .btn-link:hover {
   color: #1d68a7;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .btn-link:focus,
 .btn-link.focus {
-  text-decoration: none;
+  text-decoration: underline;
   box-shadow: none;
 }
 
@@ -6896,7 +6896,7 @@ button.bg-dark:focus {
 }
 
 .border-warning {
-  border-color: #ea9115 !important;
+  border-color: #ffed4a !important;
 }
 
 .border-danger {
