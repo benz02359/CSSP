@@ -19,7 +19,7 @@
 						<th>ลบแผนก</th>
 					</tr>
 				@if (count($departments) > 0)
-				<tbody>
+				<tbody style="text-align: center">
 					@foreach ($departments as $dep) 
 			
 						<td><a href="{{ route('departments.show', $dep->id) }}">{{ $dep->name}}</a></td>

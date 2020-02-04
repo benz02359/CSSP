@@ -24,22 +24,21 @@
   <div class="card-footer border-warning" style="color:#FFF;background-color:#db851c">
   <div class="row">
         <div class="col-9 row">
-        &nbsp; โพสต์เมื่อวันที่ {{date('j/n/Y H:i', strtotime($post->created_at))}}  &nbsp;  &nbsp;<h5> <b> โดย</b> {{$post->user['name']}}. <b>บริษัท</b> {{$post->user->company['name']}} </h5>
+        &nbsp; โพสต์เมื่อวันที่ {{date('j/n/Y H:i', strtotime($post->created_at))}}  &nbsp;  &nbsp;<h5> <b> โดย</b> {{$post->user['name']}}. <b>บริษัท</b> {{$post->user->company['name']}} <b>โปรแกรม</b> {{$post->program['name']}} </h5>
         </div>
         <div class="col-3">
 
 
     @if(!Auth::guest())
     @if(Auth::user()->id == $post->user_id or Auth::user()->role_id == 1 or Auth::user()->role_id == 2)
-            <!--<a href="/posts/{{$post->id}}/edit" class="btn btn-primary">แก้ไข</a>-->
             
-             {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'float-right', 'style' => 'style="padding:2px 15px 2px 15px"'])!!}
+
+             {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'class' => 'float-right', 'style' => 'style="padding:2px 15px 2px 15px"', 'method' => 'DELETE', 'onsubmit' => 'return confirm("ต้องการที่จะลบใช่ไหม?")'])!!}
                 {{Form::hidden('_method', 'DELETE')}}
                 {{Form::submit('ลบกระทู้', ['class' => 'btn btn-danger bt'])}}
             {!!Form::close()!!}
-            
-       <a href="/posts/{{$post->id}}/edit" class="btn btn-warning float-right" style="padding:2px 15px 2px 15px">แก้ไข</a>
-            
+
+            <a href="/posts/{{$post->id}}/edit" class="btn btn-warning float-right" style="padding:2px 15px 2px 15px">แก้ไข</a>
         @endif
     @endif
     </div>

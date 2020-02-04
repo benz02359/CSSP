@@ -8,6 +8,7 @@ use App\User;
 use App\Staff;
 use DB;
 use Mail;
+use Illuminate\Support\Facades\Auth;
 
 class AppointmentController extends Controller
 {
@@ -23,7 +24,14 @@ class AppointmentController extends Controller
         //$posts = post::all();
         //$poststaff = post::find('');
         $staff = Staff::pluck('name', 'id');
-        
+        /*if(Auth::check()){
+            //return view('cssp.appointment.index',compact('posts',$posts,'staff',$staff))->with('posts',$posts,'staff',$staff);
+            return view('web.home');
+        }
+        else {
+            return view('cssp.appointment.index',compact('posts',$posts,'staff',$staff))->with('posts',$posts,'staff',$staff);
+            //return view('web.home');
+        }*/
         
         return view('cssp.appointment.index',compact('posts',$posts,'staff',$staff))->with('posts',$posts,'staff',$staff);
     }

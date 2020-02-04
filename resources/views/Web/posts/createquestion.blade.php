@@ -30,22 +30,18 @@
             </table>
         </div>-->
         <div class="row">
-        {{ Form::label('category_id', 'Program:') }}
+        {{ Form::label('pro_id', 'Program:') }}
         <div >
-				<select class="form-control" name="category_id">
+				<select class="form-control" name="pro_id">
 					@foreach($program as $p)
-						<option value='{{$p}}'>{{ $p->name }}</option>
+						<option value="{{$p->id}}">{{ $p->name }}</option>
                     @endforeach
                 </select>
             </div>    
         </div>
         <hr>
         <input id="posttype_id" type="hidden" name="posttype_id" value="{{1}}">
-        {{ Form::label('tags', 'Tags:') }}
-		
-                
-        {!! Form::select('dep', $tags, $tags, ['class' => 'form-control select2-multi','name' => 'tags[]','multiple' => 'multiple']) !!} 
-
+        
 
         {{Form::submit('Submit',['class' => 'btn btn-primary'])}}
         

@@ -19,7 +19,8 @@ class ReportController extends Controller
     {
         $posts = post::all();
         $posttype = posttype::all();
-        $price = program::sum('price');
+        //$price = program::sum('price');
+        $price = program::all()->sum('price');
         $sales = sale::all();
         $post1 = Post::where('posttype_id','=','1')->count();
         $post2 = Post::where('posttype_id','=','2')->count();

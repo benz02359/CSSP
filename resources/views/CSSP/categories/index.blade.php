@@ -1,37 +1,32 @@
 @extends('cssp.layouts.master')
 
 @section('content')
-
-<div class="row">
-		<div class="col-md-8">
-			<h1>หมวดหมู่</h1>
-			<table class="table">
-				<thead>
-					<tr>
-						<th>#</th>
-						<th>ชื่อหมวด</th>
-					</tr>
-				</thead>
-
-				<tbody>
+<style>
+body{
+	font-size: 14px;
+}
+.dep tbody td a,.dep a.link,.dep a:hover,.dep a.link:hover{
+	color: #000;
+}
+</style>
+<br>
+<div class="row ">
+<div class="col-md-2"></div>
+		<div class="col-md-3">
+			<h2>หมวดหมู่</h2> <br>
 					@foreach ($categories as $category)
-					<tr>
-						<th>{{ $category->id }}</th>
-						<td><a href="{{ route('categories.show', $category->id) }}">{{ $category->name }}</a></td>
-					</tr>
+						<a style="text-align:center" href="{{ route('categories.show', $category->id) }}"><button type="button" class="list-group-item list-group-item-action">{{ $category->name }}</button></a>
+
 					@endforeach
-				</tbody>
-			</table>
 		</div> <!-- end of .col-md-8 -->
 
-		<div class="col-md-3">
+		<div style="width:30px"> </div>
+		<div class="col-md-3" style="text-align:center;margin-top:24px">
 			<div class="well">
 				{!! Form::open(['route' => 'categories.store', 'method' => 'POST']) !!}
-					<h2>หมวดหมู่ใหม่</h2>
-					{{ Form::label('name', 'ชื่อหมวดหมู่:') }}
-					{{ Form::text('name', null, ['class' => 'form-control']) }}
-
-					{{ Form::submit('สร้างหมวดหมู่ใหม่', ['class' => 'btn btn-primary btn-block btn-h1-spacing']) }}
+					<h3>เพิ่มหมวดหมู่</h3>
+					{{ Form::text('name', null, ['class' => 'form-control','placeholder' => 'ชื่อหมวดหมุ่']) }}
+					{{ Form::submit('สร้างหมวดหมู่ใหม่', ['class' => 'btn btn-outline-primary btn-block btn-h1-spacing']) }}
 				
 				{!! Form::close() !!}
 			</div>

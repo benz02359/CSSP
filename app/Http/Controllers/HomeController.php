@@ -20,7 +20,6 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
 use Illuminate\Support\Facades\Hash;
-
 use App\Userprofile;
 
 class HomeController extends Controller
@@ -36,16 +35,15 @@ class HomeController extends Controller
         
         $this->middleware('admin',['except' => ['registeruser']]);
     }*/
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     public function index()
     {
         /*return Userprofile::create([
@@ -104,39 +102,41 @@ class HomeController extends Controller
             
             return view('web.home');
         }
-
+        {
+            return view('web.approval');
+        }
+    }
+        public function showChangePasswordForm(){
+            return view('auth.changepassword');
+        }
+        public function changePassword(Request $request){
+    
+            if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
+                // The passwords matches
+                return redirect()->back()->with("error","รหัสผ่านไม่ตรงกัน กรุณาลองอีกครั้ง");
+            }
+    
+            if(strcmp($request->get('current-password'), $request->get('new-password')) == 0){
+                //Current password and new password are same
+                return redirect()->back()->with("error","รหัสผ่านใหม่ไม่สามารถเหมือนรหัสผ่านเดิมได้ กรุณาเปลี่ยนรหัสผ่านใหม่");
+            }
+    
+            $validatedData = $request->validate([
+                'current-password' => 'required',
+                'new-password' => 'required|string|min:6|confirmed',
+            ]);
+    
+            //Change Password
+            $user = Auth::user();
+            $user->password = bcrypt($request->get('new-password'));
+            $user->save();
+    
+            return redirect()->back()->with("success","เปลี่ยนรหัสผ่านเสร็จสิ้น !");
+    
+            }
+      
         
-    }
-    public function approval()
-    {
+        public function approval() {
         return view('web.approval');
-    }
-    public function showChangePasswordForm(){
-        return view('auth.changepassword');
-    }
-    public function changePassword(Request $request){
-
-        if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
-            // The passwords matches
-            return redirect()->back()->with("error","รหัสผ่านไม่ตรงกัน กรุณาลองอีกครั้ง");
         }
-
-        if(strcmp($request->get('current-password'), $request->get('new-password')) == 0){
-            //Current password and new password are same
-            return redirect()->back()->with("error","รหัสผ่านใหม่ไม่สามารถเหมือนรหัสผ่านเดิมได้ กรุณาเปลี่ยนรหัสผ่านใหม่");
-        }
-
-        $validatedData = $request->validate([
-            'current-password' => 'required',
-            'new-password' => 'required|string|min:6|confirmed',
-        ]);
-
-        //Change Password
-        $user = Auth::user();
-        $user->password = bcrypt($request->get('new-password'));
-        $user->save();
-
-        return redirect()->back()->with("success","เปลี่ยนรหัสผ่านเสร็จสิ้น !");
-
-    }
-}
+  }

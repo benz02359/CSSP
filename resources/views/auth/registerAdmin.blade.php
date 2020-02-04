@@ -25,7 +25,7 @@
                             </div>
                         </div>
 
-                                <input id="status" type="hidden" name="status" value="{{0}}"> 
+                                <input id="status" type="hidden" name="status" value="{{1}}"> 
                                 
                                 <input id="approve" type="hidden" name="approve" value="{{1}}"> 
                                 <input id="admin" type="hidden" name="admin" value="{{1}}">                      

@@ -1,58 +1,46 @@
 @extends('cssp.layouts.master')
 
 @section('content')
-<button class="btn btn-primary" onclick="goBack()" >Go Back</button>
-<script>
-    function goBack() {
-        window.history.back();
-    }
-</script>
+<style>
+.btndel{
+	width: 155px;
+	font-size:18px;
+}
+</style>
+<BR>
 <div class="row">
-		<div class="col-md-8">
-			<h1>หมวดหมู่ {{ $cate->name }}</h1> 
-			<h3>มีทั้งหมด {{ $cate->posts()->count() }}ปัญหา
-			{{ Form::open( ['action' => 'CategoryController@addcate', 'method' => "POST"]) }}
-			<input list="post_id" name="post_id">
-			<datalist id="post_id" name="post_id">
-			@foreach($posts as $p)
-			  <option value="{{$p->id}}">{{$p->title}}
-			@endforeach
-			</datalist>
-			<input id="cate_id" type="hidden" name="cate_id" value="{{$cate->id}}"> 
-			{{ Form::submit('เพิ่มปัญหา', ['class' => 'btn btn-success']) }}
-			{{ Form::close() }}</h3>
-		</div>
-		<div class="col-md-2">
-			<a href="{{ route('categories.edit', $cate->id) }}" class="btn btn-primary">แก้ไขชื่อหมวดหมู่</a>
-		</div>
-		<div class="col-md-2">
-			{{ Form::open(['route' => ['categories.destroy', $cate->id], 'method' => 'DELETE']) }}
-				{{ Form::submit('ลบหมวดหมู่', ['class' => 'btn btn-danger btn-block']) }}
-			{{ Form::close() }}
-		</div>
+		<div class="col-md-6">
+			<h2>หมวดหมู่ {{ $cate->name }}</h2> 
+			<h5>มีทั้งหมด {{ $postcate->count() }} ปัญหา
+			
+				{{ Form::open( ['action' => 'CategoryController@addcate', 'method' => "POST"]) }}
+					<select id="post_id" name="post_id">
+						<option>เลือกกระทู้ปัญหาที่ต้องการเพิ่ม</option>
+							@foreach($posts as $p)                              
+						<option value="{{$p->id}}">{{$p->title}}
+							@endforeach
+					</select>
+
+				<input id="cate_id" type="hidden" name="cate_id" value="{{$cate->id}}"> 
+				{{ Form::submit('เพิ่มปัญหา', ['class' => 'btn btn-success']) }}
+				{{ Form::close() }}</h5>
+			</div>
 	</div>
-	
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-4" style="text-align: center">
 			<table class="table">
 				<thead>
 					<tr>
-						<th>#</th>
-						<th>Title</th>
-						<th>Tags</th>
-						
-						<th></th>
+						<th>รายการปัญหาในหมวดหมู่{{ $cate->name }} </th>
 					</tr>
 				</thead>
 
 				<tbody>
 					@foreach ($postcate as $pc)
 					<tr>
-						<th></th>
 						@foreach($pc->post as $post)
 						<td><a href="/posts/{{$post->id}}">{{ $post->title}}</a></td>
 						@endforeach
-						<td></td>
 						<!--<td><a href="" class="btn btn-default btn-xs">View</a></td>-->
 					</tr>
 					@endforeach
@@ -61,5 +49,13 @@
 				</tbody>
 			</table>
 		</div>
+		<div class="col-md-1"> <br>  </div>
+		<div class="col-md-2"> 
+			<a style="width: 155px;font-size:18px" href="{{ route('categories.edit', $cate->id) }}" class="btn btn-outline-warning">แก้ไขชื่อหมวดหมู่</a>
+			 {{ Form::open(['route' => ['categories.destroy', $cate->id], 'method' => 'DELETE']) }}
+				{{ Form::submit('ลบหมวดหมู่', ['class' => 'btn btn-outline-danger btn-block btndel']) }}
+			{{ Form::close() }}  </div>
+		
+
 	</div>
 @endsection

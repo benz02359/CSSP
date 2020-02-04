@@ -1,5 +1,6 @@
 
 html, body {
+    color: #513ABE;
     font-family: 'Athiti', sans-serif;
     font-weight: 180;
     height: 100vh;
@@ -41,7 +42,7 @@ html, body {
 }
 
 .seccontent > a {
-    color: #dddddd;
+    color: #513ABE;
     padding: 0 25px;
     font-size: 26px;
     font-weight: 600;

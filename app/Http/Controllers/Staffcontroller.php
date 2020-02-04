@@ -135,7 +135,7 @@ class StaffController extends Controller
         $staff->position = $request->input('position');
         $staff->dep_id = $request->input('dep');
         $staff->save();
-        return redirect('/staffs')->with('success', 'Updated');
+        return redirect('/staffs')->with('success',"แก้ไขข้อมูลของ $staff->name เรียบร้อยแล้ว");
     }
 
     /**
@@ -148,6 +148,6 @@ class StaffController extends Controller
     {
         $staff = Staff::find($id);
         $staff->delete();
-        return redirect('/staffs')->with('success', 'Removed');
+        return redirect('/staffs')->with('success',"ลบข้อมูลของ $staff->name เรียบร้อยแล้ว  ");
     }
 }

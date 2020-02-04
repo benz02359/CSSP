@@ -69,26 +69,26 @@ class PostsController extends Controller
         $users = auth()->user();
         $program = $users->company->program;
         //$tags = Tag::all();
-        $tags = Tag::pluck ( 'name', 'id' );
+        //$tags = Tag::pluck ( 'name', 'id' );
         //return redirect('/posts/createquestion');
-        return view('web.posts.createquestion',compact('tags',$tags,'program',$program))->with('categories', $categories,'tags',$tags,'program',$program);
+        return view('web.posts.createquestion',compact(/*'tags',$tags,*/'program',$program))->with('categories', $categories,/*'tags',$tags,*/'program',$program);
     }
 
     public function createtalk()
     {
         $categories = Category::all();
         //$tags = Tag::all();
-        $tags = Tag::pluck ( 'name', 'id' );
+        //$tags = Tag::pluck ( 'name', 'id' );
         
-        return view('web.posts.createtalk',compact('tags',$tags))->with('categories', $categories,'tags',$tags);
+        return view('web.posts.createtalk')->with('categories', $categories);
     }
 
     public function createnews()
     {
         $categories = Category::all();
         //$tags = Tag::all();
-        $tags = Tag::pluck ( 'name', 'id' );
-        return view('web.posts.createnews',compact('tags',$tags))->with('categories', $categories,'tags',$tags);
+        //$tags = Tag::pluck ( 'name', 'id' );
+        return view('web.posts.createnews')->with('categories', $categories);
     }
 
     public function table()
@@ -107,8 +107,8 @@ class PostsController extends Controller
     {
         $categories = Category::all();
         //$tags = Tag::all();
-        $tags = Tag::pluck ( 'name', 'id' );
-        return view('web.posts.create',compact('tags',$tags))->with('categories', $categories,'tags',$tags);
+        //$tags = Tag::pluck ( 'name', 'id' );
+        return view('web.posts.create')->with('categories', $categories);
     }
 
     public function search(Request $request)
@@ -139,14 +139,15 @@ class PostsController extends Controller
         $post = new Post;
         $post->title = $request->input('title');
         $post->text = $request->input('text');
-        $post->category_id = $request->category_id;
+        $post->pro_id = $request->input('pro_id');
+        //$post->category_id = $request->category_id;
         $post->posttype_id = $request->input('postype_id');
         $post->user_id = auth()->user()->id;
         //$id = $post->id;  // get last id after insert.
         //$post->cover_image = $fileNameToStore;
         $post->save();
         
-        $post->tags()->sync($request->tags, false);
+        //$post->tags()->sync($request->tags, false);
         //if($request->input('postype_id') === 1){
 
         $data = array('name'=>"admin","body"=>"มีโพสใหม่");
@@ -168,10 +169,10 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        $pro = $post->program['name'];
+        //$pro = $post->program['name'];
         //$comment = Comment::where('post_id',$id)->first();
         $comments = $post['comments'];
-        return view('web.posts.show',compact('comments',$comments,'post',$post,'pro',$pro))->with('post',$post,'comments',$comments,'pro',$pro);
+        return view('web.posts.show',compact('comments',$comments,'post',$post))->with('post',$post,'comments',$comments);
     }
 
     /**

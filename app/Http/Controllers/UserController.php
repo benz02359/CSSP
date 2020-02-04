@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use App\Auth;
+use App\Notifications\PasswordReset;
 
 class UserController extends Controller
 {
@@ -30,5 +31,15 @@ class UserController extends Controller
         $user->delete();
 
         return redirect()->route('admin.users.index')->withMessage('ปฎิเสธเรียบร้อย');
+    }
+        /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+    $this->notify(new PasswordReset($token));
     }
 }

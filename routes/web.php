@@ -97,7 +97,6 @@ Route::get('registeruser', 'Auth\RegisterController@registeruser')->name('regist
 
 
 
-
 //Route::get('/home', 'HomeController@index')->name('home');
 
 //Web
@@ -128,6 +127,9 @@ Route::middleware(['approved'])->group(function () {
     Route::post('/changePassword','HomeController@changePassword')->name('changePassword');
 });
 Route::middleware(['admin'])->group(function () {
+    
+    Route::get('registeradmin', 'Auth\RegisterController@registeradmin')->name('registeradmin');
+    Route::get('registerforadmin', 'Auth\RegisterController@registerforadmin')->name('registerforadmin');
     //Approve
     Route::get('/users', 'UserController@index')->name('admin.users.index');
     Route::get('/users/{user_id}/approve', 'UserController@approve')->name('admin.users.approve');
@@ -135,10 +137,10 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/users/{user_id}/dimiss', 'UserController@dimiss')->name('admin.users.dimiss');
 
     //Regis
-    Route::get('registeradmin', 'Auth\RegisterController@registeradmin')->name('registeradmin');
+    
     Route::get('registerstaff', 'Auth\RegisterController@registerstaff')->name('registerstaff');
     Route::get('registeragent', 'Auth\RegisterController@registeragent')->name('registeragent');
-    Route::get('registerforadmin', 'Auth\RegisterController@registerforadmin')->name('registerforadmin');
+    
 
     //Appointment
     Route::resource('comment','CommentController');

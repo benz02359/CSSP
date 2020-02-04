@@ -18,6 +18,7 @@ class DepartmentController extends Controller
      */
     public function index()
     {
+        $i = 1;
         $departments = Department::all();
         return view('cssp.departments.index')->with('departments',$departments); 
     }
@@ -41,7 +42,7 @@ class DepartmentController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, array(
-            'name' => 'required|max:255|unique:tags'));
+            'name' => 'required|max:255|unique:departments'));
         
         $dep = new Department;
         $dep->name = $request->name;

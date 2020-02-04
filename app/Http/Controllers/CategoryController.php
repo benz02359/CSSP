@@ -42,7 +42,7 @@ class CategoryController extends Controller
         $category->category_id = $request->cate_id;
         $category->save();
 
-        Session::flash('success', 'New Category has been created');
+        Session::flash('success', 'เพิ่มปัญหาในหมวดหมู่นี้เรียบร้อย');
         return redirect()->back();
     }
 
@@ -62,7 +62,7 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->save();
 
-        Session::flash('success', 'New Category has been created');
+        Session::flash('success', 'สร้างหมวหมู่ใหม่เรียบร้อย');
         return redirect('/categories');
     }
 
@@ -108,7 +108,7 @@ class CategoryController extends Controller
         $cate->name = $request->name;
 
         $cate->save();
-        Session::flash('success', 'Successfully saved your new Category!');
+        Session::flash('success', 'แก้ไขข้อมูลหมวดหมู่นี้เรียบร้อย');
         return redirect()->route('categories.show', $cate->id);
     }
 
@@ -123,7 +123,7 @@ class CategoryController extends Controller
         $cate = Category::find($id);
         $cate->posts()->detach();
         $cate->delete();
-        Session::flash('success', 'Category was deleted successfully');
+        Session::flash('success', 'ลบหมวดหมู่นี้เรียบร้อย');
         return redirect()->route('categories.index');
     }
 }

@@ -178,7 +178,7 @@
 				   
 			<!-- end -------------------------------------------------------------------------- user-->
 				  		 <input id="status" type="hidden" name="status" value="{{4}}"> 
-                        <input id="approve" type="hidden" name="approve" value="{{0}}">
+                        <input id="approve" type="hidden" name="approve" value="{{1}}">
                         <input id="admin" type="hidden" name="admin" value="{{0}}">
 					</form>
 				</div>

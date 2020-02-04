@@ -17,7 +17,7 @@ class CreateProgramsTable extends Migration
             $table->bigIncrements('id')->unique();            
             $table->string('name');
             $table->string('detail');
-            $table->string('maintainstatus');
+            //$table->string('maintainstatus');
             $table->date('solddate');
             $table->date('startdate');
             $table->date('enddate');

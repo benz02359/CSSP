@@ -30,11 +30,11 @@
             </table>
         </div>-->
         <div class="row">
-        {{ Form::label('category_id', 'Category:') }}
+        {{ Form::label('pro_id', 'Category:') }}
         <div >
-				<select class="form-control" name="category_id">
-					@foreach($categories as $category)
-						<option value='{{ $category->id }}'>{{ $category->name }}</option>
+        <select class="form-control" name="pro_id">
+					@foreach($program as $p)
+						<option value="{{$p->id}}">{{ $p->name }}</option>
                     @endforeach
                 </select>
             </div>    
@@ -42,12 +42,7 @@
         <hr>
         <input id="posttype_id" type="hidden" name="posttype_id" value="{{2}}">
 
-        {{ Form::label('tags', 'Tags:') }}
-		
-                
-        {!! Form::select('dep', $tags, $tags, ['class' => 'form-control select2-multi','name' => 'tags[]','multiple' => 'multiple']) !!} 
-
-
+        
         {{Form::submit('Submit',['class' => 'btn btn-primary'])}}
         
     {!! Form::close() !!}   

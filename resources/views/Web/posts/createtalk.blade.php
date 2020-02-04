@@ -41,10 +41,7 @@
         </div>
         <hr>
         <input id="posttype_id" type="hidden" name="posttype_id" value="{{3}}">
-        {{ Form::label('tags', 'Tags:') }}
-		
-                
-        {!! Form::select('dep', $tags, $tags, ['class' => 'form-control select2-multi','name' => 'tags[]','multiple' => 'multiple']) !!} 
+         
 
 
         {{Form::submit('Submit',['class' => 'btn btn-primary'])}}

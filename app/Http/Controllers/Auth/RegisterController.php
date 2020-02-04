@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+
+
 use App\Notifications\NewUser;
 
 use App\User;
@@ -17,6 +19,8 @@ use Carbon\Carbon;
 use AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
+
+use Illuminate\Support\Facades\Auth;
 
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -103,8 +107,8 @@ class RegisterController extends Controller
             'approve' => $data['approve'], 
             'admin' => $data['admin'],   
             'password' => Hash::make($data['password']),
-            
         ]);
+
         if($data['status'] == 2){
             $staff = Staff::create([
                 'user_id' => $user->id,
@@ -132,13 +136,16 @@ class RegisterController extends Controller
             $userp->save();
             $user->save();
         }
+        if($data['status']== 1){
+            $user->save();
+        }
         
         $admin = User::where('admin', 1)->first();
         if ($admin) {
             
             $admin->notify(new NewUser($user));
         }
-    
+        
         return $user;
         }
         catch (\Illuminate\Database\QueryException $e) {
@@ -150,7 +157,7 @@ class RegisterController extends Controller
     protected function registeradmin()
     {
         
-        return view('auth.registeradmin')->with('date',$date);
+        return view('auth.registeradmin');
     }
     
     protected function registerstaff()
@@ -190,6 +197,25 @@ class RegisterController extends Controller
 
         //return $user;
     }*/
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        if(!Auth::guest()){
+            return back()->with('success','สร้างผู้ใช้เรียบร้อย');
+            //$this->guard()->login($user);
+            
+        }
+        else {
+            //return back()->with('success','สร้างผู้ใช้เรียบร้อย');
+            $this->guard()->login($user);
+            return $this->registered($request, $user)
+                        ?: redirect($this->redirectPath());
+            //return redirect('/home');
+        }
+    }
 
     
 }

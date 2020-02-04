@@ -16,7 +16,7 @@ class ProgramController extends Controller
      */
     public function index()
     {
-        $programs = Program::orderBy('id')->paginate(20);
+        $programs = Program::orderBy('solddate')->paginate(20);
         return view('cssp.programs.index')->with('programs',$programs); 
     }
 
@@ -57,7 +57,7 @@ class ProgramController extends Controller
         $program->detail = $request->input('detail');
         $program->price = $request->input('price');
         $program->company_id = $request->input('company');
-        $program->solddate = $request->input('sold')+543;
+        $program->solddate = $request->input('sold');
         $program->startdate = $request->input('start');
         $program->enddate = $request->input('end');
         //$post->cover_image = $fileNameToStore;
@@ -65,7 +65,7 @@ class ProgramController extends Controller
 
         if(($program->enddate > $program->startdate) && ($program->startdate > $program->solddate)){
             $program->save();
-            return redirect('/programs')->with('success', 'Created');
+            return redirect('/programs')->with('success', 'เพิ่มโปรแกรมที่ขายเรียบร้อยแล้ว');
         } else {
             Session::flash('error', 'กรุณาเปลี่ยนวันที่');
             return redirect()->back()->withInput();
