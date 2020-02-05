@@ -1,36 +1,9 @@
 html, body {
-    color: #eeeeee;
     font-family: 'Athiti', sans-serif;
-    background-image: url('../img/bgg.jpg');
-    background-attachment: fixed;
-    background-size: 100%;
-    font-weight: 200;
     height: 100vh;
     margin: 0;
-    font-weight: bolder;
-    font-size: 20px;
+    font-size: 18px;
 }
 .navbar{
     background-color: #eeeeee00;
-}
-
-
-.btn a:visited {
-    color: #ff9215;
-}
-.btn a:visited{
-    color: #ff9215;
-}
-.btn a:link{
-    color: #ff9215;
-}
-.card-header{
-    background-color: f1f1f1;
-    color: #ff9215;
-    font-weight: bolder;
-    font-size: 22px;
-}
-.card-body{
-    color: #ff9215;
-    font-weight: bolder;
 }

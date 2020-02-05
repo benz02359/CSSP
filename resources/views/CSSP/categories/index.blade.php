@@ -1,5 +1,8 @@
 @extends('cssp.layouts.master')
-
+<!-- title unixdev -->
+<title> หมวดหมู่ปัญหา </title>
+<!-- add icon link -->
+<link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">
 @section('content')
 <style>
 body{

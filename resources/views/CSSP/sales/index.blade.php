@@ -16,7 +16,7 @@
 
 <div class="row">
         <div class="col-md-11" >
-            <table class="table" style="background-color: white " >
+            <table class="table table-bordered table-hover" >
                 <thead class="thead-dark">
                     <tr>
                         <th>ชื่อบริษัทลูกค้า</th>

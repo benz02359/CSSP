@@ -1,5 +1,8 @@
 @extends('cssp.layouts.master')
-
+ <!-- title unixdev -->
+ <title> รายชื่อพนักงาน </title>
+<!-- add icon link -->
+<link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">
 @section('content')
 <style>
 .stf td a,.stf a.link,.stf a:hover,.stf a.link:hover{
@@ -9,6 +12,10 @@
 .stf th{
 	font-size:18px;
 	color: #FFF;
+}
+.det{
+  margin-top: 5px;
+  text-align: left;
 }
 </style>
 <br><div class="row">
@@ -30,13 +37,13 @@
     <div class="row stf">
 	<div class="col-md-1"></div>
 		<div class="col-md-8">
-			<table class="table table-light table-bordered table-hover table-striped" style="text-align:center">
+			<table class="table  table-bordered table-hover " style="text-align:center">
 				<thead class="thead-dark" >
 					<tr>
 						<th>ชื่อพนักงาน</th>
 						<th>ตำแหน่ง</th>
 						<th>แผนก</th>
-						<th style="width:120px">ดูข้อมูลเพิ่มเติม</th>
+						<th style="width:120px">ข้อมูลเพิ่มเติม</th>
 					</tr>
 				</thead>
 
@@ -48,7 +55,7 @@
 						
 						<td><a style="font-size:16px;">{{ $staff->name }}</a></td>
 						<td><a style="font-size:16px;">{{ $staff->position }}</a></td>
-						<td><a style="font-size:16px">{{ $staff->dep['name'] }}</a></td>
+						<td><a style="font-size:16px">{{ optional($staff->dep)['name'] }}</a></td>
 						<td><a class="btn btn-outline-info" href="{{ route('staffs.show', $staff->id ) }}">เพิ่มเติม</a></td>
 					</tr>
 					@endforeach

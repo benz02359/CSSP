@@ -1,8 +1,11 @@
 @extends('cssp.layouts.master')
-
+ <!-- title unixdev -->
+ <title> รายชื่อบริษัทและโปรแกรม </title>
+<!-- add icon link -->
+<link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">
 @section('content')
 <style>
-.com th,.com a:link,.com td a.link,.com td a.link:hover,.com td{
+.com a:link,.com td a.link,.com td a.link:hover,.com td,a:visited{
 	font-size:14px;
 	color:#000;
 }
@@ -24,7 +27,7 @@
     <div class="row com" style="margin-left:35px">
 		<div class="col-md-10">
 			<table class="table table-bordered" style="background-color: white " >
-				<thead class="thead-dark">
+				<thead class="thead-dark" style="font-size:20px">
 					<tr>
 						<th width='67%'>ชื่อบริษัท</th>
 						<th width='33%'>โปรแกรม</th>

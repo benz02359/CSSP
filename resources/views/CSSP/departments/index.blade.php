@@ -1,5 +1,8 @@
 @extends('cssp.layouts.master')
-
+   <!-- title unixdev -->
+   <title>แผนกในบริษัท</title>
+    <!-- add icon link -->
+    <link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">
 @section('content')
 <style>
 .dep tbody td a,.dep a.link,.dep a:hover,.dep a.link:hover{
@@ -8,26 +11,24 @@
 }
 </style>
 <div class="row dep">
-		<div class="col-md-8">
-			<h1 style="margin:16px 0px 15px 0px"><b>แผนกในบริษัท</b></h1>
-			<table class="table teble-light" style="font-size:20px">
+	<div class="col-md-1"></div>
+		<div class="col-md-6">
+			<h2 style="margin:16px 0px 15px 0px"><b>แผนกในบริษัท</b></h2>
+			<table class="table teble-light table-hover" style="font-size:17px">
 				<thead  class="thead-dark">
-					<tr style="text-align: center;">
-						<th style="width:150px;">ชื่อแผนก</th>
-						<th style="width:45px;">จำนวนพนักงาน</th>
-						<th>แก้ไขชื่อแผนก</th>
+					<tr>
+						<th style="width:100px;">ชื่อแผนก</th>
+						<th style="width:120px;text-align:center;">จำนวนพนักงาน</th>
 						<th>ลบแผนก</th>
 					</tr>
 				@if (count($departments) > 0)
-				<tbody style="text-align: center">
+				<tbody>
 					@foreach ($departments as $dep) 
 			
 						<td><a href="{{ route('departments.show', $dep->id) }}">{{ $dep->name}}</a></td>
-						<td style="width:70px;"><a >พนักงาน {{ $dep->staff()->count() }} คน</></a></td>
-						<td style="width:22%;">
-							<a style="color:#c9a44e;font-size:16px;" href="{{ route('departments.edit', $dep->id) }}" class="btn btn-outline-warning">แก้ไขชื่อแผนก</a>
-						</td>
-						<td style="width:10%;">
+						<td style="width:100px;text-align:center;"><a>พนักงาน {{ $dep->staff()->count() }} คน</></a></td>
+					
+						<td style="width:10%;font-size:14px;margin:-5px 0px -20px 0px;text-align: center;">
 						{{ Form::open(['route' => ['departments.destroy', $dep->id], 'method' => 'DELETE' , 'onsubmit' => 'return confirm("ต้องการที่จะลบใช่ไหม?")' ]) }}
 							{{ Form::submit('ลบแผนก', ['class' => 'btn btn-outline-danger'])}}
 						{{ Form::close() }}

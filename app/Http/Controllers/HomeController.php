@@ -137,6 +137,11 @@ class HomeController extends Controller
       
         
         public function approval() {
+        if(auth()->user()->approve === 0){
         return view('web.approval');
+        }
+        if(auth()->user()->approve === 2){
+            return view('web.ban');
+            }
         }
   }

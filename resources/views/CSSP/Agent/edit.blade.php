@@ -1,5 +1,8 @@
 @extends('layouts.app')
-
+<!-- title unixdev -->
+<title> แก้ไขกระทู้ </title>
+<!-- add icon link -->
+<link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">
 @section('content')
     <h1>Edit Post</h1>
     {!! Form::open(['action' => ['PostsController@update', $post->id], 'method' => 'PUT']) !!}

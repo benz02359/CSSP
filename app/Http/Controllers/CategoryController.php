@@ -104,11 +104,10 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $cate = Category::find($id);
-        $this->validate($request, ['name' => 'required|max:255|unique:tags']);
+        $this->validate($request, ['name' => 'required|max:255']);
         $cate->name = $request->name;
 
         $cate->save();
-        Session::flash('success', 'แก้ไขข้อมูลหมวดหมู่นี้เรียบร้อย');
         return redirect()->route('categories.show', $cate->id);
     }
 

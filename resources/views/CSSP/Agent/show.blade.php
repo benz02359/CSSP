@@ -1,5 +1,8 @@
 @extends('layouts.app')
-
+<!-- title unixdev -->
+<title> กระทู้ {{$post->title}} </title>
+<!-- add icon link -->
+<link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">
 @section('content')
 <a href="/posts" class="btn btn-primary">Back</a>
     <h1>{{$post->title}}</h1>

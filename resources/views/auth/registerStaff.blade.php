@@ -1,4 +1,8 @@
-@extends('cssp.layouts.master')
+
+   <!-- title unixdev -->
+   <title>เพิ่มรายชื่อพนักงาน</title>
+    <!-- add icon link -->
+    <link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">@extends('cssp.layouts.master')
 
 @section('content')
 <br>
@@ -6,10 +10,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('สมัครสมาชิกพนักงาน') }}</div>
+            <div class="card" style="box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);">
+                <div class="card-header" style="font-size:20px;background-color: #343A40;color:aliceblue"><b>{{ __('เพิ่มรายชื่อพนักงาน') }}</b></div>
 
-                <div class="card-body">
+                <div class="card-body" style="background-color: #FFF;">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -93,7 +97,6 @@
                             </div>
                         </div>
                         <input id="status" type="hidden" name="status" value="{{2}}">   
-                        
                         <input id="approve" type="hidden" name="approve" value="{{1}}">  
                         <input id="admin" type="hidden" name="admin" value="{{1}}">
                     </form>

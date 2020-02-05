@@ -7,11 +7,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-   <!-- title unixdev -->
-   <title> unixdev customer service</title>
-    <!-- add icon link -->
+   <!-- title unixdev 
+   <title> unixdev customer service</title>-->
+    <!-- add icon link 
     <link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon"> 
-
+    -->
     <!-- Scripts 
     <script src="{{ asset('js/app.js') }}" defer></script>-->
     <script type="text/javascript" rel="script" src="{{asset('js/app.js')}}"></script>

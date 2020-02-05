@@ -1,5 +1,8 @@
 @extends('cssp.layouts.master')
-
+<!-- title unixdev -->
+<title> แก้ไขหมวดหมู่ </title>
+<!-- add icon link -->
+<link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">
 @section('content')
 <button class="btn btn-primary" onclick="goBack()" >Go Back</button>
 <script>

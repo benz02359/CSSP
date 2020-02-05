@@ -43,12 +43,14 @@
                     @guest
                         
                     @endguest
+                    
+                    @auth
                     @if(Auth::user()->role_id === 1 or Auth::user()->role_id === 2)
                         href="/posts/create">
                         @else 
                         href="/posts/create/createquestion">
                     @endif 
-                    
+                    @endauth
                     ตั้งกระทู้ใหม่ </a>
                 </li>
             <!--<li class="nav-item active">

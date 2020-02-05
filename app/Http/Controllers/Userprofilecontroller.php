@@ -97,15 +97,17 @@ class UserprofileController extends Controller
         
 
         $user = User::find($id);
-        $userprofile = Userprofile::find($id,'user_id');
-        $this->validate($request, ['name' => 'required|max:255|unique:tags']);
+        $user_id = Userprofile::where('user_id','=',$id)->first();
+        $userprofile = Userprofile::find($user_id)->first();
+        //$this->validate($request, ['name' => 'required|max:255']);
         
         $user->name = $request->name;        
         $user->save();
 
         $userprofile->tel = $request->tel;  
         $userprofile->save();
-        Session::flash('success', 'Successfully saved your new tag!');
+
+        Session::flash('success', 'บันทึกการเปลี่ยนแปลง');
         return redirect()->route('userprofile.index', $user->id);
     }
 

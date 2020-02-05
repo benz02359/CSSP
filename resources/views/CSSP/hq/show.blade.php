@@ -32,7 +32,8 @@ button a:hover,button a:link{
 /* profile */
 /* Profile container */
 .profile {
-  margin: 10px 0px 20px 100px;
+  margin: 10px 0px 20px 80px;
+  
 }
 
 /* Profile sidebar */
@@ -40,7 +41,7 @@ button a:hover,button a:link{
   padding: 20px 0 10px 0;
   background: #efefef;
   border-radius: 5% !important;
-
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .profile-userpic img {
@@ -70,7 +71,7 @@ button a:hover,button a:link{
 }
 
 .profile-usertitle-name {
-  color: #5a7391;
+  color: #343A40;
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 7px;
@@ -78,7 +79,7 @@ button a:hover,button a:link{
 
 .profile-usertitle-job {
   text-transform: uppercase;
-  color: #5b9bd1;
+  color: #343A40;
   font-size: 12px;
   font-weight: 600;
   margin-bottom: 15px;

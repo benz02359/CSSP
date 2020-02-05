@@ -1,53 +1,35 @@
 @extends('cssp.layouts.master')
-
+ <!-- title unixdev -->
+ <title> แก้ไขข้อมูลบริษัท {{$program->name}} </title>
+<!-- add icon link -->
+<link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">
 @section('content')
 <style>
+.tstyle{
+    text-align: right;
+}
+.card{
+    background: white;
+    margin: 20px 70px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    width: 550px;
+    max-height: null;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
 .edit-hq{
-    width:700px;
-    margin-left:35px;
-    font-size:18px;
+    margin: 5px 20px
 }
-.example_hq {
-    color: #494949 !important;
-    text-transform: uppercase;
-    text-decoration: none;
-    margin-left: 20px;
-    padding: 2px 30px 2px 30px;
-    margin-top: 15px;
-    background: #ffffff;
-    border: 4px solid #f6b93b !important;
-    display: inline-block;
-    transition: all 0.4s ease 0s;
-}
-.example_hq:hover , .submitbutton:hover {
-    color: #ffffff !important;
-    background: #f6b93b;
-    border-color: #f6b93b !important;
-    transition: all 0.4s ease 0s;
-}
-.submitbutton{
-    margin-left:200px;
-    color: #494949 !important;
-    text-transform: uppercase;
-    text-decoration: none;
-    margin-left: 40px;
-    padding: 2px 35px 2px 35px;
-    margin-top: 15px;
-    background: #ffffff;
-    border: 4px solid #f6b93b !important;
-    display: inline-block;
-    transition: all 0.4s ease 0s;
-}
-button a:hover,button a:link{
-    text-decoration: none;
-    color: black;
-}
-.resize{
- 
-}
-    </style>
+</style><br>
+<button class="btn btn-outline-warning" onclick="goBack()" >ย้อนกลับ</button>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 <diV style="margin:15px 0px 15px 0px"></diV>
-    <h2><b>แก้ไขข้อมูล</b></h2>
+<div class="card"> 
+<div class="card-header" style="font-size: 22px;background-color: #343A40;color:aliceblue;border-radius: 12px 12px  0 0;"><b>แก้ไขข้อมูลโปรแกรม {{$program->name}} </b></div>
     <div class="edit-hq">
         {!! Form::open(['action' => ['HQController@update', $hq->id], 'method' => 'PUT']) !!}
         <div class="form-group">
@@ -65,8 +47,10 @@ button a:hover,button a:link{
                     {{Form::label('email', 'อีเมล')}}
                     {{Form::text('email',$hq->email,['class' => 'form-control','placeholder' => 'E-mail'])}}
                 </div>
-                
-                {{Form::hidden('_method','PUT')}}
-                {{Form::submit('Submit',['class' => 'btn btn-outline-success foat-center'])}} 
+        
+            <div class="form-group col-12" style="margin-left:160px">
+            {{Form::hidden('_method','PUT')}}
+            {{Form::submit('บันทึกการแก้ไข',['class' => 'btn btn-outline-success'])}}
+            </div>
     </div>
 @endsection

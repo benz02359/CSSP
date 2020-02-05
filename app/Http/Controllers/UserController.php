@@ -42,4 +42,22 @@ class UserController extends Controller
     {
     $this->notify(new PasswordReset($token));
     }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateapprove(Request $request, $id)
+    {
+        $user = User::find($id);
+        $user->update(['approved_at' => now()]);
+        $user->approve = $request->input('approve');
+        //$user->update(['approve' => $request('approve')]);
+        $user->save();
+
+        return redirect('/alluserlist')->withMessage('เปลี่ยนสถานะเรียบร้อย');
+    }
+    
 }

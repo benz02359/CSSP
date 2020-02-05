@@ -29,8 +29,8 @@
             @endforeach
             </table>
         </div>-->
-        <div class="row">
-        {{ Form::label('pro_id', 'Program:') }}
+        <div class="row"  style="margin-left:10px;">
+        {{ Form::label('pro_id', 'โปรแกรม:') }}
         <div >
 				<select class="form-control" name="pro_id">
 					@foreach($program as $p)
@@ -39,11 +39,12 @@
                 </select>
             </div>    
         </div>
-        <hr>
         <input id="posttype_id" type="hidden" name="posttype_id" value="{{1}}">
         
 
-        {{Form::submit('Submit',['class' => 'btn btn-primary'])}}
+        <div style="margin-left:500px;">
+        {{Form::submit('โพสต์ข่าว',['class' => 'btn btn-success'])}}
+        </div>
         
     {!! Form::close() !!}   
 </div>

@@ -156,9 +156,10 @@ Route::middleware(['admin'])->group(function () {
 
     //List
     Route::resource('userlist','UserlistController');
+    
     //AllUserList
     Route::resource('alluserlist','AllUserlistController');
-
+    Route::PUT('userlist/{user_id}/updateapprove','UserController@updateapprove');
     //Company
     Route::resource('companies','CompanyController');
     Route::get('/companies/{company_id}/editp', 'CompanyController@editp');

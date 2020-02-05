@@ -1,5 +1,8 @@
 @extends('cssp.layouts.master')
-
+<!-- title unixdev -->
+<title> มอบหมายงาน</title>
+<!-- add icon link -->
+<link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">
 @section('content')
 <style>
 .example_appoint {
@@ -49,10 +52,10 @@ td a,a.link:hover{
                         @if(count($posts) > 0)
                             <table class="table table-light table-bordered table-hover table-striped" style="font-size:15px">
                                 <tr class="thead-dark" style="text-align: center;">
-                                    <th style="width:260px;">หัวข้อกระทู้</th>
+                                    <th style="width:220px;">หัวข้อกระทู้</th>
                                     <th style="width:125px;">เวลาที่ตั้งกระทู้</th>
-                                    <th style="width:100px;">แก้ไขกระทู้</th>
-                                    <th style="width:160px;">พนักงานที่ได้รับมอบหมาย</th>
+                                    <th style="width:110px;">แก้ไขกระทู้</th>
+                                    <th style="width:170px;">พนักงานที่ได้รับมอบหมาย</th>
                                     <th style="width:10px;">เลือกพนักงาน</th>
                                     <th style="width:20px;">ยืนยัน</th>
                                 </tr>
@@ -62,7 +65,12 @@ td a,a.link:hover{
                                         <td style="text-align: center;"><small>{{$post->created_at}}</small></td>
                                         <td style="text-align: center;"><a href="/posts/{{$post->id}}/edit" class="btn btn-outline-warning"> แก้ไขกระทู้ </a></td>
                                         <td style="text-align: center;">
+                                        @if($post->staff == null)
+                                            ยังไม่มีพนักงานที่มอบหมาย
+                                        @else
                                             {{$post->staff['name']}}
+                                            
+                                        @endif
                                         </td>
                                         <td style="text-align: center;">                                                                                           
                                             {!!Form::open(['action' => ['AppointmentController@update', $post->id], 'method' => 'PUT', 'class' => 'pull-right'])!!}

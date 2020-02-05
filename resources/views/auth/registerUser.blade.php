@@ -12,7 +12,7 @@
 			background: #E1E1E1 !important;
 		}
 		.user_card {
-			height: 530px;
+			height: 510px;
 			width: 600px;
 			margin-top: auto;
 			margin-bottom: auto;
@@ -178,7 +178,7 @@
 				   
 			<!-- end -------------------------------------------------------------------------- user-->
 				  		 <input id="status" type="hidden" name="status" value="{{4}}"> 
-                        <input id="approve" type="hidden" name="approve" value="{{1}}">
+                        <input id="approve" type="hidden" name="approve" value="{{0}}">
                         <input id="admin" type="hidden" name="admin" value="{{0}}">
 					</form>
 				</div>

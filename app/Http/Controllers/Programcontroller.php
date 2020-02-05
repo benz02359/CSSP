@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Program;
 use App\Company;
+use App\Sale;
 use Session;
 
 class ProgramController extends Controller
@@ -41,6 +42,9 @@ class ProgramController extends Controller
      */
     public function store(Request $request)
     {
+        try {
+            // do your database transaction here
+        
         $this->validate($request, [
             'name' => 'required',
             'detail' => 'required',
@@ -61,14 +65,37 @@ class ProgramController extends Controller
         $program->startdate = $request->input('start');
         $program->enddate = $request->input('end');
         //$post->cover_image = $fileNameToStore;
+
+        
+
+        /*$sale = Sale::create([
+            'company_id' => $company->id,
+            'pro_id' => $program->id,
+            //'detail' => $request['detail'],
+            ]); */
+
         
 
         if(($program->enddate > $program->startdate) && ($program->startdate > $program->solddate)){
             $program->save();
+            $sale = new Sale;
+            $sale->company_id = $request->input('company');
+            $sale->pro_id = $program->id;
+            $sale->save();
             return redirect('/programs')->with('success', 'เพิ่มโปรแกรมที่ขายเรียบร้อยแล้ว');
         } else {
             Session::flash('error', 'กรุณาเปลี่ยนวันที่');
             return redirect()->back()->withInput();
+        }
+        
+        
+        }
+        catch (\Illuminate\Database\QueryException $e) {
+            // something went wrong with the transaction, rollback
+        } catch (\Exception $e) {
+            Session::flash('error', 'บางอย่างไม่ถูกต้อง');
+            return redirect()->back()->withinput();
+            // something went wrong elsewhere, handle gracefully
         }
         
         

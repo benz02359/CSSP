@@ -1,5 +1,8 @@
 @extends('cssp.layouts.master')
-
+<!-- title unixdev -->
+<title> รายละเอียดหมวดหมู่{{ $cate->name }} </title>
+<!-- add icon link -->
+<link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">
 @section('content')
 <style>
 .btndel{
@@ -51,7 +54,31 @@
 		</div>
 		<div class="col-md-1"> <br>  </div>
 		<div class="col-md-2"> 
-			<a style="width: 155px;font-size:18px" href="{{ route('categories.edit', $cate->id) }}" class="btn btn-outline-warning">แก้ไขชื่อหมวดหมู่</a>
+			<!-- Button trigger modal -->
+			<button style="width: 155px;font-size:18px"  class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+			แก้ไขชื่อหมวดหมู่
+			</button>
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">แก้ไขชื่อหมวดหมู่</h5>
+					</button>
+				</div>
+				<div class="modal-body">
+					{{ Form::model($cate, ['route' => ['categories.update', $cate->id], 'method' => "PUT"]) }}
+					{{ Form::text('name', null, ['class' => 'form-control']) }}
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+					{{ Form::submit('Save Changes', ['class' => 'btn btn-success']) }}
+    				{{ Form::close() }}
+				</div>
+				</div>
+			</div>
+			</div>
 			 {{ Form::open(['route' => ['categories.destroy', $cate->id], 'method' => 'DELETE']) }}
 				{{ Form::submit('ลบหมวดหมู่', ['class' => 'btn btn-outline-danger btn-block btndel']) }}
 			{{ Form::close() }}  </div>

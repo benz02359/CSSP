@@ -1,5 +1,8 @@
 @extends('layouts.app')
-
+ <!-- title unixdev -->
+ <title> สร้างกระทู้ </title>
+<!-- add icon link -->
+<link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">
 @section('content')
     <h1>สร้างกระทู้ใหม่</h1>
     {!! Form::open(['action' => 'PostsController@store', 'method' => 'POST']) !!}

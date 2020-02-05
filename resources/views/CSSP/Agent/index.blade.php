@@ -1,5 +1,8 @@
 @extends('layouts.app')
-
+<!-- title unixdev -->
+<title> หน้ากระทู้ </title>
+<!-- add icon link -->
+<link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">
 @section('content')
     <h1>Posts</h1>
     @if (count($posts) > 0)

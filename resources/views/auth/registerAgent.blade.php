@@ -1,3 +1,8 @@
+   <!-- title unixdev -->
+   <title> เพิ่มรายชื่อตัวแทนของบริษัทลูกค้า</title>
+    <!-- add icon link -->
+    <link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">
+    
 @extends('cssp.layouts.master')
 
 @section('content')
@@ -5,10 +10,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register Agent') }}</div>
-
-                <div class="card-body">
+        <div class="card" style="box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);">
+        <div class="card-header" style="font-size: 22px;background-color: #343A40;color:aliceblue"><b>เพิ่มตัวแทนของบริษัทลูกค้า</b></div>
+                <div class="card-body" style="background-color: #FFF;">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 

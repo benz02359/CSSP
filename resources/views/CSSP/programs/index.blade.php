@@ -9,8 +9,8 @@
 </style>
 
 <br><div class="row">
-	<div class="col-9" style="padding-left:32px"><h1><b>รายการโปรแกรมและบริษัทที่ซื้อ</b></h1></div>
-	<div class="col-3" style="padding-left:90px;padding-bottom:20px;"><a href="/programs/create" style="font-size:20px" class="btn btn-outline-secondary">เพิ่มรายการโปรแกรมที่ขาย</a></div>
+	<div class="col-8" style="padding-left:32px"><h2><b>รายการโปรแกรมและบริษัทที่ซื้อ</b></h2></div>
+	<div class="col-4" style="padding-left:150px;padding-bottom:20px;"><a href="/programs/create" style="font-size:16px" class="btn btn-outline-secondary">เพิ่มรายการโปรแกรมที่ขาย</a></div>
 	</div>
     <!--@if (count($programs) > 0)
         @foreach ($programs as $pro)

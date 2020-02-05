@@ -8,7 +8,7 @@
 @section('content')
 <div class="row">
 		<div class="col-md-12">
-    <h1>สร้างกระทู้ข่าว</h1>
+    <h2>สร้างกระทู้ข่าว</h2>
     {!! Form::open(['action' => 'PostsController@store', 'method' => 'POST']) !!}
         <div class="form-group">
             {{Form::label('title', 'หัวข้อข่าว')}}
@@ -29,8 +29,8 @@
             @endforeach
             </table>
         </div>-->
-        <div class="row">
-        {{ Form::label('pro_id', 'Category:') }}
+        <div class="row" style="margin-left:10px;">
+        {{ Form::label('pro_id', 'โปรแกรม:') }}
         <div >
         <select class="form-control" name="pro_id">
 					@foreach($program as $p)
@@ -39,12 +39,11 @@
                 </select>
             </div>    
         </div>
-        <hr>
         <input id="posttype_id" type="hidden" name="posttype_id" value="{{2}}">
 
-        
-        {{Form::submit('Submit',['class' => 'btn btn-primary'])}}
-        
+        <div style="margin-left:500px;">
+        {{Form::submit('โพสต์ข่าว',['class' => 'btn btn-success'])}}
+        </div>
     {!! Form::close() !!}   
 </div>
 </div> 

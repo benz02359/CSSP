@@ -10,6 +10,7 @@ use App\Post;
 use App\Comment;
 use App\Category;
 use App\Post_category;
+use App\Program;
 use DB;
 use App\Tag;
 use Mail;
@@ -86,9 +87,10 @@ class PostsController extends Controller
     public function createnews()
     {
         $categories = Category::all();
+        $program = Program::all();
         //$tags = Tag::all();
         //$tags = Tag::pluck ( 'name', 'id' );
-        return view('web.posts.createnews')->with('categories', $categories);
+        return view('web.posts.createnews',compact('program',$program))->with('categories', $categories,'program',$program);
     }
 
     public function table()
@@ -224,11 +226,11 @@ class PostsController extends Controller
         $post->text = $request->input('body');
         $post->category_id = $request->input('category_id');
         $post->save();
-        if (isset($request->tags)) {
+        /*if (isset($request->tags)) {
             $post->tags()->sync($request->tags);
         } else {
             $post->tags()->sync(array());
-        }
+        }*/
         return redirect('/posts/'.$post->id)->with('success', 'Post Updated');
         //return view('web.post.index');
     }
