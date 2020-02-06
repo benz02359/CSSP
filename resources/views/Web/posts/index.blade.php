@@ -17,7 +17,7 @@
 
     <h1>คำถามที่พบบ่อย</h1>
     @if (count($posts) > 0)
-        @foreach ($posts as $post)
+       @foreach($posts as $post)
         @if(Auth::user()->role_id == 1 or Auth::user()->role_id == 2)
         <div class="card items">
                 <blockquote class="blockquote mb-0">                
@@ -28,7 +28,7 @@
                         </div>    
                 </blockquote>
         </div>
-        @elseif ($usercom == $post->user->company)
+        @elseif (Auth::user()->company_id === $post->user->company_id)
         <div class="card items ">
                 <blockquote class="blockquote mb-0">                
                         <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>

@@ -182,6 +182,12 @@ class RegisterController extends Controller
     {
         return view('auth.registerforadmin');
     }
+    protected function registeruserbyagent()
+    {
+        $companies = company::all();
+
+        return view('auth.registeruserbyagent', compact('companies',$companies));
+    }
     
     /*protected function regisadmin(array $data)
     {

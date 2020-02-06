@@ -29,9 +29,15 @@
 						<td style="width:100px;text-align:center;"><a>พนักงาน {{ $dep->staff()->count() }} คน</></a></td>
 					
 						<td style="width:10%;font-size:14px;margin:-5px 0px -20px 0px;text-align: center;">
+						@if(count($dep->staff) > 0)
 						{{ Form::open(['route' => ['departments.destroy', $dep->id], 'method' => 'DELETE' , 'onsubmit' => 'return confirm("ต้องการที่จะลบใช่ไหม?")' ]) }}
-							{{ Form::submit('ลบแผนก', ['class' => 'btn btn-outline-danger'])}}
+							{{ Form::submit('ลบแผนก', ['class' => 'btn btn-danger', 'disabled'])}}
 						{{ Form::close() }}
+						@elseif(count($dep->staff) < 1)
+						{{ Form::open(['route' => ['departments.destroy', $dep->id], 'method' => 'DELETE' , 'onsubmit' => 'return confirm("ต้องการที่จะลบใช่ไหม?")' ]) }}
+							{{ Form::submit('ลบแผนก', ['class' => 'btn btn-danger'])}}
+						{{ Form::close() }}
+						@endif
 						</td>
 					</tr>
 					

@@ -7,7 +7,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">รอดำเนินการ</div>
+                    <div class="card-header" style="background-color:#343A40;color:#FFF">รอดำเนินการ</div>
 
                     <div class="card-body">
                         บัญชีของคุณอยู่ระหว่างรอการอนุมัติ.

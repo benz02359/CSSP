@@ -22,6 +22,11 @@
     <div class="sidebar-sticky">
         <div class="sidenav">
             <ul class="nav flex-column">
+                <li class="nav-item">  
+                    <a class="nav-link active sidea" href="{{url('/')}}" >
+                        หน้าแรก <span class="sr-only"></span>
+                    </a>
+                </li>
                 @role('admin')
                 @endrole
     
@@ -29,12 +34,13 @@
                 @endrole
     
                 @role('agent')
-                @endrole
                 <li class="nav-item">  
-                    <a class="nav-link active sidea" href="{{url('/')}}" >
-                        หน้าแรก <span class="sr-only"></span>
+                    <a class="nav-link active sidea" href="{{url('registeruserbyagent')}}" >
+                        สมัครสมาชิก <span class="sr-only"></span>
                     </a>
                 </li>
+                @endrole
+                
                 <!--<li class="nav-item">  
                     <a class="nav-link active" href="{{url('/home')}}" >
                         Home <span class="sr-only"></span>
@@ -49,12 +55,36 @@
                 </li>
                 @endcan
 
+                @can('managedepartment')
+                <li class="nav-item">  
+                    <a class="nav-link active sidea " href="{{url('/departments')}}" >
+                        แผนก <span class="sr-only"></span>
+                    </a>
+                </li>
+                @endcan
+
+                @can('managestaff')
+                <li class="nav-item">  
+                    <a class="nav-link active sidea" href="{{url('/staffs')}}" >
+                        พนักงาน <span class="sr-only"></span>
+                    </a>
+                </li>
+                @endcan
+
                 @can('appointment')
                 <li class="nav-item">  
                     <a class="nav-link active sidea" href="{{url('/appointment')}}" >
                         มอบหมายงาน <span class="sr-only"></span>
                     </a>
                 </li>
+                @endcan
+
+                @can('category')
+                <li class="nav-item">  
+                        <a class="nav-link active sidea" href="{{url('/categories')}}" >
+                            หมวดหมู่ปัญหา<span class="sr-only"></span>
+                        </a>
+                    </li>
                 @endcan
 
                 @can('work')
@@ -65,22 +95,6 @@
                 </li>
                 @endcan
                 
-                @can('managestaff')
-                <li class="nav-item">  
-                    <a class="nav-link active sidea" href="{{url('/staffs')}}" >
-                        พนักงาน <span class="sr-only"></span>
-                    </a>
-                </li>
-                @endcan
-
-                @can('managedepartment')
-                <li class="nav-item">  
-                    <a class="nav-link active sidea " href="{{url('/departments')}}" >
-                        แผนก <span class="sr-only"></span>
-                    </a>
-                </li>
-                @endcan
-
                 @can('managecompany')
                 <li class="nav-item">  
                     <a class="nav-link active sidea" href="{{url('/companies')}}" >
@@ -93,6 +107,14 @@
                 <li class="nav-item">  
                     <a class="nav-link active sidea" href="{{url('/programs')}}" >
                         โปรแกรมลูกค้า<span class="sr-only"></span>
+                    </a>
+                </li>
+                @endcan
+
+                @can('selling')
+                <li class="nav-item">  
+                    <a class="nav-link active sidea" href="{{url('/sales')}}" >
+                        รายการขาย <span class="sr-only"></span>
                     </a>
                 </li>
                 @endcan
@@ -119,28 +141,16 @@
                         รายชื่อผู้ใช้ <span class="sr-only"></span>
                     </a>
                 </li>
-                @endcan
+                @endcan 
 
                 @can('alluserlist')
                 <li class="nav-item">  
                     <a class="nav-link active sidea" href="{{url('/alluserlist')}}" >
-                        รายชื่อผู้ใช้ <span class="sr-only"></span>
+                        รายชื่อผู้ใช้ทั้งหมด <span class="sr-only"></span>
                     </a>
                 </li>
                 @endcan
-
                 
-                
-                @can('selling')
-                <li class="nav-item">  
-                    <a class="nav-link active sidea" href="{{url('/sales')}}" >
-                        รายการขาย <span class="sr-only"></span>
-                    </a>
-                </li>
-                @endcan
-
-                
-
                 @if (Route::has('register'))
                 @can('regisuser')
                 <li class="nav-item">  
@@ -184,14 +194,6 @@
                     </li>
                 <a href="#" > Forum</a>
                 @endcan-->
-
-                @can('category')
-                <li class="nav-item">  
-                        <a class="nav-link active sidea" href="{{url('/categories')}}" >
-                            หมวดหมู่ปัญญา<span class="sr-only"></span>
-                        </a>
-                    </li>
-                @endcan
 
                 @can('result')
                 <li class="nav-item">  

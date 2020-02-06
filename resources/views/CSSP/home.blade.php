@@ -116,7 +116,7 @@ h1 {
             <div class="wrapper" >
             <div class="card" >
             <h1><span class="enclosed">UNIXDEV</span>x customer service</h1>
-            <h4>Dashboard of Admin</h4> 
+            <h4>Dashboard of Staff</h4> 
             </div>
             </div>
             @endrole
@@ -134,7 +134,12 @@ h1 {
             
 
             @role('user')        
-                Welcome User
+            <div class="wrapper" >
+            <div class="card" >
+            <h1><span class="enclosed">UNIXDEV</span>x customer service</h1>
+            <h4>Dashboard of User</h4> 
+            </div>
+            </div>
             @endrole
 
             

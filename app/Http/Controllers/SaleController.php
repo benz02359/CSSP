@@ -23,7 +23,13 @@ class SaleController extends Controller
      */
     public function index()
     {
-        $sales = Sale::orderBy('created_at','desc')->paginate(20);
+        //$sale = Sale::all();
+        //$sales = $sale->program->orderBy('solddate','desc')->paginate(20);
+        //$program= program::all();
+        //$solddate = $program->solddate;
+        //Sale::joinRelations('program');
+        //$sales = Sale::orderByJoin('program.solddate','desc')->paginate(20);
+       // $sales = Sale::orderBy('created_at','desc')->paginate(20);
         return view('cssp.sales.index')->with('sales',$sales); 
     }
 

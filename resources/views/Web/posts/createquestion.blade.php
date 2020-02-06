@@ -43,7 +43,7 @@
         
 
         <div style="margin-left:500px;">
-        {{Form::submit('โพสต์ข่าว',['class' => 'btn btn-success'])}}
+        {{Form::submit('โพสต์',['class' => 'btn btn-success'])}}
         </div>
         
     {!! Form::close() !!}   

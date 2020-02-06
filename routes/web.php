@@ -140,6 +140,7 @@ Route::middleware(['admin'])->group(function () {
     
     Route::get('registerstaff', 'Auth\RegisterController@registerstaff')->name('registerstaff');
     Route::get('registeragent', 'Auth\RegisterController@registeragent')->name('registeragent');
+    Route::get('registeruserbyagent', 'Auth\RegisterController@registeruserbyagent')->name('registeruserbyagent');
     
 
     //Appointment

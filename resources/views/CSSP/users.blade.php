@@ -11,11 +11,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header"><h3>ผู้ใช้งานที่รอการอนุมัติ</h3></div>
-
-                    <div class="card-body">
-
+               <h3>ผู้ใช้งานที่รอการอนุมัติ</h3>
                         @if (session('message'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('message') }}
@@ -23,24 +19,24 @@
                         @endif
 
                         <table class="table table-bordered table-hover">
-                            <thead class="thead-dark">
+                            <thead class="thead-dark" style="text-align: center">
                             <tr>
                                 <th>ชื่อผู้ใช้</th>
                                 <th>Email</th>
                                 <th>ลงทะเบียนเมื่อ</th>
-                                <th></th>
+                                <th colspan="2">อนุมติ</th>
                             </tr>    
                             </thead>                              
                                              
                             @forelse ($users as $user)
                             
-                                @if ($user->company === $usercom->company)
+                                @if ($user->company == $usercom->company)
                                     <tr>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->created_at }}</td>
                                         <td><a href="{{ route('admin.users.approve', $user->id) }}"
-                                            class="btn btn-primary btn-sm">อนุมัติ</a></td>
+                                            class="btn btn-success btn-sm">อนุมัติ</a></td>
                                         <td><a href="{{ route('admin.users.dimiss', $user->id) }}"
                                             class="btn btn-danger btn-sm">ปฎิเสธ</a></td>
                                     </tr> 
@@ -54,8 +50,7 @@
                             @endforelse
                                    
                         </table>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>

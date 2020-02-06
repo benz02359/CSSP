@@ -1,13 +1,13 @@
 @extends('cssp.layouts.master')
    <!-- title unixdev -->
-   <title>รายชื่อผู้ใช้งาน</title>
+   <title>รายชื่อผู้ใช้งานทั้งหมด</title>
     <!-- add icon link -->
     <link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">
 @section('content')
 <br>
 	<div class="row">
-        <div class="col-9" style="padding-left:32px"><h2><b>รายชื่อผู้ใช้</b></h2></div>
-        <div class="col-3" style="padding-left:130px;padding-bottom:16px"><a  href="/registerstaff"   class="btn btn-outline-secondary right">เพิ่มรายชื่อ</a></div>
+        <div class="col-9" style="padding-left:32px"><h2><b>รายชื่อผู้ใช้ทั้งหมด</b></h2></div>
+        <div class="col-3" style="padding-left:130px;padding-bottom:16px"></div>
     </div>
 
     <!--@if (count($users) > 0)

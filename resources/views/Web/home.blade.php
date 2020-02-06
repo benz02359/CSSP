@@ -42,7 +42,6 @@
                         @else
                                                             
                             @if (Auth::user()->status!=4)
-                                <a href="/home">Dashboard</a>
                             @endif
 
                                 <a href="#" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>

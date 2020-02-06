@@ -63,7 +63,7 @@
             <!-- Authentication Links -->  
             <form action="/search" method="GET">
                 <div class="input-group">
-                    <input type="search" name="search" class="forn-control">
+                    <input type="search" name="search" class="forn-control" placeholder="ค้นหากระทู้ที่นี่">
                     <span class="input-group-prepend">
                         <button type="submit" class="button_cont example_c">ค้นหา</button>
                     </span>
@@ -88,7 +88,7 @@
                     @endif</a>
                 </li>
 
-                <li class="nav-item dropdown" style="font-size:22px;margin-top:3px">
+                <li class="nav-item dropdown" style="font-size:20px;margin-top:3px">
                     
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }} <span class="caret"></span>

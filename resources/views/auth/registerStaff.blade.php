@@ -2,7 +2,8 @@
    <!-- title unixdev -->
    <title>เพิ่มรายชื่อพนักงาน</title>
     <!-- add icon link -->
-    <link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">@extends('cssp.layouts.master')
+    <link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">
+@extends('cssp.layouts.master')
 
 @section('content')
 <br>

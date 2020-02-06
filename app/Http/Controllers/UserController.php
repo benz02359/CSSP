@@ -12,7 +12,7 @@ class UserController extends Controller
     public function index()
     {   
         $usercom = auth()->user();
-        $users = User::whereNull('approve')->get(); 
+        $users = User::where('approve','=','0')->get(); 
         //$userapp = $users->company == auth()->user()->company;
         return view('cssp.users', compact('users',$users,'usercom',$usercom))->with('users',$users,'usercom',$usercom);
     }
