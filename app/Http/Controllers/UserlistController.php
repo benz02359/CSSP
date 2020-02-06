@@ -17,10 +17,12 @@ class UserlistController extends Controller
     {
         $user = auth()->user();
         $usercom = $user->company;
+        $usercomid = $usercom->id;
         $usercompany = $usercom['name'];
         $users = User::all(); 
+        $userincom = User::where('company_id','=',$usercomid)->first();
         //$userapp = $users->company == auth()->user()->company;
-        return view('cssp.userlist.show', compact('users',$users,'usercom',$usercom,'usercompany',$usercompany))->with('users',$users,'usercom',$usercom);
+        return view('cssp.userlist.show', compact('users',$users,'usercom',$usercom,'user',$user,'userincom',$userincom))->with('users',$users,'usercom',$usercom);
     }
 
     /**

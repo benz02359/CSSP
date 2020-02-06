@@ -29,15 +29,16 @@ class UserprofileController extends Controller
         $user = Auth::user();
 
         $userprofile = Userprofile::where('user_id', '=',Auth::user()->id )->first();
-        if ($user === null) {
+        if ($userprofile === null) {
         // user doesn't exist
         $userp = Userprofile::create([
             'user_id'           =>      $user->id,            
             ]);
             $userp->save();
         }
+        $user_id = Userprofile::where('user_id','=',Auth()->user()->id )->first();
         
-        return view('web.profile.index')->with('user',$user);
+        return view('web.profile.index',compact('user',$user,'user_id',$user_id))->with('user',$user,'user_id',$user_id);
     }
 
     /**
@@ -94,21 +95,26 @@ class UserprofileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-
         $user = User::find($id);
-        $user_id = Userprofile::where('user_id','=',$id)->first();
-        $userprofile = Userprofile::find($user_id)->first();
-        //$this->validate($request, ['name' => 'required|max:255']);
-        
-        $user->name = $request->name;        
+        $user->name = $request->input('name');  
+        $user->email = $request->input('email');  
         $user->save();
 
-        $userprofile->tel = $request->tel;  
+        $user_id = Userprofile::where('user_id','=',$id )->first();
+        $userprofile = Userprofile::find($user_id)->first();
+        //$userprofile = Userprofile::findOrFail($user_id);
+        
+        //$this->validate($request, ['name' => 'required|max:255']);
+        
+        
+        
+        $userprofile->tel = $request->input('tel');  
+        //$tel = $request->input('tel');  
+        //$userprofile->update(['tel' => $tel]);
         $userprofile->save();
-
+        //$user_id->save();
         Session::flash('success', 'บันทึกการเปลี่ยนแปลง');
-        return redirect()->route('userprofile.index', $user->id);
+        return redirect('/userprofile');
     }
 
     /**

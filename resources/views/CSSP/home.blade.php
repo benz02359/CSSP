@@ -113,13 +113,23 @@ h1 {
 
 
             @role('staff')        
-                Welcome Staff
+            <div class="wrapper" >
+            <div class="card" >
+            <h1><span class="enclosed">UNIXDEV</span>x customer service</h1>
+            <h4>Dashboard of Admin</h4> 
+            </div>
+            </div>
             @endrole
         
 
             @role('agent')        
-                Welcome Agent
-                <a href="{{ url('registeruser') }}" >{{ __('Register User') }}</a>
+            <div class="wrapper" >
+            <div class="card" >
+            <h1><span class="enclosed">UNIXDEV</span>x customer service</h1>
+            <a href="{{ url('registeruser') }}" >{{ __('สมัครสมาชิกพนักงาน') }}</a> 
+            </div>
+            </div>
+      
             @endrole
             
 

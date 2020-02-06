@@ -1,8 +1,10 @@
 @extends('cssp.layouts.master')
 
 @section('content')
-
-<h1>รายชื่อผู้ใช้ในบริษัท {{$usercompany}}</h1><a href="/registerstaff" class="btn btn-primary">เพิ่มรายชื่อ</a>
+<div class="row">
+        <div class="col-9" style="padding-left:32px"><h2><b>รายชื่อผู้ใช้ในบริษัท {{$user->company['name']}}</b></h2></div>
+        <div class="col-3" style="padding-left:130px;padding-bottom:16px"><a href="/registerstaff" class="btn btn-primary">เพิ่มรายชื่อ</a></div>
+    </div>
     <!--@if (count($users) > 0)
         @foreach ($users as $user)
                   
@@ -25,20 +27,30 @@
 				</thead>
 
 				<tbody>
+				@if(($userincom->id !== $user->id))
+				@endif
+
+					@forelse ($users as $userl)
 					
-					@foreach ($users as $userl)
-					@if (($user->company_id == $userl->company_id) &&($user->id !== $userl->id))
+					@if (( Auth::user()->company_id == $userl->company_id) and ( Auth::user()->id != $userl->id))
+					
 					<tr>
 						<th></th>
-						<td>{{ $userl->name }}</td>
+						<td>{{$userl->name }}</td>
+						<td></td>
 						<td></td>
 						
-						<td><a href="{{ route('staffs.show', $userl->id ) }}" class="btn btn-default btn-xs">View</a></td>
+						
+						<!--<td><a href="{{ route('staffs.show', $userl->id ) }}" class="btn btn-default btn-xs">View</a></td>-->
 					</tr>
 					@endif 
-					@endforeach
 					
+					@empty
+
+					@endforelse
+				
 				</tbody>
 			</table>
 		</div>
+    </div>
 @endsection

@@ -50,7 +50,12 @@
             <div class="det"> <b>ชื่อ:</b> {{$user->name}} </div>
             <div class="det"> <b>ขื่อผู้ใช้:</b> {{$user->username}} </div>
             <div class="det"> <b>E-mail:</b> {{$user->email}} </div>
-            <div class="det"> <b>เบอร์โทรศัพท์:</b> {{$user->userprofile['tel']}}</div>
+            <div class="det"> <b>เบอร์โทรศัพท์:</b> 
+            @if( !isset($user->userprofile['tel']) )
+             - 
+            @else 
+            {{$user->userprofile['tel']}}
+            @endif</div>
             <div class="det"> <b>บริษัท:</b> {{$user->company['name']}}</div>
         </div>
         <a  style="margin:0 0 10px 100px" href="/userprofile/{{$user->id}}/edit" class="btn btn-outline-warning">แก้ไขข้อมูลส่วนตัว</a>        

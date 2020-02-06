@@ -32,7 +32,7 @@
     </div></div>
     <div class="form-group row">
     <div class="col-3 tstyle">{{Form::label('tel', 'เบอร์โทรศัพท์')}}</div>
-    <div class="col-8">{{Form::text('tel',$user->userprofile->tel,['class' => 'form-control','placeholder' => 'เบอร์โทรศัพท์'])}}
+    <div class="col-8">{{Form::text('tel',$user->userprofile['tel'],['class' => 'form-control','placeholder' => 'เบอร์โทรศัพท์'])}}
     </div></div>
            
     <div class="form-group col-12" style="margin-left:200px">
