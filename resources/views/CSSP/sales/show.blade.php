@@ -11,9 +11,7 @@ a:link{
 </style>
 
 <br>
-@foreach ($program as $p)
-<div style="font-size:22px"><b>รายละเอียดของโปรแกรม {{$p->name}}</b></div>
-@endforeach
+<div style="font-size:22px"><b>รายละเอียดของการขายโปรแกรม {{$program->name}}</b></div>
 <div class="row">
 
 
@@ -21,24 +19,20 @@ a:link{
 <div class="card" style="background-color:#f4f6f7;margin-top:10px;width:520px;margin-left:20px" >
     <div class="card-header text-white bg-dark"><a style="padding:-10px 0px -10px 0px;font-size:18px">รายละเอียดบริษัท</a></div>
     <div class="card-body">
-@foreach ($company as $c)
-    <p>บริษัทที่ซื้อ: <a href="/companies/{{$c->id}}">{{$c->name}}</a><br>
-    ที่อยู่: {{$c->address}}<br>
-    เบอร์โทรศัพท์: {{$c->tel}}<br>
-    E-mail: {{$c->email}}</p>
-@endforeach
+    <p>บริษัทที่ซื้อ: <a href="/companies/{{$company->id}}">{{$company->name}}</a><br>
+    ที่อยู่: {{$company->address}}<br>
+    เบอร์โทรศัพท์: {{$company->tel}}<br>
+    E-mail: {{$company->email}}</p>
 </div></div>
 <div class="card" style="background-color:#f4f6f7;margin-top:10px;width:520px;margin-left:20px" >
     <div class="card-header text-white bg-dark"><a style="padding:-10px 0px -10px 0px;font-size:18px">รายละเอียดโปรแกรม</a></div>
     <div class="card-body">
-@foreach ($program as $p)
-    <p>ชื่อโปรแกรม: <a href="/programs/{{$p->id}}">{{$p->name}}</a><br>
-    รายละเอียด: {{$p->detail}}<br>
-    ราคาโปรแกรม: {{$p->price}} บาท<br>
-    ชื้อเมื่อ: {{$p->solddate}}<br>
-    วันที่เริ่ม: {{$p->startdate}}<br>
-    วันที่สิ้นสุด: {{$p->enddate}}</p>
-@endforeach
+    <p>ชื่อโปรแกรม: <a href="/programs/{{$program->id}}">{{$program->name}}</a><br>
+    รายละเอียด: {{$program->detail}}<br>
+    ราคาโปรแกรม: {{$program->price}} บาท<br>
+    ชื้อเมื่อ: {{$program->solddate}}<br>
+    วันที่เริ่ม: {{$program->startdate}}<br>
+    วันที่สิ้นสุด: {{$program->enddate}}</p>
     <!--<h2>รายละเอียด: {{$sale->detail}}</h2>-->
     <!--<p>วันที่ : {{$sale->created_at}}</p>-->
 </div></div></div>

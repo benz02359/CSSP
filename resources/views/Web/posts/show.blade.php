@@ -127,6 +127,11 @@
 </div>
     @if(count($comments) > 0)
     <p hidden>{{$count = 1}}</p>
+    <div class="card card-comment" style="width:500px">
+      
+        <div class="thumbnail-comment"><h4>มีความคิดเห็น  {{ count($comments) }} ความคิดเห็น</div></h4>
+    
+    </div>
     @foreach ($comments as $c)
    <!-- <div class="card border-secondary comment" style="max-width: 68rem; ">
         <div class="card-header text-white  bg-secondary  border-secondary" style="height:44px;margin-top:-6px;font-size:18px"> -->

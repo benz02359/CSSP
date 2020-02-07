@@ -81,7 +81,7 @@ td a,a.link:hover{
                                             </td>
                                             <td style="text-align: center;">
                                             {{Form::hidden('_method','PUT')}}
-                                            {{Form::submit(' ยืนยัน ',['Class' => 'btn btn-outline-success'])}}
+                                            {{Form::submit(' มอบหมายงาน ',['Class' => 'btn btn-outline-success'])}}
                                             {!!Form::close()!!}  
                                         </td>                                      
                                         </tr>

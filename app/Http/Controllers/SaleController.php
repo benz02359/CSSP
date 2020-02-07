@@ -23,14 +23,16 @@ class SaleController extends Controller
      */
     public function index()
     {
+        $sales = Program::orderBy('solddate','desc')->paginate(20);
+
         //$sale = Sale::all();
         //$sales = $sale->program->orderBy('solddate','desc')->paginate(20);
         //$program= program::all();
         //$solddate = $program->solddate;
         //Sale::joinRelations('program');
         //$sales = Sale::orderByJoin('program.solddate','desc')->paginate(20);
-       // $sales = Sale::orderBy('created_at','desc')->paginate(20);
-        return view('cssp.sales.index')->with('sales',$sales); 
+        $salesdata = Sale::all();
+        return view('cssp.sales.index')->with('sales',$sales,'salesdata',$salesdata); 
     }
 
     /**
@@ -157,8 +159,8 @@ class SaleController extends Controller
     public function show($id)
     {
         $sale = Sale::find($id);
-        $company = Company::where('id','=',$sale->company_id)->get();
-        $program = Program::where('id','=',$sale->pro_id)->get();
+        $company = Company::where('id','=',$sale->company_id)->first();
+        $program = Program::where('id','=',$sale->pro_id)->first();
 
         return view('cssp.sales.show',
         compact('company',$company, 'sale',$sale , 'program',$program ))->with('company',$company, 'sale',$sale , 'program',$program);

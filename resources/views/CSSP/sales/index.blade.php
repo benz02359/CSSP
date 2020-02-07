@@ -33,10 +33,10 @@
                     
                     <tr>
                         <td><a href="{{ route('companies.show', $sale->company->id ) }}" class="btn btn-default btn-xs">{{ $sale->company['name'] }}</a></td>
-                        <td style="text-align:center;"><a href="{{ route('programs.show', $sale->program->id ) }}" class="btn btn-default btn-xs">{{ $sale->program['name'] }}</a></td>
-                        <td style="text-align:center;">{{$sale->program->price}} บาท</td>
-                        <td style="text-align:center;">{{$solddate = date('d/m/Y', strtotime($sale->program->solddate))}}</td>
-                        <td style="text-align:center;"><a href="{{ route('sales.show', $sale->id ) }}" class="btn btn-default btn-xs">View</a></td>
+                        <td style="text-align:center;"><a href="{{ route('programs.show', $sale->id ) }}" class="btn btn-default btn-xs">{{ $sale->name }}</a></td>
+                        <td style="text-align:center;">{{$sale->price}} บาท</td>
+                        <td style="text-align:center;">{{$solddate = date('d/m/Y', strtotime($sale->solddate))}}</td>
+                        <td style="text-align:center;"><a href="{{ route('sales.show', $sale->sale->id ) }}" class="btn btn-default btn-xs">View</a></td>
                     </tr>
                     @endforeach
                     

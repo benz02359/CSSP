@@ -51,8 +51,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        
-        $posts = Post::where('posttype_id','1')->orderBy('created_at','desc')->paginate(10);
+        $posts = Post::orderBy('created_at','desc')->paginate(10);
+        //$posts = Post::where('posttype_id','1')->orderBy('created_at','desc')->paginate(10);
         $users = auth()->user();
         $usercom = $users->company;
         return view('web.posts.index',compact('posts', $posts,'usercom',$usercom))->with('posts', $posts,'usercom',$usercom);
@@ -194,7 +194,7 @@ class PostsController extends Controller
         }*/
         $cate = Category::pluck('name','id');
 
-        $tags = tag::pluck('name','id');
+        //$tags = tag::pluck('name','id');
         $id = auth()->user()->role_id;
         //$admin = ;
         // Check for correct user
@@ -203,7 +203,7 @@ class PostsController extends Controller
         }
         
 
-        return view('web.posts.edit',compact('cate',$cate,'tags',$tags))->with('post',$post,'cates',$cate,'tags',$tags);
+        return view('web.posts.edit',compact('cate',$cate))->with('post',$post,'cates',$cate);
     }
 
     /**

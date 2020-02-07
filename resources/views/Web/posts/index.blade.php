@@ -18,7 +18,7 @@
     <h1>คำถามที่พบบ่อย</h1>
     @if (count($posts) > 0)
        @foreach($posts as $post)
-        @if(Auth::user()->role_id == 1 or Auth::user()->role_id == 2)
+        @if(Auth::user()->role_id == '1' or Auth::user()->role_id == '2')
         <div class="card items">
                 <blockquote class="blockquote mb-0">                
                         <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
@@ -52,5 +52,6 @@
     <p>ไม่มีกระทู้</p>
         
     @endif
+    
     
 @endsection

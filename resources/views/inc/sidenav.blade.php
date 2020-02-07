@@ -90,7 +90,7 @@
                 @can('work')
                 <li class="nav-item">  
                     <a class="nav-link active sidea" href="{{url('/work')}}" >
-                        กระทู้คำถาม <span class="sr-only"></span>
+                        กระทู้ที่ถูกมอบหมาย <span class="sr-only"></span>
                     </a>
                 </li>
                 @endcan
@@ -143,14 +143,14 @@
                 </li>
                 @endcan 
 
-                @can('alluserlist')
+                <!--@can('alluserlist')
                 <li class="nav-item">  
                     <a class="nav-link active sidea" href="{{url('/alluserlist')}}" >
                         รายชื่อผู้ใช้ทั้งหมด <span class="sr-only"></span>
                     </a>
                 </li>
-                @endcan
-                
+                @endcan-->
+
                 @if (Route::has('register'))
                 @can('regisuser')
                 <li class="nav-item">  

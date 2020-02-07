@@ -19,14 +19,14 @@ class WorkController extends Controller
     {
         //$posts = post::orderBy('created_at','desc')->paginate(20);
         $user_id = auth()->user()->id;
-        $staff = Staff::where('user_id',$user_id)->first();
-        $posts = $staff->posts;
+        $staff = Staff::where('user_id','=',$user_id)->first();
+        $posts = Post::where('staff_id','=',$staff)->get();
         //$staff = Staff::where('user_id','=',$user)->get();
         //$user = Staff::find($user_id);
         //return view('dashboard')->with('posts', $user->posts);
         
         
-        return view('cssp.work.index')->with('posts',$posts);
+        return view('cssp.work.index',compact('staff',$staff,'posts',$posts))->with('staff',$staff,'posts',$posts);
     }
 
     /**

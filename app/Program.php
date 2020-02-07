@@ -22,7 +22,7 @@ class Program extends Model
     }
 
     public function sale(){        
-        return $this->belongsTo('App\Sale');
+        return $this->belongsTo('App\Sale','id','pro_id');
     }
     public function post(){        
         return $this->hasMany('App\Post','pro_id');

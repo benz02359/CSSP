@@ -22,8 +22,7 @@
             {{ Form::label('category_id', "จัดหมวดหมู่", ['class' => 'form-spacing-top']) }}
             {!! Form::select('category_id', $cate, $post->category_id, ['class' => 'form-control']) !!}
 
-            {{ Form::label('tags', 'แท็ก:', ['class' => 'form-spacing-top']) }}
-			{{ Form::select('tags[]', $tags, $post->tag_id, ['class' => 'form-control select2-multi', 'multiple' => 'multiple']) }}
+           
             <br>  <br>
             {{Form::hidden('_method','PUT')}}
             {{Form::submit('บันทึกกระทู้',['class' => 'btn btn-outline-success'])}}

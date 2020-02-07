@@ -22,7 +22,7 @@
                                 </tr>
                                 @foreach($posts as $post)
                                     <tr>
-                                        <td><a href="/posts/{{$post->id}}" target="_blank">{{$post->title}}</a></td>
+                                        <td><a href="/posts/{{$post->id}}" target="_blank">{{$post->title}}</a> ({{count($post->comments)}})</td>
                                         <td><small>{{$post->created_at}}</small></td>
                                                                                                                  
                                         </tr>
