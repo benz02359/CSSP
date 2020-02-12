@@ -43,6 +43,15 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
+.thumbnail-count {
+  background-color: #848484;
+  color: #FFF; 
+  padding: 3px 10px 1px 55px;
+  margin: 0 0  10px 0;
+  border-radius: 12px 12px 12px 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
 .title {
   margin-top: -150px;
   padding: 5px 5px -5px 5px;
@@ -62,7 +71,7 @@
 }
 </style>
 
-<a href="/posts" class="btn btn-outline-warning">ย้อนกลับ</a>
+<a href="/posts" class="btn btn-outline-secondary">ย้อนกลับ</a>
 
 <div class="row">
     <div class="card" style="width:1200px">
@@ -127,11 +136,7 @@
 </div>
     @if(count($comments) > 0)
     <p hidden>{{$count = 1}}</p>
-    <div class="card card-comment" style="width:500px">
-      
-        <div class="thumbnail-comment"><h4>มีความคิดเห็น  {{ count($comments) }} ความคิดเห็น</div></h4>
-    
-    </div>
+    <div class="thumbnail-count" style="width:350px"><h4>มีความคิดเห็น  {{ count($comments) }} ความคิดเห็น</div></h4>
     @foreach ($comments as $c)
    <!-- <div class="card border-secondary comment" style="max-width: 68rem; ">
         <div class="card-header text-white  bg-secondary  border-secondary" style="height:44px;margin-top:-6px;font-size:18px"> -->
@@ -164,4 +169,5 @@
             <input id="user_id" type="hidden" name="user_id" value="{{Auth::user()->name}}">
             <input id="post_id" type="hidden" name="post_id" value="{{$post->id}}">
     </div>
+    {!!Form::close!!}
 @endsection

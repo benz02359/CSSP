@@ -79,7 +79,7 @@
 				</div>
 			</div>
 			</div>
-			 {{ Form::open(['route' => ['categories.destroy', $cate->id], 'method' => 'DELETE']) }}
+			 {{ Form::open(['route' => ['categories.destroy', $cate->id], 'method' => 'DELETE', 'onsubmit' => 'return confirm("ต้องการที่จะลบโปรแกรม" $program->name" ใช่ไหม?")']) }}
 				{{ Form::submit('ลบหมวดหมู่', ['class' => 'btn btn-outline-danger btn-block btndel']) }}
 			{{ Form::close() }}  </div>
 		

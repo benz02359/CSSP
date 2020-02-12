@@ -57,7 +57,7 @@ class CommentController extends Controller
         $data = array('name'=>$post->user['name'],"body"=>"มีการตอบกลับใหม่" );
 
         Mail::send('cssp.mail',$data,function($message) use ($email){
-        $message->to($email,'To Staff')->subject('New Comment');
+        $message->to($email)->subject('New Comment');
         $message->from('CSS@css.com','Customer Support Service');            
         });
         return redirect('/posts/'.$post->id)->with('success', 'Updated');

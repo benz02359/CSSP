@@ -103,13 +103,13 @@
                 </li>
                 @endcan
                 
-                @can('program')
+              <!--  @can('program')
                 <li class="nav-item">  
                     <a class="nav-link active sidea" href="{{url('/programs')}}" >
                         โปรแกรมลูกค้า<span class="sr-only"></span>
                     </a>
                 </li>
-                @endcan
+                @endcan -->
 
                 @can('selling')
                 <li class="nav-item">  

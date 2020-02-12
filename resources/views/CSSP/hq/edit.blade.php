@@ -1,6 +1,6 @@
 @extends('cssp.layouts.master')
  <!-- title unixdev -->
- <title> แก้ไขข้อมูลบริษัท {{$program->name}} </title>
+ <title> แก้ไขข้อมูลบริษัท {{$hq->name}} </title>
 <!-- add icon link -->
 <link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">
 @section('content')

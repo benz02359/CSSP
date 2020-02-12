@@ -12,8 +12,9 @@
 </style>
 
 <div class="row" style="margin:12px 0px 6px 28px">
-	<div class="col-8" style="font-size:28px"><b>รายชื่อบริษัทและโปรแกรม</b></div>
-	<div class="col-2"><a style="margin-left:30px" href="/companies/create" class="btn btn-outline-secondary">เพิ่มบริษัทลูกค้า</></a></div>
+	<div class="col-7" style="font-size:28px"><b>รายชื่อบริษัทและโปรแกรม</b></div>
+	<div class="col-3" style="padding-left:60px;padding-bottom:20px;"><a href="/programs/create" style="font-size:16px" class="btn btn-outline-secondary">เพิ่มรายการโปรแกรมที่ขาย</a></div>
+	<div class="col-2"><a  href="/companies/create" class="btn btn-outline-secondary">เพิ่มบริษัทลูกค้า</></a></div>
 </div>   
 		 <!--@if (count($companies) > 0)
         @foreach ($companies as $company)
@@ -25,7 +26,7 @@
     @endif-->
 
     <div class="row com" style="margin-left:35px">
-		<div class="col-md-10">
+		<div class="col-md-11">
 			<table class="table table-bordered" style="background-color: white " >
 				<thead class="thead-dark" style="font-size:20px">
 					<tr>

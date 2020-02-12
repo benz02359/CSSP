@@ -120,7 +120,7 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $cate = Category::find($id);
-        $cate->posts()->detach();
+        //$cate->posts()->detach();
         $cate->delete();
         Session::flash('success', 'ลบหมวดหมู่นี้เรียบร้อย');
         return redirect()->route('categories.index');

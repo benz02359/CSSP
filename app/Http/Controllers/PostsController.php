@@ -155,7 +155,7 @@ class PostsController extends Controller
 
         $data = array('name'=>"admin","body"=>"มีโพสใหม่");
         Mail::send('cssp.mail',$data,function($message){
-        $message->to('benz02359@hotmail.com','To Admin')->subject('New Posts');
+        $message->to('benz02359@gmail.com','To Admin')->subject('New Posts');
         $message->from('CSS@css.com','Customer Support Service');            
         });
         //}
