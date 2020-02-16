@@ -59,5 +59,15 @@ class UserController extends Controller
 
         return redirect('/alluserlist')->withMessage('เปลี่ยนสถานะเรียบร้อย');
     }
+    public function updateapproveagent(Request $request, $id)
+    {
+        $user = User::find($id);
+        $user->update(['approved_at' => now()]);
+        $user->approve = $request->input('approve');
+        //$user->update(['approve' => $request('approve')]);
+        $user->save();
+
+        return redirect('/userlist')->withMessage('เปลี่ยนสถานะเรียบร้อย');
+    }
     
 }

@@ -6,7 +6,7 @@
 @section('content')
 <br>
 	<div class="row">
-        <div class="col-9" style="padding-left:32px"><h2><b>รายชื่อผู้ใช้ทั้งหมด</b></h2></div>
+        <div class="col-9" style="padding-left:32px"><h2><b>รายชื่อผู้ใช้ทั้งหมดในระบบ</b></h2></div>
         <div class="col-3" style="padding-left:130px;padding-bottom:16px"></div>
     </div>
 

@@ -17,7 +17,7 @@
     </head>
     <body style="background-image: url('assets/img/aboutbg.png');">
         <div class="flex position-ref">
-        <a href="/"><img src="<?php echo asset('assets/img/logofull2.png'); ?>"style="width:20%;margin-left:50px">
+        <a href="/"><img src="<?php echo asset('assets/img/logofull2.png'); ?>"style="width:20%;margin-left:50px"></a>
 </div>  
             <div class="content">  <br>
                 <div class="title m-b-md">

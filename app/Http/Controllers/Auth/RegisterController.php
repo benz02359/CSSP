@@ -74,6 +74,7 @@ class RegisterController extends Controller
             'company_id' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
+       
     }
 
     /**

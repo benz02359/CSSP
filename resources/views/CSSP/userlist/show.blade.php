@@ -1,6 +1,6 @@
 @extends('cssp.layouts.master')
 <!-- title unixdev -->
-<title>รายชื่อผู้ใช้ในบริษัท$user->company['name']}}</title>
+<title>รายชื่อผู้ใช้ใน {{ $user->company['name']}}</title>
     <!-- add icon link -->
     <link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">
 
@@ -8,7 +8,7 @@
 <br>
 <div class="row">
         <div class="col-6" style="padding-left:32px"><h2><b>รายชื่อผู้ใช้บริษัท {{$user->company['name']}}</b></h2></div>
-        <div class="col-3" style="padding-left:30px;padding-bottom:16px"><a href="/registeruser" class="btn btn-outline-secondary">เพิ่มรายชื่อ</a></div>
+        <div class="col-3" style="padding-left:30px;padding-bottom:16px"></div>
     </div>
     <!--@if (count($users) > 0)
         @foreach ($users as $user)

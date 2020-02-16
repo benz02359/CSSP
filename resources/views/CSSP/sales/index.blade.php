@@ -1,5 +1,8 @@
 @extends('cssp.layouts.master')
-
+ <!-- title unixdev -->
+ <title> รายการขาย </title>
+<!-- add icon link -->
+<link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">
 @section('content')
 <div class="row" style="margin:12px 0px 6px 28px">
     <div class="col-9"><h1>รายการขาย</h1></div>
@@ -23,7 +26,7 @@
                         <th style="text-align:center;">โปรแกรมที่ซื้อ</th>
                         <th style="text-align:center;">ราคาโปรแกรม</th>
                         <th style="text-align:center;">วันที่ซื้อ</th>
-                        <th style="text-align:center;">ดูเพิ่มเติม</th>
+                        <th style="text-align:center;">เพิ่มเติม</th>
                     </tr>
                 </thead>
 
@@ -36,7 +39,7 @@
                         <td style="text-align:center;"><a href="{{ route('programs.show', $sale->id ) }}" class="btn btn-default btn-xs">{{ $sale->name }}</a></td>
                         <td style="text-align:center;">{{$sale->price}} บาท</td>
                         <td style="text-align:center;">{{$solddate = date('d/m/Y', strtotime($sale->solddate))}}</td>
-                        <td style="text-align:center;"><a href="{{ route('sales.show', $sale->sale->id ) }}" class="btn btn-default btn-xs">View</a></td>
+                        <td style="text-align:center;"><a href="{{ route('sales.show', $sale->sale->id ) }}" class="btn btn-default btn-xs">เพิ่มเติม</a></td>
                     </tr>
                     @endforeach
                     

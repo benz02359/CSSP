@@ -15,7 +15,6 @@ class UserlistController extends Controller
      */
     public function index()
     {
-        
         $user = auth()->user();
         $usercom = $user->company;
         $usercomid = $usercom->id;

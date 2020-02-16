@@ -60,10 +60,10 @@
 
                 <div class="row">
 
-            <div style="margin-left:120px;margin-right:15px;padding-bottom:10px;">   <a href="/staffs/{{$staff->id}}/edit" class="btn btn-outline-info">Edit</a></div> 
+            <div style="margin-left:90px;margin-right:15px;padding-bottom:10px;">   <a href="/staffs/{{$staff->id}}/edit" class="btn btn-outline-info">แก้ไข</a></div> 
                 <div>    {!!Form::open(['action' => ['StaffController@destroy', $staff->id], 'method' => 'POST', 'class' => 'float-right', 'onsubmit' => 'return confirm("ต้องการที่จะลบข้อมูลพนักงานนี้ใช่หรือไม่?")'])!!}
                         {{Form::hidden('_method', 'DELETE')}}
-                        {{Form::submit('Delete', ['class' => 'btn btn-outline-danger'])}}
+                        {{Form::submit('ลบพนักงาน', ['class' => 'btn btn-outline-danger'])}}
                     {!!Form::close()!!}
                 </div>
             </div>

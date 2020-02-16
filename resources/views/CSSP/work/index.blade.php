@@ -1,15 +1,17 @@
 @extends('cssp.layouts.master')
-
+ <!-- title unixdev -->
+ <title> กระทู้ทั้งหมด </title>
+<!-- add icon link -->
+<link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">
 @section('content')
 <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Dashboard</div>
                     
                     <div class="panel-body">
-                        <a href="/posts/create" class="btn btn-primary">Create Post</a>
-                        <h3>All Posts</h3>
+                <br>
+                        <h3>กระทู้ทั้งหมด</h3>
                         @if(count($posts) > 0)
                             <table class="table table-striped">
                                 <tr>
@@ -29,7 +31,7 @@
                                 @endforeach
                             </table>
                         @else
-                            <p>You have no request</p>
+                            <p>ไม่มีกระทู้</p>
                         @endif
                     </div>
                 </div>

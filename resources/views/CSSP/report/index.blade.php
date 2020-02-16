@@ -43,10 +43,10 @@
         <div class="thumbnail">
           <h1 class="title"> กระทู้ </h1></div>
           <h1 class="card-title pricing-card-title">{{count($posts)}} <small class="text-muted">กระทู้</small></h1>
-                    <!--<ul class="list-unstyled mt-3 mb-4">
+                    <ul class="list-unstyled mt-3 mb-4">
                     <li>จำนวนกระทู้คำถาม :{{$post1}}</li>
                     <li>จำนวนกระทู้ข่าว :{{$post2}}</li>
-                    </ul>-->
+                    </ul>
         
       </div>
     </div>

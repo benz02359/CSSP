@@ -35,9 +35,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!-- Left Side Of Navbar -->
         <ul class="navbar-nav mr-auto " style="font-size:22px;margin-right:5px;">
-            <li class="nav-item active">
-                <a class="nav-link" href="/posts">ตอบปัญหา<span class="sr-only"></a>
-            </li>
+            <li class="nav-item active"> @if(Auth::user()->role_id === 4)
+                <a class="nav-link" href="/posts">กระทู้ทั้งหมด<span class="sr-only"></a>@endif 
+            </li> 
+       
+            <li class="nav-item active"> @if(Auth::user()->role_id === 1 or Auth::user()->role_id === 2)
+                <a class="nav-link" href="/posts">ตอบกระทู้<span class="sr-only"></a>@endif 
+            </li> 
             <li class="nav-item" style="color:#FFF;font-size:22px">
                     <a class="nav-link"
                     @guest

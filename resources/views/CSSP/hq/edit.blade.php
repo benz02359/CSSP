@@ -29,7 +29,7 @@
 </script>
 <diV style="margin:15px 0px 15px 0px"></diV>
 <div class="card"> 
-<div class="card-header" style="font-size: 22px;background-color: #343A40;color:aliceblue;border-radius: 12px 12px  0 0;"><b>แก้ไขข้อมูลโปรแกรม {{$program->name}} </b></div>
+<div class="card-header" style="font-size: 22px;background-color: #343A40;color:aliceblue;border-radius: 12px 12px  0 0;"><b>แก้ไขข้อมูลโปรแกรม {{$hq->name}} </b></div>
     <div class="edit-hq">
         {!! Form::open(['action' => ['HQController@update', $hq->id], 'method' => 'PUT']) !!}
         <div class="form-group">

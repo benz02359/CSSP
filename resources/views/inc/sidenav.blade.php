@@ -79,13 +79,13 @@
                 </li>
                 @endcan
 
-                @can('category')
+             <!--   @can('category')
                 <li class="nav-item">  
                         <a class="nav-link active sidea" href="{{url('/categories')}}" >
-                            หมวดหมู่ปัญหา<span class="sr-only"></span>
+                            หมวดหมู่ปัญหา<span class="sr-only"></span> 
                         </a>
                     </li>
-                @endcan
+                @endcan-->
 
                 @can('work')
                 <li class="nav-item">  
@@ -98,7 +98,7 @@
                 @can('managecompany')
                 <li class="nav-item">  
                     <a class="nav-link active sidea" href="{{url('/companies')}}" >
-                        บริษัทลูกค้า <span class="sr-only"></span>
+                        บริษัทลูกค้าและโปรแกรม <span class="sr-only"></span>
                     </a>
                 </li>
                 @endcan
@@ -143,13 +143,13 @@
                 </li>
                 @endcan 
 
-                <!--@can('alluserlist')
+                @can('alluserlist')
                 <li class="nav-item">  
                     <a class="nav-link active sidea" href="{{url('/alluserlist')}}" >
                         รายชื่อผู้ใช้ทั้งหมด <span class="sr-only"></span>
                     </a>
                 </li>
-                @endcan-->
+                @endcan
 
                 @if (Route::has('register'))
                 @can('regisuser')
@@ -173,7 +173,7 @@
                 @can('regisagent')
                 <li class="nav-item">  
                     <a class="nav-link active sidea" href="{{url('registeragent')}}" >
-                        สมัครสมาชิกตัวแทน<span class="sr-only"></span>
+                        เพิ่มตัวแทนของบริษัทลูกค้า<span class="sr-only"></span>
                     </a>
                 </li>
                 @endcan
