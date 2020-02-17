@@ -61,6 +61,34 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="language" class="col-md-4 col-form-label text-md-right">{{ __('ภาษาที่ใช้') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="language" type="text" class="form-control" name="language"  required> 
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="position" class="col-md-4 col-form-label text-md-right">{{ __('ตำแหน่ง') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="position" type="text" class="form-control" name="position"  required> 
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="department" class="col-md-4 col-form-label text-md-right">{{ __('แผนก') }}</label>
+
+                            <div class="col-md-6">
+                            <select id="dep_id" class="finput form-control{{ $errors->has('company_id') ? ' is-invalid' : '' }}" name="dep_id" required>
+                                <option>กรุณาเลือกแผนก</option>
+                                    @foreach($department as $dep)                                
+                                    <option value="{{$dep->id}}">{{$dep->name}}</option>
+                                    @endforeach
+                            </select>
+                            </div>
+                        </div>
                                                  
 
                             

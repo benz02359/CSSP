@@ -23,10 +23,10 @@ class SaleController extends Controller
      */
     public function index()
     {
-        $sales = Program::orderBy('solddate','desc')->paginate(20);
+        //$sales = Program::orderBy('solddate','desc')->paginate(20);
 
         //$sale = Sale::all();
-        //$sales = $sale->program->orderBy('solddate','desc')->paginate(20);
+        $sales = Sale::orderBy('created_at','desc')->paginate(20);
         //$program= program::all();
         //$solddate = $program->solddate;
         //Sale::joinRelations('program');

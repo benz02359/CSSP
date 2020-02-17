@@ -11,6 +11,7 @@ use App\Userprofile;
 use App\Company;
 use App\Staff;
 use App\Agent;
+use App\department;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -114,7 +115,10 @@ class RegisterController extends Controller
             $staff = Staff::create([
                 'user_id' => $user->id,
                 'name' => $user->name,
-                'email' => $user->email,            
+                'email' => $user->email,  
+                'language' => $data['language'],
+                'position' => $data['position'],
+                'dep_id' => $data['dep_id'],
             ]);
             $staff->save();
             $user->save();
@@ -164,7 +168,8 @@ class RegisterController extends Controller
     protected function registerstaff()
     {
         $companies = company::all();
-        return view('auth.registerstaff', compact('companies',$companies));
+        $department = department::all();
+        return view('auth.registerstaff', compact('companies',$companies,'department',$department));
     }
     
     protected function registeragent()
