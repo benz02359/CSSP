@@ -42,9 +42,18 @@
 
 		</div></div>
 		<div class="col-md-2">
-			{{ Form::open(['route' => ['departments.destroy', $dep->id], 'method' => 'DELETE', 'onsubmit' => 'return confirm("ต้องการที่จะลบใช่ไหม?")']) }}
+			<!--{{ Form::open(['route' => ['departments.destroy', $dep->id], 'method' => 'DELETE', 'onsubmit' => 'return confirm("ต้องการที่จะลบใช่ไหม?")']) }}
 				{{ Form::submit('Delete', ['class' => 'btn btn-danger btn-block', 'style' => 'margin-top:20px;']) }}
-			{{ Form::close() }}
+			{{ Form::close() }}-->
+			@if(count($dep->staff) > 0)
+						{{ Form::open(['route' => ['departments.destroy', $dep->id], 'method' => 'DELETE' , 'onsubmit' => 'return confirm("ต้องการที่จะลบใช่ไหม?")' ]) }}
+							{{ Form::submit('ลบแผนก', ['class' => 'btn btn-danger', 'disabled', 'style' => 'margin-top:20px;'])}}
+						{{ Form::close() }}
+						@elseif(count($dep->staff) < 1)
+						{{ Form::open(['route' => ['departments.destroy', $dep->id], 'method' => 'DELETE' , 'onsubmit' => 'return confirm("ต้องการที่จะลบใช่ไหม?")' ]) }}
+							{{ Form::submit('ลบแผนก', ['class' => 'btn btn-danger', 'style' => 'margin-top:20px;'])}}
+						{{ Form::close() }}
+						@endif
 		</div>
 	</div>
 

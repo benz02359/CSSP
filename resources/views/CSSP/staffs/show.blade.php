@@ -54,17 +54,28 @@
                 <div class="det"> <b>ภาษาที่ใช้:</b> {{$staff->language}} </div>
                 <div class="det"> <b>ตำแหน่ง:</b> {{$staff->position}} </div>
                 @foreach ($deps as $dep)
-                <div class="det"> <b>แผนก:</b> {{$dep->name}} </div>
+                <div class="det"> <b>แผนก:</b> {{$dep->name}}</div>
                 @endforeach
                 </div>
 
                 <div class="row">
 
             <div style="margin-left:90px;margin-right:15px;padding-bottom:10px;">   <a href="/staffs/{{$staff->id}}/edit" class="btn btn-outline-info">แก้ไข</a></div> 
-                <div>    {!!Form::open(['action' => ['StaffController@destroy', $staff->id], 'method' => 'POST', 'class' => 'float-right', 'onsubmit' => 'return confirm("ต้องการที่จะลบข้อมูลพนักงานนี้ใช่หรือไม่?")'])!!}
+                <div>    
+                  <!--{!!Form::open(['action' => ['StaffController@destroy', $staff->id], 'method' => 'POST', 'class' => 'float-right', 'onsubmit' => 'return confirm("ต้องการที่จะลบข้อมูลพนักงานนี้ใช่หรือไม่?")'])!!}
                         {{Form::hidden('_method', 'DELETE')}}
                         {{Form::submit('ลบพนักงาน', ['class' => 'btn btn-outline-danger'])}}
-                    {!!Form::close()!!}
+                      
+                    {!!Form::close()!!}-->
+                    @if(count($staff->posts) > 0)
+                    {{ Form::open(['action' => ['StaffController@destroy', $staff->id], 'method' => 'DELETE' , 'onsubmit' => 'return confirm("ต้องการที่จะลบข้อมูลพนักงานนี้ใช่หรือไม่?")' ]) }}
+                      {{ Form::submit('ลบพนักงาน', ['class' => 'btn btn-danger', 'disabled'])}}
+                    {{ Form::close() }}
+                    @elseif(count($staff->posts) < 1)
+                    {{ Form::open(['action' => ['StaffController@destroy', $staff->id], 'method' => 'DELETE' , 'onsubmit' => 'return confirm("ต้องการที่จะลบข้อมูลพนักงานนี้ใช่หรือไม่?")' ]) }}
+                      {{ Form::submit('ลบพนักงาน', ['class' => 'btn btn-danger'])}}
+                    {{ Form::close() }}
+                    @endif
                 </div>
             </div>
 

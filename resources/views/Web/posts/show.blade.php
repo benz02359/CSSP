@@ -169,5 +169,5 @@
             <input id="user_id" type="hidden" name="user_id" value="{{Auth::user()->name}}">
             <input id="post_id" type="hidden" name="post_id" value="{{$post->id}}">
     </div>
-    {!!Form::close!!}
+    {!!Form::close()!!}
 @endsection

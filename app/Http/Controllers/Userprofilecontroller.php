@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use App\Staff;
 use App\Userprofile;
 use Session;
 
@@ -31,10 +32,34 @@ class UserprofileController extends Controller
         $userprofile = Userprofile::where('user_id', '=',Auth::user()->id )->first();
         if ($userprofile === null) {
         // user doesn't exist
+        if(Auth::user()->role_id == 1){
         $userp = Userprofile::create([
             'user_id'           =>      $user->id,            
             ]);
             $userp->save();
+        }
+        elseif (Auth::user()->role_id == 2){
+            $staff = Staff::create([
+                'user_id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,            
+            ]);
+            $staff->save();
+        }
+        elseif (Auth::user()->role_id == 3){
+            $agent = Agent::create([
+                'user_id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,       
+                ]);
+            $agent->save();
+        }
+        elseif (Auth::user()->role_id == 4){
+            $userp = Userprofile::create([
+                'user_id'           =>      $user->id,            
+                ]);
+                $userp->save();
+        }
         }
         $user_id = Userprofile::where('user_id','=',Auth()->user()->id )->first();
         

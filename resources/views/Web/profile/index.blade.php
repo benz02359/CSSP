@@ -45,7 +45,7 @@
 </style><br>
 <div class="card" style="width: 350px">
         <div class="products">
-            <div class="thumbnail"><h3>รายละเอียดพนักงาน</h3></div>
+            <div class="thumbnail"><h3>ข้อมูลส่วนตัว</h3></div>
             <div class="col-12" style="margin: 2px 0px 8px 0px;font-size:18px">
             <div class="det"> <b>ชื่อ:</b> {{$user->name}} </div>
             <div class="det"> <b>ขื่อผู้ใช้:</b> {{$user->username}} </div>

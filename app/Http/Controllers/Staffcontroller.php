@@ -6,6 +6,7 @@ use App\Staff;
 use App\Department;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth;
+use App\Appointment;
 use AuthenticatesUsers;
 use DB;
 
@@ -147,6 +148,7 @@ class StaffController extends Controller
     public function destroy($id)
     {
         $staff = Staff::find($id);
+        $app = Appointment::where('staff_id','=',$staff)->first();
         $staff->delete();
         return redirect('/staffs')->with('success',"ลบข้อมูลของ $staff->name เรียบร้อยแล้ว  ");
     }

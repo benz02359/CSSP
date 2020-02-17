@@ -23,10 +23,11 @@ class Staff extends Model
     }
 
     public function posts(){        
-        return $this->belongsToMany('App\Post','id','staff_id');
+        return $this->hasMany('App\Post','staff_id');
     }
 
     public function user(){        
         return $this->belongsTo('App\User');
     }
+   
 }

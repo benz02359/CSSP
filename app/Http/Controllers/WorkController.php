@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\User;
+use Auth;
 use App\Staff;
 use DB;
 
@@ -20,13 +21,26 @@ class WorkController extends Controller
         //$posts = post::orderBy('created_at','desc')->paginate(20);
         $user_id = auth()->user()->id;
         $staff = Staff::where('user_id','=',$user_id)->first();
-        $posts = Post::where('staff_id','=',$staff)->get();
+        $posts = Post::where('staff_id','=',$staff->id)->get();
         //$staff = Staff::where('user_id','=',$user)->get();
         //$user = Staff::find($user_id);
         //return view('dashboard')->with('posts', $user->posts);
+
+        $postall = post::all();
+
+        $staffprofile = Staff::where('user_id', '=',Auth::user()->id )->first();
+        if ($staffprofile === null) {
+        // user doesn't exist
+        $st = staff::create([
+            'user_id'           =>      $user_id,    
+            'name'              =>      auth()->user()->name,
+            'email'              =>      auth()->user()->email,
+            ]);
+            $st->save();
+        }
         
         
-        return view('cssp.work.index',compact('staff',$staff,'posts',$posts))->with('staff',$staff,'posts',$posts);
+        return view('cssp.work.index',compact('staff',$staff,'posts',$posts,'postall',$postall))->with('staff',$staff,'posts',$posts);
     }
 
     /**
