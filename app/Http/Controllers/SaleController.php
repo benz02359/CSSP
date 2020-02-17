@@ -26,7 +26,9 @@ class SaleController extends Controller
         //$sales = Program::orderBy('solddate','desc')->paginate(20);
 
         //$sale = Sale::all();
-        $sales = Sale::orderBy('created_at','desc')->paginate(20);
+        $sales = Sale::with('program')->get()->sortByDesc('program.solddate');
+        //$sales = Sale::all()->p()->orderBy('solddate','desc')->paginate(20);
+        //$sales = Sale::with('lastprogram')->get()->sortByDesc('lastprogram.solddate');
         //$program= program::all();
         //$solddate = $program->solddate;
         //Sale::joinRelations('program');

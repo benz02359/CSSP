@@ -23,4 +23,5 @@ class Sale extends Model
     public function program(){        
         return $this->belongsTo('App\Program','pro_id');
     }
+    
 }
