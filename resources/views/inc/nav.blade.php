@@ -72,7 +72,15 @@
                         <button type="submit" class="button_cont example_c">ค้นหา</button>
                     </span>
                 </div>
-            </form>                      
+            </form>     
+            <form action="/searchcate" method="GET">
+                <div class="input-group">
+                    <input type="search" name="search" class="forn-control" placeholder="ค้นหาตามหมวดหมู่">
+                    <span class="input-group-prepend">
+                        <button type="submit" class="button_cont example_c">ค้นหาตามหมวดหมู่</button>
+                    </span>
+                </div>
+            </form>                  
             @guest
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

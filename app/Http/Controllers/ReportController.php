@@ -24,13 +24,27 @@ class ReportController extends Controller
         //$price = program::sum('price');
         $price = program::all()->sum('price');
         $maxp = Post::all()->max('pro_id');
+        $pro = Post::all();
+        $programUnique = $pro->unique('pro_id');
+        $mostp = $pro->diff($programUnique);
+
+        //dd($pro, $programUnique, $mostp);
+        //$mostp = Post::where('pro_id')->groupBY('pro_id')->count('pro_id');
+        /*$mostp = DB::table('posts')
+                ->select('pro_id', DB::raw('SUM(pro_id) as total_pro'))
+                ->groupBy('pro_id')
+                ->havingRaw('SUM(pro_id) > ?', [2500])
+                ->get();*/
         /*foreach ($program as $pro){
-        $mostp = Post::where('pro_id','=',$pro->id)->sum('pro_id');
+        $mostp = Post::where('pro_id','=',$pro->id)->count('pro_id');
         }*/
-        $mostp = Post::groupBy('pro_id')->havingRaw('COUNT(*) > 1')->get();
+        //$mostp = Post::groupBy('pro_id')->havingRaw('COUNT(*) > 1')->get();
         /*$mostp = DB::table('Posts')->join('programs','posts.pro_id','=','programs.id')
         ->groupBy('posts.pro_id')->sum('posts.pro_id');*/
-        //$mostp = program::find($most); 
+        /*$mostp = DB::table('Posts')
+        ->select(DB::raw('count(pro_id) as pro'))
+        ->groupBy('pro_id')
+        ->get();*/
         //$maxmostp = max($mostp);
         $sales = sale::all();
         $post1 = Post::where('posttype_id','=','1')->count();
@@ -71,6 +85,15 @@ class ReportController extends Controller
     {
         //
     }
+    public function showprogram()
+    {
+        $pro = Post::all();
+        $programUnique = $pro->unique('pro_id');
+        $mostp = $pro->diff($programUnique);
+        return view('cssp.report.program',
+        compact(('mostp'),$mostp));
+    }
+
 
     /**
      * Show the form for editing the specified resource.

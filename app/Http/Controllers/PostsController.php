@@ -117,11 +117,9 @@ class PostsController extends Controller
     public function search(Request $request)
     {
         $search = $request->get('search');
-        /*$posts = DB::table('posts')->with('categories')->where('posts.title','like','%'.$search.'%')
-            ->where('name', 'LIKE', '%' . $search . '%')->get();*/
-        $posts = Post::with('category')->get()->where('post.title','like','%'.$search.'%')
-        ->where('category.name', 'LIKE', '%' . $search . '%');
-        $post = Post::orderBy('created_at','desc');
+        $posts = DB::table('posts')->where('title','like','%'.$search.'%')->paginate(5);
+        
+        //$post = Post::orderBy('created_at','desc');
         //$cate = DB::table('categories')->where('name','like','%'.$search.'%')->get();
         /*$posts = Post::where(function ($q) use ($search) {
             $q->where('title', 'like', "%{$search}%")
@@ -135,7 +133,17 @@ class PostsController extends Controller
         //$postcate = Post::where
         return view('web.search',['posts' => $posts,'search'=> $search]);
     }
+    public function searchcate(Request $request)
+    {
+        $search = $request->get('search');
+        $cate = DB::table('categories')->where('name','like','%'.$search.'%')->first();
+        //$postcate= Post_category::where('category_id',$cate[0]->id)->get();
+        $posts = Post::orderBy('created_at','desc');
+        $postcate= Post::where('category_id',$cate);
 
+        
+        return view('web.searchcate',['posts' => $posts,'search'=> $search,'cate' => $cate,'postcate' => $postcate]);
+    }
     /**
      * Store a newly created resource in storage.
      *
