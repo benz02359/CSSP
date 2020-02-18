@@ -79,13 +79,13 @@
                 </li>
                 @endcan
 
-             <!--   @can('category')
+               @can('category')
                 <li class="nav-item">  
                         <a class="nav-link active sidea" href="{{url('/categories')}}" >
                             หมวดหมู่ปัญหา<span class="sr-only"></span> 
                         </a>
                     </li>
-                @endcan-->
+                @endcan 
 
                 @can('work')
                 <li class="nav-item">  

@@ -33,8 +33,9 @@
 				</thead>
 
 				<tbody>
-					
+				@if(count($users) >0)
 					@foreach ($users as $userl)
+					
 					<tr>
 						<td>{{ $userl->name }}</td>
 						<td>{{$userl->username}}</td>
@@ -66,8 +67,11 @@
 					</td>
 					
 					</tr>
-					@endforeach
 					
+					@endforeach
+					@else
+					ไม่มีผู้ใช้งาน
+					@endif
 				</tbody>
 			</table>
 		</div>

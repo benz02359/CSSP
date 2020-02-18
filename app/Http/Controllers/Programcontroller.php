@@ -152,13 +152,14 @@ class ProgramController extends Controller
         $program = Program::find($id);
         $program->name = $request->input('name');
         $program->detail = $request->input('detail');
+        $program->pro_id = $request->input('pro_id');
         $program->price = $request->input('price');
         $program->solddate = $request->input('sold');
         $program->startdate = $request->input('start');
         $program->enddate = $request->input('end');
         //$post->cover_image = $fileNameToStore;
         $program->save();
-        return redirect('/programs')->with('success', 'แก้ไขรายละเอียดโปรแกรมเรียบร้อยแล้ว');
+        return redirect('/companies')->with('success', 'แก้ไขรายละเอียดโปรแกรมเรียบร้อยแล้ว');
     }
 
     /**

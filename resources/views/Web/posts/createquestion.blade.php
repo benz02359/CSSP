@@ -32,9 +32,10 @@
         <div class="row"  style="margin-left:10px;">
         {{ Form::label('pro_id', 'โปรแกรม:') }}
         <div >
-				<select class="form-control" name="pro_id">
-					@foreach($program as $p)
-						<option value="{{$p->id}}">{{ $p->name }}</option>
+				<select class="form-control" name="pro_id" required>
+                    @foreach($program as $p)
+                    <option selected>กรุณาเลือกโปรแกรม</option>
+						<option name="pro_id" id="pro_id" value="{{$p->id}}">{{ $p->name }}</option>
                     @endforeach
                 </select>
             </div>    

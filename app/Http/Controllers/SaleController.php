@@ -14,19 +14,25 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+
 class SaleController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     * 
      */
     public function index()
     {
+        
         //$sales = Program::orderBy('solddate','desc')->paginate(20);
 
         //$sale = Sale::all();
         $sales = Sale::with('program')->get()->sortByDesc('program.solddate');
+        //$sales = $salesdata ->paginate(2);
+        //$items = $sales->forPage(5, 5);
+        //$sales = $salesdata->paginate(20);
         //$sales = Sale::all()->p()->orderBy('solddate','desc')->paginate(20);
         //$sales = Sale::with('lastprogram')->get()->sortByDesc('lastprogram.solddate');
         //$program= program::all();

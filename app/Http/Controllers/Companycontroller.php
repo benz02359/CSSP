@@ -29,7 +29,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies = company::orderBy('id')->paginate(20);
+        $companies = company::orderBy('id','asc')->paginate(10);
         return view('cssp.companies.index',compact('companies',$companies))->with('companies',$companies); 
     }
 

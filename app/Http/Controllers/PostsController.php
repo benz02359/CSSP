@@ -117,9 +117,23 @@ class PostsController extends Controller
     public function search(Request $request)
     {
         $search = $request->get('search');
-        $posts = DB::table('posts')->where('title','like','%'.$search.'%')
-                ->orWhere('text','like','%'.$search.'%')->paginate(5);
-        return view('web.posts.index',['posts' => $posts]);
+        /*$posts = DB::table('posts')->with('categories')->where('posts.title','like','%'.$search.'%')
+            ->where('name', 'LIKE', '%' . $search . '%')->get();*/
+        $posts = Post::with('category')->get()->where('post.title','like','%'.$search.'%')
+        ->where('category.name', 'LIKE', '%' . $search . '%');
+        $post = Post::orderBy('created_at','desc');
+        //$cate = DB::table('categories')->where('name','like','%'.$search.'%')->get();
+        /*$posts = Post::where(function ($q) use ($search) {
+            $q->where('title', 'like', "%{$search}%")
+              ->orWhereHas('category', function ($q) {
+                $q->where(function ($q) {
+                  $q->where('name', 'like', "%{$search}%");
+              });
+            });
+          })->get();*/
+        //$postcate = Post_category::where('category_id',$cate['id'])->get();
+        //$postcate = Post::where
+        return view('web.search',['posts' => $posts,'search'=> $search]);
     }
 
     /**
@@ -192,8 +206,10 @@ class PostsController extends Controller
         foreach ($categories as $category) {
             $cats[$category->id] = $category->name;
         }*/
+        //$program = Program::pluck('name','id');
+        $users = auth()->user();
         $cate = Category::pluck('name','id');
-
+        $program = $users->company->program;
         //$tags = tag::pluck('name','id');
         $id = auth()->user()->role_id;
         //$admin = ;
@@ -203,7 +219,7 @@ class PostsController extends Controller
         }
         
 
-        return view('web.posts.edit',compact('cate',$cate))->with('post',$post,'cates',$cate);
+        return view('web.posts.edit',compact('cate',$cate,'program',$program))->with('post',$post,'cates',$cate,'program',$program);
     }
 
     /**
@@ -218,13 +234,14 @@ class PostsController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
-            'category_id' => 'required'
+            
         ]);
         
         // Create Post
         $post = Post::find($id);
         $post->title = $request->input('title');
         $post->text = $request->input('body');
+        $post->pro_id = $request->input('pro_id');
         $post->category_id = $request->input('category_id');
         $post->save();
         /*if (isset($request->tags)) {

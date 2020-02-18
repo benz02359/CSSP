@@ -19,9 +19,21 @@
                 {{Form::textarea('body', $post->text, ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Body Text'])}}
             </div>
         
-            {{ Form::label('category_id', "จัดหมวดหมู่", ['class' => 'form-spacing-top']) }}
-            {!! Form::select('category_id', $cate, $post->category_id, ['class' => 'form-control']) !!}
+            <div class="row"  style="margin-left:10px;">
+                {{ Form::label('pro_id', 'โปรแกรม:') }}
+                <div >
+                        <select class="form-control" name="pro_id" id="pro_id">
+                            @foreach($program as $p)
+                                <option name="pro_id" id="pro_id" value="{{$post->program['id']}}" selected>@if(isset($post->program['id'])){{ $p->name }}@else @endif</option>
+                                <option name="pro_id" id="pro_id" value="{{$p->id}}">{{ $p->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>    
+                </div>
 
+            <!--{{ Form::label('category_id', "จัดหมวดหมู่", ['class' => 'form-spacing-top']) }}
+            {!! Form::select('category_id', $cate, $post->category_id, ['class' => 'form-control']) !!}
+            -->
            
             <br>  <br>
             {{Form::hidden('_method','PUT')}}

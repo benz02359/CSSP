@@ -5,7 +5,8 @@
 <link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">
 @section('content')
 <div class="row" style="margin:12px 0px 6px 28px">
-    <div class="col-9"><h1>รายการขาย</h1></div>
+    <div class="col-6"><h1>รายการขาย</h1></div>
+    <div class="col-4" style="padding-left:150px;padding-bottom:20px;"><a href="/programs/create" style="font-size:16px" class="btn btn-outline-secondary">เพิ่มรายการโปรแกรมที่ขาย</a></div>
     <div class="col-2"><a href="/sales/create" class="btn btn-outline-secondary">เพิ่มรายการขาย</a> <br></div>
 </div>
 <!--@if (count($sales) > 0)
@@ -45,5 +46,6 @@
                     
                 </tbody>
             </table>
+            
         </div>
 @endsection
