@@ -1,11 +1,16 @@
 @extends('layouts.app')
-
+ <!-- title unixdev -->
+ <title> กระทํู้ทั้งหมด</title>
+<!-- add icon link -->
+<link rel = "icon" href ="<?php echo asset('assets/img/logo2.png'); ?>"  type = "image/x-icon">
 @section('content')
 <style>
 .items{ 
     padding: 8px 30px 5px 20px;
     margin: 3px 0px 6px 15px;
     background-color: #f7f7f7;
+    border-radius: 15px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 .items,a:link{
     color: #000;
@@ -15,7 +20,7 @@
 }
 </style>
 
-    <h1>คำถามที่พบบ่อย</h1>
+    <h1>กระทู้ทั้งหมด</h1>
     @if (count($posts) > 0)
        @foreach($posts as $post)
         @if(Auth::user()->role_id == '1' or Auth::user()->role_id == '2')

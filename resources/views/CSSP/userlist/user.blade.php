@@ -35,6 +35,7 @@
 				<tbody>
 					
 					@foreach ($users as $userl)
+					
 					<tr>
 						<td>{{ $userl->name }}</td>
 						<td>{{$userl->username}}</td>
@@ -66,6 +67,7 @@
 					</td>
 					
 					</tr>
+					
 					@endforeach
 					
 				</tbody>
