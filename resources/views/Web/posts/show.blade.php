@@ -162,7 +162,7 @@
             @else
             {{Form::textarea('text', '', ['class' => 'form-control', 'placeholder' => 'ใส่ข้อความที่ต้องการ'])}}
             @endif
-        {!!Form::close()!!}
+       
         </div></div>
     <div class="col-12" style="margin-left:550px">
         {{Form::submit('โพสต์',['class' => 'btn btn-primary'])}}

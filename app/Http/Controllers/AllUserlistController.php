@@ -14,7 +14,8 @@ class AllUserlistController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        //$users = User::all();
+        $users = User::where('role_id','>','2')->get()->sortBy('company_id');
         return view('cssp.userlist.user',compact('users',$users))->with('users',$users);
     }
 

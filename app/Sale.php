@@ -21,7 +21,9 @@ class Sale extends Model
     }
 
     public function program(){        
-        return $this->belongsTo('App\Program','pro_id');
+        return $this->belongsTo('App\Program','pro_id')->withDefault([
+            'name' => 'ไม่มีโปรแกรม',
+        ]);
     }
     
 }

@@ -122,6 +122,7 @@ Route::middleware(['approved'])->group(function () {
     Route::get('/posts/create/createtalk','PostsController@createtalk')->name('createtalk');
     Route::get('/posts/create/createnews','PostsController@createnews')->name('createnews');
     Route::get('/search','PostsController@search');
+    Route::get('/searchcate','PostsController@searchcate');
     Route::resource('userprofile','UserprofileController' );
     Route::get('/changePassword','HomeController@showChangePasswordForm');
     Route::post('/changePassword','HomeController@changePassword')->name('changePassword');
@@ -188,7 +189,7 @@ Route::middleware(['admin'])->group(function () {
 
     //Report
     Route::resource('report','ReportController');
-
+    Route::get('reportprogram','ReportController@showprogram');
 });
 });
 

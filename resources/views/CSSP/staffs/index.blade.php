@@ -56,7 +56,7 @@
 						<td><a style="font-size:16px;">{{ $staff->name }}</a></td>
 						<td><a style="font-size:16px;">{{ $staff->position }}</a></td>
 						<td><a style="font-size:16px">{{ optional($staff->dep)['name'] }}</a></td>
-						<td><a class="btn btn-outline-info" href="{{ route('staffs.show', $staff->id ) }}">เพิ่มเติม</a></td>
+						<td><a class="btn btn-outline-info" href="{{ route('staffs.show', $staff->id ) }}">รายละเอียด</a></td>
 					</tr>
 					@endforeach
 					

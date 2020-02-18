@@ -53,8 +53,9 @@ td a,a.link:hover{
                             <table class="table table-light table-bordered table-hover table-striped" style="font-size:15px">
                                 <tr class="thead-dark" style="text-align: center;">
                                     <th style="width:220px;">หัวข้อกระทู้</th>
+                                    <th style="width:220px;">โปรแกรม</th>
                                     <th style="width:125px;">เวลาที่ตั้งกระทู้</th>
-                                    <th style="width:110px;">แก้ไขกระทู้</th>
+                                    <!--<th style="width:110px;">แก้ไขกระทู้</th>-->
                                     <th style="width:170px;">พนักงานที่ได้รับมอบหมาย</th>
                                     <th style="width:10px;">เลือกพนักงาน</th>
                                     <th style="width:20px;">ยืนยัน</th>
@@ -62,8 +63,9 @@ td a,a.link:hover{
                                 @foreach($posts as $post)
                                     <tr>
                                         <td><a style="font-size:17px" href="/posts/{{$post->id}}" target="_blank">{{$post->title}}</a></td>
+                                        <td><a style="font-size:17px" href="/posts/{{$post->program}}" target="_blank">{{$post->program['name']}}</a></td>
                                         <td style="text-align: center;"><small>{{$post->created_at}}</small></td>
-                                        <td style="text-align: center;"><a href="/posts/{{$post->id}}/edit" class="btn btn-outline-warning"> แก้ไขกระทู้ </a></td>
+                                        <!--<td style="text-align: center;"><a href="/posts/{{$post->id}}/edit" class="btn btn-outline-warning"> แก้ไขกระทู้ </a></td>-->
                                         <td style="text-align: center;">
                                         @if($post->staff == null)
                                             ยังไม่มีพนักงานที่มอบหมาย

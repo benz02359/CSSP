@@ -71,6 +71,26 @@
 
     </div>
 <!-- -----------------end------------------------ -->
+  
+<div class="card" style="width: 400px">
+  
+  <div class="products">
+    <div class="thumbnail">
+        <h1 class='title'> โปรแกรมที่มีคำถามมากที่สุด </h1>  </div>
+        <h1 class="card-title pricing-card-title">{{$mostp[0]->program->name}} มีทั้งหมด {{count($mostp)}} คำถาม <a href=""> <small class="text-muted"></small></h1>
+      <a href="/reportprogram" class="btn btn-outline-warning"> รายละเอียด </a>
+    </div>
+  </div>
+  <input type="hidden" name="pro_data[]" value="{{$mostp}}">
+  
+</form>
+</div>
+<!-- -----------------end------------------------ -->
+
+
+
+
+
 
 <!--
 <div class="row">

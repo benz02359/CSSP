@@ -33,7 +33,7 @@
 				</thead>
 
 				<tbody>
-					
+				@if(count($users) >0)
 					@foreach ($users as $userl)
 					
 					<tr>
@@ -70,6 +70,10 @@
 					
 					@endforeach
 					
+					@endforeach
+					@else
+					ไม่มีผู้ใช้งาน
+					@endif
 				</tbody>
 			</table>
 		</div>

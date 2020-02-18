@@ -20,6 +20,7 @@ class UserlistController extends Controller
         $usercomid = $usercom->id;
         $usercompany = $usercom['name'];
         $users = User::all(); 
+        //$users = User::where('staff_id','=','3')->get();
         $userincom = User::where('company_id','=',$usercomid)->first();
         //$userapp = $users->company == auth()->user()->company;
         return view('cssp.userlist.show', compact('users',$users,'usercom',$usercom,'user',$user,'userincom',$userincom))->with('users',$users,'usercom',$usercom);
