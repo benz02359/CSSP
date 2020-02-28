@@ -8,6 +8,7 @@ use App\Sale;
 use App\posttype;
 use App\program;
 use DB;
+use Carbon\Carbon;
 
 class ReportController extends Controller
 {
@@ -27,6 +28,7 @@ class ReportController extends Controller
         $pro = Post::all();
         $programUnique = $pro->unique('pro_id');
         $mostp = $pro->diff($programUnique);
+        $postthisyear = post::whereYear('created_at',Carbon::now()->year)->where('posttype_id','=','1')->count();
 
         //dd($pro, $programUnique, $mostp);
         //$mostp = Post::where('pro_id')->groupBY('pro_id')->count('pro_id');
@@ -50,7 +52,8 @@ class ReportController extends Controller
         $post1 = Post::where('posttype_id','=','1')->count();
         $post2 = Post::where('posttype_id','=','2')->count();
         return view('cssp.report.index',
-        compact(('posts'),$posts,'sales',$sales,('post1'),$post1,('post2'),$post2,('price'),$price,('mostp'),$mostp
+        compact(('posts'),$posts,'sales',$sales,('post1'),$post1,('post2'),$post2,('price'),$price,
+        ('mostp'),$mostp,'postthisyear',$postthisyear
         ));
     }
 

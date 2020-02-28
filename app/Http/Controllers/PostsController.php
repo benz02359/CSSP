@@ -117,7 +117,14 @@ class PostsController extends Controller
     public function search(Request $request)
     {
         $search = $request->get('search');
-        $posts = DB::table('posts')->where('title','like','%'.$search.'%')->paginate(5);
+        $post = Post::all();
+        $cate = Category::where('id','$post->category_id')->get();
+        //$posts = DB::table('posts')->where('title','like','%'.$search.'%');
+        $posts = Post::where('title','LIKE','%'.$search.'%')->orWhereHas('category', function($query) use ($search)
+        {$query->where('name', 'LIKE', '%'.$search.'%');})->paginate(15);
+
+        /*$posts = category::where('$category->name','LIKE','%'.$search.'%')->orWhereHas('posts', function($query) use ($search)
+        {$query->where('title', 'LIKE', '%'.$search.'%');})->paginate(15);*/
         
         //$post = Post::orderBy('created_at','desc');
         //$cate = DB::table('categories')->where('name','like','%'.$search.'%')->get();

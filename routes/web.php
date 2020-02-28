@@ -190,6 +190,12 @@ Route::middleware(['admin'])->group(function () {
     //Report
     Route::resource('report','ReportController');
     Route::get('reportprogram','ReportController@showprogram');
+
+    Route::get('report1','PDFController@report1');
+    Route::get('report2','PDFController@report2');
+    Route::get('report1/pdf','PDFController@pdf1');
+    Route::get('report11','PDFController@report11');
+    Route::get('report22','PDFController@report22');
 });
 });
 

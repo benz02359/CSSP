@@ -10,7 +10,7 @@ class Post extends Model
     use Notifiable;
 
     protected $fillable=[
-        'user_id','title','text','catagory_id','status','view','staff_id','pro_id'
+        'user_id','title','text','category_id','status','view','staff_id','pro_id'
     ];
     // Table Name
     protected $table = 'posts';
@@ -32,7 +32,7 @@ class Post extends Model
     }
 
     public function category(){        
-        return $this->belongsToMany('App\Category');
+        return $this->belongsToMany('App\Category','Post_category');
     }
 
     public function tags(){        

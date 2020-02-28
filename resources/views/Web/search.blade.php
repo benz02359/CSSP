@@ -15,10 +15,11 @@
 }
 </style>
 
-    <h1>ผลการค้นหาคำว่า "{{$search}}"</h1>
+    <h1>ผลการค้นหาคำว่า "{{$search}}"</h1>{{$posts}}
     
+    @if(count($posts)>0)
        @foreach($posts as $post)
-        @if(Auth::user()->role_id == '1' or Auth::user()->role_id == '2')
+            @if(Auth::user()->role_id == '1' or Auth::user()->role_id == '2')
         <div class="card items">
                 <blockquote class="blockquote mb-0">                
                         <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
@@ -28,7 +29,7 @@
                         </div>    
                 </blockquote>
         </div>
-        @elseif (Auth::user()->company_id === $post->user->company_id)
+            @elseif (Auth::user()->company_id === $post->user->company_id)
         <div class="card items ">
                 <blockquote class="blockquote mb-0">                
                         <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
@@ -43,12 +44,14 @@
             <small>{!!substr(strip_tags($post->text), 0, 50) !!}{!! strlen(strip_tags($post->text)) > 50 ? "..." : ""!!}</small>
             <small>{{date('j M Y', strtotime($post->created_at))}}</small>
         </div> -->
+            @endif
+            @endforeach
         @else
         <p>ไม่มีกระทู้</p>
         
    
         @endif           
-        @endforeach
+        
     
     
     

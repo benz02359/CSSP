@@ -34,6 +34,7 @@
 
 				<tbody>
 				@if(count($users) >0)
+
 					@foreach ($users as $userl)
 					
 					<tr>
@@ -68,7 +69,6 @@
 					
 					</tr>
 					
-					@endforeach
 					
 					@endforeach
 					@else

@@ -60,6 +60,7 @@
           </div>
         </div>
 <!-- -----------------end------------------------ -->
+
       <div class="card" style="width: 400px">
         <div class="products">
           <div class="thumbnail">
@@ -71,22 +72,31 @@
 
     </div>
 <!-- -----------------end------------------------ -->
-  
+<div class="row">
 <div class="card" style="width: 400px">
   
   <div class="products">
     <div class="thumbnail">
         <h1 class='title'> โปรแกรมที่มีคำถามมากที่สุด </h1>  </div>
-        <h1 class="card-title pricing-card-title">{{$mostp[0]->program->name}} มีทั้งหมด {{count($mostp)}} คำถาม <a href=""> <small class="text-muted"></small></h1>
-      <a href="/reportprogram" class="btn btn-outline-warning"> รายละเอียด </a>
+        <h1 class="card-title pricing-card-title">โปรแกรม <a href="/programs/{{$mostp[0]->program->id}}"> {{$mostp[0]->program->name}}</a> บริษัท <a href="/companies/{{$mostp[0]->program->company->id}}">{{$mostp[0]->program->company->name}} </a>  </br> มีทั้งหมด {{count($mostp)}} คำถาม <a href=""> <small class="text-muted"></small></h1>
+      <a href="/report11" class="btn btn-outline-warning"> รายละเอียด </a>
+    </div>
+    <input type="hidden" name="pro_data[]" value="{{$mostp}}">
+  </div>
+<!-- -----------------end------------------------ -->
+<div class="card" style="width: 400px">
+  <div class="products">
+    <div class="thumbnail">
+        <h1 class='title'> คำถามทั้งหมดในปีนี้ ({{now()->format('Y')}})</h1>  </div>
+        <h1 class="card-title pricing-card-title">{{($postthisyear)}} คำถาม</small></h1>
+        <a href="/report22" class="btn btn-outline-warning"> รายละเอียด </a>
+    
     </div>
   </div>
-  <input type="hidden" name="pro_data[]" value="{{$mostp}}">
-  
-</form>
+
+</div>
 </div>
 <!-- -----------------end------------------------ -->
-
 
 
 
